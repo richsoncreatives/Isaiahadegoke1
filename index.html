@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Isaiah Adegoke — Official Website | Quality Engineer, Sustainability Scholar, Pastor & Author</title>
+    <meta name="description" content="Official website of Isaiah Adegoke: Quality and process improvement engineer, Lean Six Sigma professional, sustainability scholar, pastor and author of The Assignment & The Tools." />
+    <meta property="og:title" content="Isaiah Adegoke — Official Website" />
+    <meta property="og:description" content="Pursuing Excellence. Living Purposefully. Driving Impact. Industrial rigor and faith-led purpose at the same table." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS CDN for instant Cloudflare Pages / GitHub deployment -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: '#0B192C',
+              burgundy: '#5E0D1B',
+              'burgundy-dark': '#430913',
+              gold: '#C5A059',
+              'gold-light': '#DFCA98',
+              parchment: '#F9F7F2',
+              offwhite: '#F9FAFB'
+            },
+            fontFamily: {
+              heading: ['Fraunces', 'Georgia', 'serif'],
+              sans: ['Inter', 'system-ui', 'sans-serif']
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Custom Unified Stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body class="bg-parchment text-navy min-h-screen flex flex-col font-sans">
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2">Skip to content</a>
+
+    <!-- Left Scroll Indicator -->
+    <div aria-hidden="true" class="hidden xl:block fixed left-5 top-0 w-px bg-gold z-30" id="scroll-indicator" style="height: 0%;"></div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 inset-x-0 z-40 transition-all duration-300 bg-parchment/95 backdrop-blur-md">
+      <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+        <a aria-label="Isaiah Adegoke home" class="flex items-center gap-3.5 group" href="index.html">
+          <img src="/images/monogram.png" alt="Isaiah Adegoke Monogram" class="h-10 w-auto object-contain transition-transform group-hover:scale-105" />
+          <span class="font-heading font-semibold text-navy text-xl hidden sm:block tracking-tight">Isaiah Adegoke</span>
+        </a>
+
+        <nav aria-label="Primary" class="hidden lg:flex items-center gap-7">
+          <a class="text-sm tracking-wide transition-colors text-burgundy font-semibold" href="index.html">Home</a>
+          <a class="text-sm tracking-wide transition-colors hover:text-burgundy text-navy" href="about.html">About</a>
+          <a class="text-sm tracking-wide transition-colors hover:text-burgundy text-navy" href="experience.html">Experience</a>
+          <a class="text-sm tracking-wide transition-colors hover:text-burgundy text-navy" href="speaking.html">Speaking &amp; Podcast</a>
+          <a class="text-sm tracking-wide transition-colors hover:text-burgundy text-navy" href="library.html">Library</a>
+          <a class="text-sm tracking-wide transition-colors hover:text-burgundy text-navy" href="insights.html">Insights</a>
+          <a class="text-sm tracking-wide transition-colors hover:text-burgundy text-navy" href="contact.html">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-2">
+          <button aria-label="Search" class="p-2.5 text-navy hover:text-burgundy transition-colors rounded-full hover:bg-black/5" title="Search (Cmd+K)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          </button>
+          <a class="hidden md:inline-block ml-2 bg-burgundy text-white text-sm px-6 py-2.5 hover:bg-navy transition-colors font-medium shadow-sm" href="contact.html">Book Isaiah</a>
+          <button data-menu-toggle class="lg:hidden p-2.5 text-navy hover:text-burgundy transition-colors rounded-md hover:bg-black/5" aria-label="Open menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+          </button>
+        </div>
+      </div>
+      <div class="hairline"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main" class="flex-1 pt-20">
+      <!-- Hero Section -->
+      <section class="bg-parchment pt-10 pb-16 lg:pt-16 lg:pb-24 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div class="reveal is-visible">
+            <p class="text-burgundy text-sm uppercase tracking-[0.25em] mb-4 font-semibold">Isaiah Adegoke</p>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-semibold text-navy leading-[1.1] font-heading">
+              Pursuing Excellence. Living Purposefully. Driving Impact.
+            </h1>
+            <p class="mt-6 text-lg md:text-xl text-navy/75 max-w-xl leading-relaxed">
+              Quality and process improvement engineer, Lean Six Sigma professional, sustainability scholar, pastor and author, bringing industrial rigor and faith-led purpose to the same table.
+            </p>
+            <div class="flex flex-wrap gap-4 mt-8">
+              <a class="bg-navy text-white px-7 py-3.5 hover:bg-burgundy transition-all shadow-md font-medium" href="library.html">Explore Library &amp; Publications</a>
+              <a class="border border-navy text-navy px-7 py-3.5 hover:bg-navy hover:text-white transition-all font-medium" href="contact.html">Book Consultation / Speaking</a>
+            </div>
+
+            <!-- Hero Interactive Discipline Accordion -->
+            <ul class="mt-12 border-t border-gold/60">
+              <li tabindex="0" class="hero-accordion-item border-b border-gold/40 py-3.5 cursor-pointer group">
+                <div class="flex items-center justify-between">
+                  <span class="hero-accordion-title font-heading text-2xl transition-colors text-burgundy font-medium">Quality Systems</span>
+                  <span class="text-gold text-lg transition-transform group-hover:translate-x-1">→</span>
+                </div>
+                <p class="hero-accordion-content text-sm text-navy/75 overflow-hidden transition-all duration-300 max-h-24 opacity-100 mt-1 leading-relaxed">
+                  Lean Six Sigma, ISO 9001 and sanitation-grade discipline on 24/7 continuous production floors.
+                </p>
+              </li>
+              <li tabindex="0" class="hero-accordion-item border-b border-gold/40 py-3.5 cursor-pointer group">
+                <div class="flex items-center justify-between">
+                  <span class="hero-accordion-title font-heading text-2xl transition-colors text-navy/50 font-medium">Sustainability</span>
+                  <span class="text-gold text-lg transition-transform group-hover:translate-x-1">→</span>
+                </div>
+                <p class="hero-accordion-content text-sm text-navy/75 overflow-hidden transition-all duration-300 max-h-0 opacity-0 leading-relaxed">
+                  Two separate master's degrees — one in Technology, one in Sustainability — and research on AI-enabled corporate sustainability.
+                </p>
+              </li>
+              <li tabindex="0" class="hero-accordion-item border-b border-gold/40 py-3.5 cursor-pointer group">
+                <div class="flex items-center justify-between">
+                  <span class="hero-accordion-title font-heading text-2xl transition-colors text-navy/50 font-medium">Faith &amp; Leadership</span>
+                  <span class="text-gold text-lg transition-transform group-hover:translate-x-1">→</span>
+                </div>
+                <p class="hero-accordion-content text-sm text-navy/75 overflow-hidden transition-all duration-300 max-h-0 opacity-0 leading-relaxed">
+                  A pastor's heart for purpose, character and the integration of faith with working life.
+                </p>
+              </li>
+              <li tabindex="0" class="hero-accordion-item border-b border-gold/40 py-3.5 cursor-pointer group">
+                <div class="flex items-center justify-between">
+                  <span class="hero-accordion-title font-heading text-2xl transition-colors text-navy/50 font-medium">Authorship</span>
+                  <span class="text-gold text-lg transition-transform group-hover:translate-x-1">→</span>
+                </div>
+                <p class="hero-accordion-content text-sm text-navy/75 overflow-hidden transition-all duration-300 max-h-0 opacity-0 leading-relaxed">
+                  Books, articles and a podcast that make deep ideas practical for everyday decisions.
+                </p>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Hero Image -->
+          <div class="relative max-w-md mx-auto lg:ml-auto w-full reveal">
+            <div class="absolute -inset-4 border border-gold/60 translate-x-4 translate-y-4 pointer-events-none" aria-hidden="true"></div>
+            <div class="relative w-full aspect-[2/3] overflow-hidden bg-navy/10 shadow-2xl">
+              <picture>
+                <source srcset="/images/hero-portrait.webp" type="image/webp" />
+                <source srcset="/images/hero-portrait.avif" type="image/avif" />
+                <img src="/images/hero-portrait.png" alt="Isaiah Adegoke in a teal three-piece suit" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" loading="eager" />
+              </picture>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- The Tri-Fold Mandate Interactive Section -->
+      <section class="bg-navy text-white py-24">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="max-w-2xl mb-12 reveal">
+            <p class="text-gold text-sm uppercase tracking-[0.25em] mb-3 font-medium">The Tri-Fold Mandate</p>
+            <h2 class="text-3xl md:text-4xl font-semibold text-white font-heading">One life, three arenas of impact</h2>
+            <p class="mt-4 text-lg text-white/75 leading-relaxed">
+              Operations, ministry and authorship are not separate careers. Each sharpens the others.
+            </p>
+          </div>
+
+          <div class="reveal">
+            <!-- Tabs Navigation -->
+            <div role="tablist" class="grid md:grid-cols-3 gap-px bg-gold/40">
+              <button role="tab" aria-selected="true" data-trifold-tab="corporate" class="text-left p-6 transition-all duration-300 bg-burgundy">
+                <p class="font-heading text-2xl">Corporate Operations</p>
+                <p class="text-gold text-sm mt-1">Quality · Process · Sustainability</p>
+              </button>
+              <button role="tab" aria-selected="false" data-trifold-tab="leadership" class="text-left p-6 transition-all duration-300 bg-navy hover:bg-white/5">
+                <p class="font-heading text-2xl">Leadership &amp; Ministry</p>
+                <p class="text-gold text-sm mt-1">Faith · Character · Service</p>
+              </button>
+              <button role="tab" aria-selected="false" data-trifold-tab="authorship" class="text-left p-6 transition-all duration-300 bg-navy hover:bg-white/5">
+                <p class="font-heading text-2xl">Authorship &amp; Media</p>
+                <p class="text-gold text-sm mt-1">Books · Podcast · Speaking</p>
+              </button>
+            </div>
+
+            <!-- Tab Panel Content -->
+            <div id="trifold-panel-content" role="tabpanel" class="grid md:grid-cols-2 gap-10 border border-gold/40 border-t-0 p-8 md:p-12 bg-navy/60">
+              <p class="font-heading text-2xl md:text-3xl leading-snug">
+                Quality assurance and continuous improvement leadership across beverage and food manufacturing on two continents.
+              </p>
+              <ul class="space-y-4">
+                <li class="flex gap-3 text-white/80">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-gold shrink-0 mt-1"><path d="M20 6 9 17l-5-5"></path></svg>
+                  <span>Sole night-shift QA technician at Coca-Cola Southwest Beverages: 100+ samples per shift at 100% compliance and 15+ critical checkpoints audited nightly.</span>
+                </li>
+                <li class="flex gap-3 text-white/80">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-gold shrink-0 mt-1"><path d="M20 6 9 17l-5-5"></path></svg>
+                  <span>As QA Manager at Healthy Haven Ghana, led Lean Six Sigma projects and partnerships that lifted profitability by 20%.</span>
+                </li>
+                <li class="flex gap-3 text-white/80">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-gold shrink-0 mt-1"><path d="M20 6 9 17l-5-5"></path></svg>
+                  <span>Zero microbial contamination record sustained through strict sanitation protocols.</span>
+                </li>
+                <li class="flex gap-3 text-white/80">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-gold shrink-0 mt-1"><path d="M20 6 9 17l-5-5"></path></svg>
+                  <span>Peer-reviewed and conference research on AI-enhanced corporate sustainability.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Assets / Latest Books Section -->
+      <section class="max-w-6xl mx-auto px-6 py-24 space-y-24">
+        <div>
+          <div class="max-w-2xl mb-12 reveal">
+            <p class="text-gold text-sm uppercase tracking-[0.25em] mb-3 font-medium">Featured Assets</p>
+            <h2 class="text-3xl md:text-4xl font-semibold text-navy font-heading">Latest books</h2>
+            <p class="mt-4 text-lg text-navy/70">Practical, rigorous and rooted in faith.</p>
+          </div>
+
+          <div class="reveal">
+            <article class="grid md:grid-cols-12 gap-10 lg:gap-14 items-center bg-white border border-gold/40 p-8 md:p-12 shadow-sm hover:shadow-md transition-shadow">
+              <!-- 3D Book Mockup Display -->
+              <div class="md:col-span-5 flex justify-center">
+                <a href="library.html" class="book-mockup-wrapper group block w-full max-w-sm">
+                  <div class="relative w-full aspect-[4/5] overflow-hidden rounded-sm book-3d-shadow transition-transform duration-500">
+                    <picture>
+                      <source srcset="/images/the-assignment-and-the-tools.webp" type="image/webp" />
+                      <source srcset="/images/the-assignment-and-the-tools.avif" type="image/avif" />
+                      <img src="/images/the-assignment-and-the-tools.png" alt="Cover of The Assignment & The Tools by Isaiah Adegoke" class="w-full h-full object-contain" loading="lazy" />
+                    </picture>
+                  </div>
+                </a>
+              </div>
+
+              <div class="md:col-span-7">
+                <p class="text-xs uppercase tracking-widest text-burgundy font-semibold">paperback · Faith · Purpose · Business</p>
+                <h3 class="mt-2 font-heading text-2xl md:text-3xl text-navy font-semibold">The Assignment &amp; The Tools</h3>
+                <p class="mt-2 text-navy/70 font-medium italic">Kingdom Laws for Purpose, Excellence and Business.</p>
+                <div class="mt-5 text-navy/75 leading-relaxed space-y-3">
+                  <p>
+                    <strong>You have the tools. But do you know the assignment?</strong>
+                  </p>
+                  <p>
+                    Many people will die with their gifts still inside them. Not because they lacked talent, but because they never understood why they were given what they have. Having the tools without knowing the assignment is as frustrating as having an assignment without knowing which tool to use.
+                  </p>
+                  <p>
+                    In <em>The Assignment &amp; The Tools</em>, Isaiah Adegoke reveals the divine order governing a fulfilled life: why purpose is unveiled in phases, why your gift is self-supporting, and why excellence is a spiritual responsibility that must be stewarded.
+                  </p>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-navy/10">
+                  <p class="text-sm uppercase tracking-widest text-burgundy font-semibold mb-3">Get your copy</p>
+                  <div class="flex flex-wrap gap-3">
+                    <a href="https://amzn.eu/d/0iyFcNmi" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 bg-burgundy hover:bg-navy text-white px-6 py-3 transition-colors shadow-sm font-medium">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg>
+                      Buy on Amazon
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                    </a>
+                    <button data-open-checkout data-book-format="paperback" class="inline-flex items-center gap-2 bg-gold hover:bg-navy hover:text-white text-navy px-6 py-3 transition-colors shadow-sm font-medium">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg>
+                      Direct Checkout (Card &amp; MoMo)
+                    </button>
+                  </div>
+                  <p class="text-navy/60 text-sm mt-3">
+                    Prefer a signed or bulk copy, or another retailer? <a class="text-burgundy underline underline-offset-4 hover:text-navy" href="contact.html">Order directly from Isaiah</a>.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Credentials Grid -->
+        <div>
+          <div class="max-w-2xl mb-12 reveal">
+            <p class="text-gold text-sm uppercase tracking-[0.25em] mb-3 font-medium">Credentials</p>
+            <h2 class="text-3xl md:text-4xl font-semibold text-navy font-heading">Certified in the disciplines of quality</h2>
+          </div>
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="reveal border border-gold/60 bg-white p-6 hover:-translate-y-1 hover:shadow-lg transition-all">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-burgundy mb-4"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg>
+              <h3 class="font-heading font-semibold text-navy text-lg">Lean Six Sigma Black Belt / Green Belt</h3>
+              <p class="text-sm text-navy/60 mt-2 font-medium">ATMAE</p>
+            </div>
+            <div class="reveal border border-gold/60 bg-white p-6 hover:-translate-y-1 hover:shadow-lg transition-all" style="transition-delay: 80ms;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-burgundy mb-4"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg>
+              <h3 class="font-heading font-semibold text-navy text-lg">ISO 9001:2015 Lead Auditor</h3>
+              <p class="text-sm text-navy/60 mt-2 font-medium">Global Association for Quality Management</p>
+            </div>
+            <div class="reveal border border-gold/60 bg-white p-6 hover:-translate-y-1 hover:shadow-lg transition-all" style="transition-delay: 160ms;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-burgundy mb-4"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg>
+              <h3 class="font-heading font-semibold text-navy text-lg">Certified Scrum Master</h3>
+              <p class="text-sm text-navy/60 mt-2 font-medium">Global Association for Quality Management</p>
+            </div>
+            <div class="reveal border border-gold/60 bg-white p-6 hover:-translate-y-1 hover:shadow-lg transition-all" style="transition-delay: 240ms;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-burgundy mb-4"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg>
+              <h3 class="font-heading font-semibold text-navy text-lg">Certified Quality Assurance Engineer</h3>
+              <p class="text-sm text-navy/60 mt-2 font-medium">Quality Systems Certification</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Believer's Corner Podcast Preview -->
+        <div>
+          <div class="max-w-2xl mb-12 reveal">
+            <p class="text-gold text-sm uppercase tracking-[0.25em] mb-3 font-medium">The Believer's Corner</p>
+            <h2 class="text-3xl md:text-4xl font-semibold text-navy font-heading">Real faith. Real life. Real conversations.</h2>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="reveal">
+              <a class="block bg-navy text-white p-7 h-full hover:bg-burgundy transition-all group shadow-md" href="speaking.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gold mb-8 group-hover:scale-110 transition-transform"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                <p class="text-gold text-xs uppercase tracking-widest font-semibold">Episode 3</p>
+                <h3 class="font-heading text-xl mt-2 leading-snug">Real Faith in Real Relationships</h3>
+                <span class="inline-block mt-4 text-xs text-white/60 group-hover:text-white/90">Listen / Watch Episode →</span>
+              </a>
+            </div>
+            <div class="reveal" style="transition-delay: 100ms;">
+              <a class="block bg-navy text-white p-7 h-full hover:bg-burgundy transition-all group shadow-md" href="speaking.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gold mb-8 group-hover:scale-110 transition-transform"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                <p class="text-gold text-xs uppercase tracking-widest font-semibold">Episode 2</p>
+                <h3 class="font-heading text-xl mt-2 leading-snug">Purpose After Graduation</h3>
+                <span class="inline-block mt-4 text-xs text-white/60 group-hover:text-white/90">Listen / Watch Episode →</span>
+              </a>
+            </div>
+            <div class="reveal" style="transition-delay: 200ms;">
+              <a class="block bg-navy text-white p-7 h-full hover:bg-burgundy transition-all group shadow-md" href="speaking.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gold mb-8 group-hover:scale-110 transition-transform"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                <p class="text-gold text-xs uppercase tracking-widest font-semibold">Episode 1</p>
+                <h3 class="font-heading text-xl mt-2 leading-snug">Faith at Work: Can Excellence be Worship?</h3>
+                <span class="inline-block mt-4 text-xs text-white/60 group-hover:text-white/90">Listen / Watch Episode →</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white mt-auto">
+      <div class="hairline"></div>
+      <div class="max-w-6xl mx-auto px-6 py-16 grid gap-12 md:grid-cols-3">
+        <div>
+          <img src="/images/monogram.png" alt="Isaiah Adegoke monogram" class="h-12 w-auto invert mb-5" />
+          <p class="text-white/70 max-w-sm">Pursuing excellence. Living purposefully. Driving impact.</p>
+          <div class="flex gap-4 mt-6">
+            <a href="https://www.youtube.com/@pneumachannel" target="_blank" rel="noreferrer" aria-label="YouTube" class="text-white/70 hover:text-gold transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path><path d="m10 15 5-3-5-3z"></path></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/isaiah-adegoke" target="_blank" rel="noreferrer" aria-label="LinkedIn" class="text-white/70 hover:text-gold transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="https://www.instagram.com/adegokejnr" target="_blank" rel="noreferrer" aria-label="Instagram" class="text-white/70 hover:text-gold transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+            </a>
+            <a href="https://www.facebook.com/isaiah.adegokejnr" target="_blank" rel="noreferrer" aria-label="Facebook" class="text-white/70 hover:text-gold transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <nav aria-label="Footer">
+          <h3 class="text-gold text-sm uppercase tracking-[0.2em] mb-4 font-semibold">Explore</h3>
+          <ul class="grid grid-cols-2 gap-2 text-sm">
+            <li><a class="text-white/75 hover:text-white transition-colors" href="index.html">Home</a></li>
+            <li><a class="text-white/75 hover:text-white transition-colors" href="about.html">About</a></li>
+            <li><a class="text-white/75 hover:text-white transition-colors" href="experience.html">Experience</a></li>
+            <li><a class="text-white/75 hover:text-white transition-colors" href="speaking.html">Speaking &amp; Podcast</a></li>
+            <li><a class="text-white/75 hover:text-white transition-colors" href="library.html">Library</a></li>
+            <li><a class="text-white/75 hover:text-white transition-colors" href="insights.html">Insights</a></li>
+            <li><a class="text-white/75 hover:text-white transition-colors" href="contact.html">Contact</a></li>
+          </ul>
+          <p class="flex items-center gap-2 mt-6 text-white/70 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gold"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            <a href="mailto:adegoke305@gmail.com" class="hover:underline">adegoke305@gmail.com</a>
+          </p>
+          <p class="flex items-center gap-2 mt-2 text-white/70 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gold"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Abilene, Texas, USA</span>
+          </p>
+        </nav>
+
+        <div>
+          <h3 class="text-gold text-sm uppercase tracking-[0.2em] mb-4 font-semibold">Join the community</h3>
+          <p class="text-white/70 mb-4 text-sm leading-relaxed">New articles, episodes of The Believer's Corner and book releases, delivered occasionally.</p>
+          <form data-newsletter-form class="flex flex-col sm:flex-row gap-2 max-w-md">
+            <input type="email" required placeholder="Your email address" aria-label="Email address" class="w-full rounded-md px-3.5 py-2.5 text-sm bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-gold" />
+            <button type="submit" class="whitespace-nowrap rounded-md text-sm font-medium transition-colors px-5 py-2.5 bg-gold text-navy hover:bg-white font-semibold">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <p class="text-center text-white/50 text-sm pb-8">© 2026 Isaiah Adegoke. All rights reserved.</p>
+    </footer>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer-backdrop" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300"></div>
+    <div id="mobile-drawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-xs bg-navy text-white shadow-2xl p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-in-out">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-white/10">
+          <div class="flex items-center gap-2.5">
+            <img src="/images/monogram.png" alt="Monogram" class="h-8 w-auto invert" />
+            <span class="font-heading font-semibold text-lg text-white">Isaiah Adegoke</span>
+          </div>
+          <button id="mobile-drawer-close" aria-label="Close menu" class="p-2 text-white/70 hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+        <nav class="flex flex-col gap-4 mt-8">
+          <a class="text-lg py-2 text-burgundy font-semibold border-b border-white/5" href="index.html">Home</a>
+          <a class="text-lg py-2 text-white/90 hover:text-gold transition-colors border-b border-white/5" href="about.html">About</a>
+          <a class="text-lg py-2 text-white/90 hover:text-gold transition-colors border-b border-white/5" href="experience.html">Experience</a>
+          <a class="text-lg py-2 text-white/90 hover:text-gold transition-colors border-b border-white/5" href="speaking.html">Speaking &amp; Podcast</a>
+          <a class="text-lg py-2 text-white/90 hover:text-gold transition-colors border-b border-white/5" href="library.html">Library</a>
+          <a class="text-lg py-2 text-white/90 hover:text-gold transition-colors border-b border-white/5" href="insights.html">Insights</a>
+          <a class="text-lg py-2 text-white/90 hover:text-gold transition-colors" href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div>
+        <a href="contact.html" class="block text-center w-full py-3 bg-burgundy hover:bg-gold hover:text-navy text-white font-medium transition-colors mb-4">Book Isaiah</a>
+        <p class="text-xs text-white/40 text-center">Abilene, Texas, USA · adegoke305@gmail.com</p>
+      </div>
+    </div>
+
+    <!-- Search Modal Overlay (Cmd+K) -->
+    <div id="search-modal" class="fixed inset-0 z-50 modal-backdrop flex items-start justify-center pt-20 px-4 hidden">
+      <div class="bg-white border border-gold/60 w-full max-w-xl shadow-2xl rounded-sm overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+        <div class="p-4 border-b border-navy/10 flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-navy/50"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <input type="text" id="site-search-input" placeholder="Search books, podcast episodes, articles, credentials..." class="w-full text-base focus:outline-none text-navy placeholder:text-navy/40" />
+          <button data-close-search class="text-xs uppercase tracking-widest text-navy/40 hover:text-navy font-semibold px-2 py-1">ESC</button>
+        </div>
+        <div id="site-search-results" class="max-h-96 overflow-y-auto"></div>
+      </div>
+    </div>
+
+    <!-- E-Commerce Checkout Modal -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4 hidden">
+      <div class="bg-white border border-gold/70 w-full max-w-lg shadow-2xl rounded-sm overflow-hidden animate-in fade-in zoom-in-95 duration-200 max-h-[90vh] flex flex-col">
+        <div class="p-5 bg-navy text-white flex items-center justify-between border-b border-gold/40">
+          <div>
+            <span class="text-xs text-gold uppercase tracking-widest font-semibold">Direct Book Order</span>
+            <h3 class="font-heading text-xl text-white">The Assignment &amp; The Tools</h3>
+          </div>
+          <button data-close-checkout class="text-white/60 hover:text-white p-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+
+        <div class="p-6 overflow-y-auto flex-1">
+          <!-- Form State -->
+          <form id="checkout-form" class="space-y-4">
+            <div>
+              <label class="block text-xs uppercase tracking-widest font-semibold text-navy/70 mb-1">Select Format</label>
+              <select id="checkout-product" class="w-full p-2.5 border border-navy/20 text-sm rounded-sm bg-parchment focus:border-burgundy focus:outline-none">
+                <option value="paperback">Paperback Edition ($24.99 / GHS 340)</option>
+                <option value="signed">Author-Signed Collector's Copy ($39.99 / GHS 550)</option>
+                <option value="ebook">Digital E-Book (PDF + ePub) ($9.99 / GHS 140)</option>
+              </select>
+            </div>
+
+            <!-- Payment Rail Selector -->
+            <div>
+              <label class="block text-xs uppercase tracking-widest font-semibold text-navy/70 mb-2">Select Payment Rail</label>
+              <div class="grid grid-cols-2 gap-2">
+                <button type="button" data-rail-toggle="international" class="p-2.5 text-xs uppercase tracking-wider font-semibold border rounded-sm transition-all bg-burgundy text-white">
+                  International Card / PayPal
+                </button>
+                <button type="button" data-rail-toggle="africa" class="p-2.5 text-xs uppercase tracking-wider font-semibold border border-navy/20 text-navy bg-white hover:border-gold rounded-sm transition-all">
+                  African MoMo / Bank Rail
+                </button>
+              </div>
+            </div>
+
+            <!-- Customer Details -->
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs text-navy/60 mb-1 font-medium">Full Name</label>
+                <input type="text" required placeholder="John Doe" class="w-full p-2 text-sm border border-navy/20 rounded-sm focus:border-burgundy focus:outline-none" />
+              </div>
+              <div>
+                <label class="block text-xs text-navy/60 mb-1 font-medium">Email Address</label>
+                <input type="email" required placeholder="john@example.com" class="w-full p-2 text-sm border border-navy/20 rounded-sm focus:border-burgundy focus:outline-none" />
+              </div>
+            </div>
+
+            <!-- International Rail Fields -->
+            <div id="rail-international" class="space-y-3 pt-2 border-t border-navy/10">
+              <div>
+                <label class="block text-xs text-navy/60 mb-1 font-medium">Card Number</label>
+                <input type="text" placeholder="4242 •••• •••• 4242" class="w-full p-2 text-sm border border-navy/20 rounded-sm focus:border-burgundy focus:outline-none font-mono" />
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs text-navy/60 mb-1 font-medium">Expiry</label>
+                  <input type="text" placeholder="MM/YY" class="w-full p-2 text-sm border border-navy/20 rounded-sm focus:border-burgundy focus:outline-none" />
+                </div>
+                <div>
+                  <label class="block text-xs text-navy/60 mb-1 font-medium">CVC</label>
+                  <input type="text" placeholder="CVC" class="w-full p-2 text-sm border border-navy/20 rounded-sm focus:border-burgundy focus:outline-none" />
+                </div>
+              </div>
+            </div>
+
+            <!-- African Rail Fields -->
+            <div id="rail-africa" class="space-y-3 pt-2 border-t border-navy/10 hidden">
+              <div>
+                <label class="block text-xs text-navy/60 mb-1 font-medium">Select Mobile Money Network</label>
+                <select class="w-full p-2 text-sm border border-navy/20 rounded-sm bg-parchment focus:border-burgundy focus:outline-none">
+                  <option value="mtn">MTN MoMo (Ghana, Nigeria, Uganda)</option>
+                  <option value="telecel">Telecel Cash (Ghana)</option>
+                  <option value="at">AT Money (AirtelTigo)</option>
+                  <option value="mpesa">M-Pesa (Kenya, East Africa)</option>
+                  <option value="bank">Direct Bank Wire / Instant EFT</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs text-navy/60 mb-1 font-medium">Mobile Number for Prompt / Account</label>
+                <input type="tel" placeholder="+233 24 000 0000" class="w-full p-2 text-sm border border-navy/20 rounded-sm focus:border-burgundy focus:outline-none" />
+              </div>
+            </div>
+
+            <!-- Order Total & Submit -->
+            <div class="pt-3 border-t border-navy/10 flex items-center justify-between">
+              <div>
+                <span class="text-xs text-navy/60 uppercase tracking-widest block font-medium">Order Total</span>
+                <span id="checkout-total-price" class="font-heading text-xl font-semibold text-burgundy">$24.99 USD</span>
+              </div>
+              <button type="submit" class="bg-burgundy hover:bg-navy text-white px-6 py-2.5 font-medium text-sm transition-colors rounded-sm shadow-md">
+                Complete Order
+              </button>
+            </div>
+          </form>
+
+          <!-- Success Receipt State -->
+          <div id="checkout-success" class="text-center py-6 hidden space-y-4">
+            <div class="w-14 h-14 bg-green-100 text-green-700 rounded-full flex items-center justify-center mx-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17l-5-5"></polyline></svg>
+            </div>
+            <h4 class="font-heading text-2xl font-semibold text-navy">Order Confirmed!</h4>
+            <p class="text-sm text-navy/70 max-w-sm mx-auto">
+              Thank you for ordering <strong>The Assignment &amp; The Tools</strong>. Your receipt and fulfillment confirmation have been dispatched.
+            </p>
+            <div class="bg-parchment p-3 border border-gold/40 text-xs font-mono text-navy/80 rounded">
+              Order Reference: <span id="order-ref-code" class="font-bold text-burgundy">IA-894102</span>
+            </div>
+            <button data-close-checkout class="bg-navy hover:bg-burgundy text-white px-6 py-2.5 text-sm transition-colors mt-2">
+              Done
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating WhatsApp CTA -->
+    <a href="https://wa.me/12177989778" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" class="fixed bottom-5 right-5 z-40 bg-burgundy text-white p-4 rounded-full shadow-xl hover:bg-navy hover:-translate-y-1 transition-all" title="Chat with Isaiah on WhatsApp">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>
+    </a>
+
+    <!-- Universal JavaScript -->
+    <script src="/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insights &amp; Articles | Isaiah Adegoke — Sustainability, Quality &amp; Leadership</title>
+    <meta name="description" content="Ideas on sustainability, systems, operational quality and faith-driven leadership by Isaiah Adegoke. Filter by category or search articles." />
+    <meta property="og:title" content="Insights &amp; Articles | Isaiah Adegoke" />
+    <meta property="og:description" content="Ideas on sustainability, systems and faith-driven leadership." />
+    <meta property="og:type" content="website" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: '#0B192C',
+              burgundy: '#5E0D1B',
+              'burgundy-dark': '#430913',
+              gold: '#C5A059',
+              'gold-light': '#DFCA98',
+              parchment: '#F9F7F2',
+              offwhite: '#F9FAFB'
+            },
+            fontFamily: {
+              heading: ['Fraunces', 'Georgia', 'serif'],
+              sans: ['Inter', 'system-ui', 'sans-serif']
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body class="bg-parchment text-navy min-h-screen flex flex-col font-sans">
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2">Skip to content</a>
+
+    <!-- Left Scroll Indicator -->
+    <div aria-hidden="true" class="hidden xl:block fixed left-5 top-0 w-px bg-gold z-30" id="scroll-indicator" style="height: 0%;"></div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 inset-x-0 z-40 transition-all duration-300 bg-parchment/95 backdrop-blur-md">
+      <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+        <a aria-label="Isaiah Adegoke home" class="flex items-center gap-3.5 group" href="index.html">
+          <img src="/images/monogram.png" alt="Isaiah Adegoke Monogram" class="h-10 w-auto object-contain transition-transform group-hover:scale-105" />
+          <span class="font-heading font-semibold text-navy text-xl hidden sm:block tracking-tight">Isaiah Adegoke</span>
+        </a>
+
+        <nav aria-label="Primary" class="hidden lg:flex items-center gap-7">
+          <a class="text-sm tracking-wide transition-colors hover:text-burgundy text-navy" href="index.html">Home</a>
+          <a class="text-sm tracking-wide transition-colors hover:text-burgundy text-navy" href="about.html">About</a>
+          <a class="text-sm tracking-wide transition-colors hover:text-burgundy text-navy" href="experience.html">Experience</a>
+          <a class="text-sm tracking-wide transition-colors hover:text-burgundy text-navy" href="speaking.html">Speaking &amp; Podcast</a>
+          <a class="text-sm tracking-wide transition-colors hover:text-burgundy text-navy" href="library.html">Library</a>
+          <a class="text-sm tracking-wide transition-colors text-burgundy font-semibold" href="insights.html">Insights</a>
+          <a class="text-sm tracking-wide transition-colors hover:text-burgundy text-navy" href="contact.html">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-2">
+          <button aria-label="Search" class="p-2.5 text-navy hover:text-burgundy transition-colors rounded-full hover:bg-black/5" title="Search (Cmd+K)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          </button>
+          <a class="hidden md:inline-block ml-2 bg-burgundy text-white text-sm px-6 py-2.5 hover:bg-navy transition-colors font-medium shadow-sm" href="contact.html">Book Isaiah</a>
+          <button data-menu-toggle class="lg:hidden p-2.5 text-navy hover:text-burgundy transition-colors rounded-md hover:bg-black/5" aria-label="Open menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+          </button>
+        </div>
+      </div>
+      <div class="hairline"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main" class="flex-1 pt-20">
+      <!-- Page Hero Header -->
+      <header class="bg-navy text-white">
+        <div class="max-w-6xl mx-auto px-6 pt-20 pb-20 md:pt-28 md:pb-24">
+          <p class="text-gold text-sm uppercase tracking-[0.25em] mb-5 font-semibold">Insights &amp; Dispatches</p>
+          <h1 class="text-4xl md:text-6xl font-semibold max-w-4xl leading-tight font-heading">
+            Ideas on sustainability, systems and faith-driven leadership
+          </h1>
+          <p class="mt-6 text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed">
+            Essays and field notes bridging industrial engineering rigor with spiritual formation.
+          </p>
+        </div>
+        <div class="hairline"></div>
+      </header>
+
+      <!-- Filter Bar and Articles Section -->
+      <section class="max-w-6xl mx-auto px-6 py-16">
+        <!-- Category Filter Buttons -->
+        <div class="flex flex-wrap gap-2.5 mb-6">
+          <button data-insight-category="All" class="px-5 py-2.5 text-sm font-semibold border transition-all bg-navy text-white border-navy rounded-sm shadow-sm">
+            All
+          </button>
+          <button data-insight-category="Sustainability" class="px-5 py-2.5 text-sm font-semibold border transition-all border-navy/20 text-navy hover:border-gold hover:bg-white rounded-sm">
+            Sustainability
+          </button>
+          <button data-insight-category="AI & Systems" class="px-5 py-2.5 text-sm font-semibold border transition-all border-navy/20 text-navy hover:border-gold hover:bg-white rounded-sm">
+            AI &amp; Systems
+          </button>
+          <button data-insight-category="Quality" class="px-5 py-2.5 text-sm font-semibold border transition-all border-navy/20 text-navy hover:border-gold hover:bg-white rounded-sm">
+            Quality
+          </button>
+          <button data-insight-category="Faith & Leadership" class="px-5 py-2.5 text-sm font-semibold border transition-all border-navy/20 text-navy hover:border-gold hover:bg-white rounded-sm">
+            Faith &amp; Leadership
+          </button>
+        </div>
+
+        <!-- Live Search Input -->
+        <div class="relative mb-12">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-4 top-1/2 -translate-y-1/2 text-navy/40"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <input id="insight-search" type="text" placeholder="Search articles by title, keyword, or concept..." aria-label="Search articles" class="flex w-full rounded-sm border border-navy/20 pl-11 pr-4 py-3.5 text-base shadow-sm bg-white focus:outline-none focus:border-burgundy text-navy placeholder:text-navy/40" />
+        </div>
+
+        <!-- Empty State Message -->
+        <div id="no-articles-found" class="hidden text-center py-16 bg-white border border-dashed border-navy/20 rounded-sm">
+          <p class="font-heading text-xl text-navy">No articles match your current search.</p>
+          <p class="text-sm text-navy/60 mt-2">Try clearing your search term or switching to another category.</p>
+        </div>
+
+        <!-- Articles Grid -->
+        <div id="articles-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Article 1 -->
+          <article data-article-card data-category="Faith & Leadership" class="bg-white border border-gold/40 p-7 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group rounded-sm">
+            <div>
+              <div class="flex items-center justify-between gap-2 text-xs mb-3">
+                <span class="uppercase tracking-widest text-burgundy font-semibold">Faith &amp; Leadership</span>
+                <span class="text-navy/50 font-mono">Oct 2026 · 6 min</span>
+              </div>
+              <h3 class="font-heading text-xl font-semibold text-navy group-hover:text-burgundy transition-colors leading-snug">
+                Sanctification and Kaizen: Why Continuous Improvement is Humility in Action
+              </h3>
+              <p class="mt-3 text-sm text-navy/70 leading-relaxed">
+                Japanese manufacturing philosophy teaches that every process contains hidden waste. The Christian walk teaches that self-righteousness is spiritual complacency. Here is where industrial engineering and spiritual formation rhyme.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-navy/10 flex items-center justify-between text-xs text-navy/60">
+              <span class="font-medium text-navy">Isaiah Adegoke</span>
+              <button onclick="openArticleModal('sanctification')" class="text-burgundy font-semibold hover:underline">Read Essay →</button>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article data-article-card data-category="Quality Sustainability" class="bg-white border border-gold/40 p-7 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group rounded-sm">
+            <div>
+              <div class="flex items-center justify-between gap-2 text-xs mb-3">
+                <span class="uppercase tracking-widest text-burgundy font-semibold">Quality &amp; Operations</span>
+                <span class="text-navy/50 font-mono">Sep 2026 · 8 min</span>
+              </div>
+              <h3 class="font-heading text-xl font-semibold text-navy group-hover:text-burgundy transition-colors leading-snug">
+                Optimizing Food &amp; Beverage Lines: Lean Six Sigma on the Factory Floor
+              </h3>
+              <p class="mt-3 text-sm text-navy/70 leading-relaxed">
+                A technical breakdown of DMAIC project execution at Healthy Haven Ghana: reducing cycle times, auditing raw material receiving, and lifting plant gross margins by 20% while upholding zero microbial failure.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-navy/10 flex items-center justify-between text-xs text-navy/60">
+              <span class="font-medium text-navy">Isaiah Adegoke</span>
+              <button onclick="openArticleModal('lean')" class="text-burgundy font-semibold hover:underline">Read Case Study →</button>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article data-article-card data-category="AI & Systems Sustainability" class="bg-white border border-gold/40 p-7 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group rounded-sm">
+            <div>
+              <div class="flex items-center justify-between gap-2 text-xs mb-3">
+                <span class="uppercase tracking-widest text-burgundy font-semibold">AI &amp; Sustainability</span>
+                <span class="text-navy/50 font-mono">Aug 2026 · 7 min</span>
+              </div>
+              <h3 class="font-heading text-xl font-semibold text-navy group-hover:text-burgundy transition-colors leading-snug">
+                AI-Enhanced Corporate Sustainability: Beyond Token ESG Reporting
+              </h3>
+              <p class="mt-3 text-sm text-navy/70 leading-relaxed">
+                Drawing on research conducted at Eastern Illinois University and Belvedere Trading, this article examines how machine learning algorithms identify resource leakage before audits take place.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-navy/10 flex items-center justify-between text-xs text-navy/60">
+              <span class="font-medium text-navy">Isaiah Adegoke</span>
+              <button onclick="openArticleModal('ai-sustainability')" class="text-burgundy font-semibold hover:underline">Read Article →</button>
+            </div>
+          </article>
+
+          <!-- Article 4 -->
+          <article data-article-card data-category="Faith & Leadership" class="bg-white border border-gold/40 p-7 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group rounded-sm">
+            <div>
+              <div class="flex items-center justify-between gap-2 text-xs mb-3">
+                <span class="uppercase tracking-widest text-burgundy font-semibold">Faith &amp; Leadership</span>
+                <span class="text-navy/50 font-mono">Jul 2026 · 5 min</span>
+              </div>
+              <h3 class="font-heading text-xl font-semibold text-navy group-hover:text-burgundy transition-colors leading-snug">
+                The Assignment vs. The Tools: Why Talent Without Blueprint Leads to Quiet Despair
+              </h3>
+              <p class="mt-3 text-sm text-navy/70 leading-relaxed">
+                Adapted from the foundational chapter of Isaiah's book. Why many high-capacity achievers suffer from chronic exhaustion: they have gathered an arsenal of tools but never clarified the assignment.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-navy/10 flex items-center justify-between text-xs text-navy/60">
+              <span class="font-medium text-navy">Isaiah Adegoke</span>
+              <button onclick="openArticleModal('assignment')" class="text-burgundy font-semibold hover:underline">Read Excerpt →</button>
+            </div>
+          </article>
+
+          <!-- Article 5 -->
+          <article data-article-card data-category="Sustainability Quality" class="bg-white border border-gold/40 p-7 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group rounded-sm">
+            <div>
+              <div class="flex items-center justify-between gap-2 text-xs mb-3">
+                <span class="uppercase tracking-widest text-burgundy font-semibold">Sustainability</span>
+                <span class="text-navy/50 font-mono">Jun 2026 · 9 min</span>
+              </div>
+              <h3 class="font-heading text-xl font-semibold text-navy group-hover:text-burgundy transition-colors leading-snug">
+                Sustainable Supply Chain Management Practices in Emerging Markets
+              </h3>
+              <p class="mt-3 text-sm text-navy/70 leading-relaxed">
+                Exploring agricultural supply chain governance, supplier compliance, and cold-chain integrity across West Africa. Why local infrastructure requires adaptive, decentralized quality standards.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-navy/10 flex items-center justify-between text-xs text-navy/60">
+              <span class="font-medium text-navy">Isaiah Adegoke</span>
+              <button onclick="openArticleModal('supply-chain')" class="text-burgundy font-semibold hover:underline">Read Research →</button>
+            </div>
+          </article>
+
+          <!-- Article 6 -->
+          <article data-article-card data-category="AI & Systems Quality" class="bg-white border border-gold/40 p-7 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group rounded-sm">
+            <div>
+              <div class="flex items-center justify-between gap-2 text-xs mb-3">
+                <span class="uppercase tracking-widest text-burgundy font-semibold">AI &amp; Systems</span>
+                <span class="text-navy/50 font-mono">May 2026 · 7 min</span>
+              </div>
+              <h3 class="font-heading text-xl font-semibold text-navy group-hover:text-burgundy transition-colors leading-snug">
+                Overcoming Bottlenecks in Manufacturing SME Intellectual Capital
+              </h3>
+              <p class="mt-3 text-sm text-navy/70 leading-relaxed">
+                Insights from research published in <em>SAGE Open</em> on small manufacturing enterprises in Jiangsu, China: how documentation and process standardization protect institutional memory.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-navy/10 flex items-center justify-between text-xs text-navy/60">
+              <span class="font-medium text-navy">Isaiah Adegoke</span>
+              <button onclick="openArticleModal('intellectual-capital')" class="text-burgundy font-semibold hover:underline">Read Research →</button>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Article Reader Modal -->
+    <div id="article-reader-modal" class="fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4 hidden">
+      <div class="bg-white border border-gold/70 w-full max-w-2xl shadow-2xl rounded-sm overflow-hidden animate-in fade-in zoom-in-95 duration-200 max-h-[85vh] flex flex-col">
+        <div class="p-6 bg-navy text-white flex items-center justify-between border-b border-gold/40">
+          <div>
+            <span id="modal-article-tag" class="text-xs text-gold uppercase tracking-widest font-semibold">Essay</span>
+            <h3 id="modal-article-title" class="font-heading text-xl md:text-2xl text-white font-semibold mt-1">Article Title</h3>
+          </div>
+          <button onclick="closeArticleModal()" class="text-white/60 hover:text-white p-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+        <div id="modal-article-body" class="p-8 overflow-y-auto space-y-4 text-navy/80 leading-relaxed text-base">
+          <!-- Dynamically populated -->
+        </div>
+        <div class="p-4 bg-parchment border-t border-navy/10 flex items-center justify-between">
+          <span class="text-xs text-navy/60">Written by Isaiah Adegoke</span>
+          <button onclick="closeArticleModal()" class="bg-burgundy text-white px-5 py-2 text-xs uppercase tracking-wider font-semibold">Close Reader</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white mt-auto">
+      <div class="hairline"></div>
+      <div class="max-w-6xl mx-auto px-6 py-16 grid gap-12 md:grid-cols-3">
+        <div>
+          <img src="/images/monogram.png" alt="Isaiah Adegoke monogram" class="h-12 w-auto invert mb-5" />
+          <p class="text-white/70 max-w-sm">Pursuing excellence. Living purposefully. Driving impact.</p>
+          <div class="flex gap-4 mt-6">
+            <a href="https://www.youtube.com/@pneumachannel" target="_blank" rel="noreferrer" aria-label="YouTube" class="text-white/70 hover:text-gold transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path><path d="m10 15 5-3-5-3z"></path></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/isaiah-adegoke" target="_blank" rel="noreferrer" aria-label="LinkedIn" class="text-white/70 hover:text-gold transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="https://www.instagram.com/adegokejnr" target="_blank" rel="noreferrer" aria-label="Instagram" class="text-white/70 hover:text-gold transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+            </a>
+            <a href="https://www.facebook.com/isaiah.adegokejnr" target="_blank" rel="noreferrer" aria-label="Facebook" class="text-white/70 hover:text-gold transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <nav aria-label="Footer">
+          <h3 class="text-gold text-sm uppercase tracking-[0.2em] mb-4 font-semibold">Explore</h3>
+          <ul class="grid grid-cols-2 gap-2 text-sm">
+            <li><a class="text-white/75 hover:text-white transition-colors" href="index.html">Home</a></li>
+            <li><a class="text-white/75 hover:text-white transition-colors" href="about.html">About</a></li>
+            <li><a class="text-white/75 hover:text-white transition-colors" href="experience.html">Experience</a></li>
+            <li><a class="text-white/75 hover:text-white transition-colors" href="speaking.html">Speaking &amp; Podcast</a></li>
+            <li><a class="text-white/75 hover:text-white transition-colors" href="library.html">Library</a></li>
+            <li><a class="text-white/75 hover:text-white transition-colors" href="insights.html">Insights</a></li>
+            <li><a class="text-white/75 hover:text-white transition-colors" href="contact.html">Contact</a></li>
+          </ul>
+          <p class="flex items-center gap-2 mt-6 text-white/70 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gold"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            <a href="mailto:adegoke305@gmail.com" class="hover:underline">adegoke305@gmail.com</a>
+          </p>
+          <p class="flex items-center gap-2 mt-2 text-white/70 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gold"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Abilene, Texas, USA</span>
+          </p>
+        </nav>
+
+        <div>
+          <h3 class="text-gold text-sm uppercase tracking-[0.2em] mb-4 font-semibold">Join the community</h3>
+          <p class="text-white/70 mb-4 text-sm leading-relaxed">New articles, episodes of The Believer's Corner and book releases, delivered occasionally.</p>
+          <form data-newsletter-form class="flex flex-col sm:flex-row gap-2 max-w-md">
+            <input type="email" required placeholder="Your email address" aria-label="Email address" class="w-full rounded-md px-3.5 py-2.5 text-sm bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-gold" />
+            <button type="submit" class="whitespace-nowrap rounded-md text-sm font-medium transition-colors px-5 py-2.5 bg-gold text-navy hover:bg-white font-semibold">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <p class="text-center text-white/50 text-sm pb-8">© 2026 Isaiah Adegoke. All rights reserved.</p>
+    </footer>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer-backdrop" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300"></div>
+    <div id="mobile-drawer" class="fixed top-0 right-0 bottom-0 z-50 w-full max-w-xs bg-navy text-white shadow-2xl p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-in-out">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-white/10">
+          <div class="flex items-center gap-2.5">
+            <img src="/images/monogram.png" alt="Monogram" class="h-8 w-auto invert" />
+            <span class="font-heading font-semibold text-lg text-white">Isaiah Adegoke</span>
+          </div>
+          <button id="mobile-drawer-close" aria-label="Close menu" class="p-2 text-white/70 hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+        <nav class="flex flex-col gap-4 mt-8">
+          <a class="text-lg py-2 text-white/90 hover:text-gold transition-colors border-b border-white/5" href="index.html">Home</a>
+          <a class="text-lg py-2 text-white/90 hover:text-gold transition-colors border-b border-white/5" href="about.html">About</a>
+          <a class="text-lg py-2 text-white/90 hover:text-gold transition-colors border-b border-white/5" href="experience.html">Experience</a>
+          <a class="text-lg py-2 text-white/90 hover:text-gold transition-colors border-b border-white/5" href="speaking.html">Speaking &amp; Podcast</a>
+          <a class="text-lg py-2 text-white/90 hover:text-gold transition-colors border-b border-white/5" href="library.html">Library</a>
+          <a class="text-lg py-2 text-burgundy font-semibold border-b border-white/5" href="insights.html">Insights</a>
+          <a class="text-lg py-2 text-white/90 hover:text-gold transition-colors" href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div>
+        <a href="contact.html" class="block text-center w-full py-3 bg-burgundy hover:bg-gold hover:text-navy text-white font-medium transition-colors mb-4">Book Isaiah</a>
+        <p class="text-xs text-white/40 text-center">Abilene, Texas, USA · adegoke305@gmail.com</p>
+      </div>
+    </div>
+
+    <!-- Search Modal Overlay (Cmd+K) -->
+    <div id="search-modal" class="fixed inset-0 z-50 modal-backdrop flex items-start justify-center pt-20 px-4 hidden">
+      <div class="bg-white border border-gold/60 w-full max-w-xl shadow-2xl rounded-sm overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+        <div class="p-4 border-b border-navy/10 flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-navy/50"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <input type="text" id="site-search-input" placeholder="Search books, podcast episodes, articles, credentials..." class="w-full text-base focus:outline-none text-navy placeholder:text-navy/40" />
+          <button data-close-search class="text-xs uppercase tracking-widest text-navy/40 hover:text-navy font-semibold px-2 py-1">ESC</button>
+        </div>
+        <div id="site-search-results" class="max-h-96 overflow-y-auto"></div>
+      </div>
+    </div>
+
+    <!-- Floating WhatsApp CTA -->
+    <a href="https://wa.me/12177989778" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" class="fixed bottom-5 right-5 z-40 bg-burgundy text-white p-4 rounded-full shadow-xl hover:bg-navy hover:-translate-y-1 transition-all" title="Chat with Isaiah on WhatsApp">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>
+    </a>
+
+    <!-- Universal JavaScript & Modal Reader Handler -->
+    <script src="/main.js"></script>
+    <script>
+      const ARTICLE_DATA = {
+        'sanctification': {
+          tag: 'Faith & Leadership · Essay',
+          title: 'Sanctification and Kaizen: Why Continuous Improvement is Humility in Action',
+          body: `
+            <p>In classical Lean Six Sigma literature, <em>Kaizen</em> is defined as continuous, incremental improvement involving everyone from plant floor operators to executive leadership. It starts with a foundational admission: <em>the current process is not yet perfect.</em></p>
+            <p>Interestingly, this is the exact psychological posture demanded by biblical sanctification. The apostle Paul writes in Philippians: <em>"Not that I have already attained, or am already perfected; but I press on."</em></p>
+            <p>Complacency in operations produces defective product batches, safety hazards, and financial waste. Complacency in character produces moral compromise and entitlement. When an engineer views root cause analysis (RCA) as an exercise in truth-telling, and when a believer views repentance as course-correction, excellence ceases to be secular ambition—it becomes worship.</p>
+            <h4 class="font-heading text-lg font-semibold text-navy mt-4">Three Principles for the Workplace:</h4>
+            <ul class="list-disc pl-5 space-y-1 text-sm">
+              <li><strong>Standardize before you optimize:</strong> You cannot improve a chaos. Establish clear daily habits.</li>
+              <li><strong>Examine defects without personal defensiveness:</strong> True feedback is a gift of grace.</li>
+              <li><strong>Celebrate incremental gains:</strong> Compound faithfulness yields enduring legacy.</li>
+            </ul>
+          `
+        },
+        'lean': {
+          tag: 'Quality & Operations · Case Study',
+          title: 'Optimizing Food & Beverage Lines: Lean Six Sigma on the Factory Floor',
+          body: `
+            <p>During my tenure as Quality Assurance Manager at Healthy Haven Ghana, our production facility faced recurring bottle-necking in the pasteurization and automated filling stages, alongside variable yield outputs.</p>
+            <p>Using the DMAIC methodology (Define, Measure, Analyze, Improve, Control), our quality engineering team mapped out every micro-step across 24/7 continuous operations.</p>
+            <h4 class="font-heading text-lg font-semibold text-navy mt-4">Core Actions Executed:</h4>
+            <ul class="list-disc pl-5 space-y-1 text-sm">
+              <li><strong>Rinser and Air Blower Audit:</strong> Implemented visual Kanban maintenance triggers, eliminating bottle contamination risks entirely.</li>
+              <li><strong>Temperature Calibration Protocols:</strong> Upgraded digital sensory logging, stabilizing pasteurization parameters and cutting product degradation by 18%.</li>
+              <li><strong>Night-Shift Standardization:</strong> Trained 30+ operators on rapid line turnover and standardized sanitation check-offs.</li>
+            </ul>
+            <p class="mt-4"><strong>Results:</strong> The initiatives lifted plant gross profitability by 20% within 18 months, maintaining an unbroken 100% compliance record with the Food and Drugs Authority (FDA) Ghana.</p>
+          `
+        },
+        'ai-sustainability': {
+          tag: 'AI & Systems · Research',
+          title: 'AI-Enhanced Corporate Sustainability: Beyond Token ESG Reporting',
+          body: `
+            <p>Corporate sustainability has long been hampered by retroactive accounting. Companies gather utility and logistics invoices 12 months after emissions occur, publish a polished PDF report, and claim progress.</p>
+            <p>Our research at Eastern Illinois University and Belvedere Trading in Chicago investigated predictive machine learning models capable of continuous environmental telemetry.</p>
+            <p>By training neural regression models on automated plant telemetry—chiller power draws, boiler steam consumption, compressed air leakage, and transit freight routing—enterprises can pinpoint energy waste in real-time.</p>
+            <p>Sustainability is not a public relations luxury; it is the ultimate expression of operational efficiency. When you eliminate thermodynamic waste, both emissions and overhead fall simultaneously.</p>
+          `
+        },
+        'assignment': {
+          tag: 'Book Excerpt · Faith & Purpose',
+          title: 'The Assignment vs. The Tools: Why Talent Without Blueprint Leads to Quiet Despair',
+          body: `
+            <p><em>"Having the tools without knowing the assignment is as frustrating as having an assignment without knowing which tool to use."</em></p>
+            <p>In our modern culture of relentless skill acquisition, people hoard credentials, master software tools, and collect certifications. Yet deep within, there remains a persistent restlessness.</p>
+            <p>Why? Because a tool does not justify itself. A hammer cannot explain why the house is being built. You can possess world-class talent, exceptional public speaking ability, and an Ivy League degree, but if you do not know the divine assignment for your life, your gifts will devour you in vanity.</p>
+            <p>Purpose is revealed in progressive phases. God does not hand you a lifetime roadmap on day one; He hands you an assignment for your current season. When you steward that season with uncompromised excellence, the next door opens automatically.</p>
+          `
+        },
+        'supply-chain': {
+          tag: 'Sustainability · Field Research',
+          title: 'Sustainable Supply Chain Management Practices in Emerging Markets',
+          body: `
+            <p>Sustainable supply chain management (SSCM) in developing economies requires navigating stark infrastructure realities: irregular power grids, post-harvest losses, and fragmented smallholder transport networks.</p>
+            <p>Our research evaluated organizational performances across 120 agro-processing firms in Ghana. Firms adopting closed-loop circular packaging and temperature monitoring experienced higher buyer retention and lower regulatory penalties.</p>
+          `
+        },
+        'intellectual-capital': {
+          tag: 'SME Innovation · Published Paper',
+          title: 'Overcoming Bottlenecks in Manufacturing SME Intellectual Capital',
+          body: `
+            <p>Published in <em>SAGE Open</em>, this empirical investigation examined small and medium manufacturing enterprises in Jiangsu, China.</p>
+            <p>We demonstrated that structural capital—specifically standard operating procedures, digital documentation libraries, and cross-skilling—buffered enterprises against high turnover rates, preserving core manufacturing competencies.</p>
+          `
+        }
+      };
+
+      function openArticleModal(id) {
+        const modal = document.getElementById('article-reader-modal');
+        const data = ARTICLE_DATA[id];
+        if (!modal || !data) return;
+
+        document.getElementById('modal-article-tag').textContent = data.tag;
+        document.getElementById('modal-article-title').textContent = data.title;
+        document.getElementById('modal-article-body').innerHTML = data.body;
+
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeArticleModal() {
+        const modal = document.getElementById('article-reader-modal');
+        if (modal) {
+          modal.classList.add('hidden');
+          document.body.style.overflow = '';
+        }
+      }
+    </script>
+  </body>
+</html>
