@@ -183,8 +183,9 @@ function initTriFoldTabs() {
     corporate: {
       headline: 'Quality assurance and continuous improvement leadership across beverage and food manufacturing on two continents.',
       points: [
-        'Sole night-shift QA technician at Coca-Cola Southwest Beverages: 100+ samples per shift at 100% compliance and 15+ critical checkpoints audited nightly.',
+        'Quality Assurance Engineer at Coca-Cola Southwest Beverages: 100+ samples per shift at 100% compliance and 15+ critical checkpoints audited nightly.',
         'As QA Manager at Healthy Haven Ghana, led Lean Six Sigma projects and partnerships that lifted profitability by 20%.',
+        'National Robotics Challenge (NRC) Bronze Medalist in autonomous robotic engineering.',
         'Zero microbial contamination record sustained through strict sanitation protocols.',
         'Peer-reviewed and conference research on AI-enhanced corporate sustainability.'
       ]
@@ -194,8 +195,9 @@ function initTriFoldTabs() {
       points: [
         'Ordained minister and youth pastor with over a decade of continuous service across Ghana and the United States.',
         'Mentored 200+ undergraduate and graduate scholars through structured discipleship and personal accountability programs.',
-        'Host of The Believer\'s Corner podcast, exploring practical questions of faith, relational integrity, and life purpose.',
-        'Devoted family leadership alongside Mrs. Pearl Adegoke, exemplifying marriage as ministry and stewardship.'
+        'Founder of Pneuma Studios: Creating Media. Sharing Faith. Transforming Lives.',
+        'Host of The Believer\'s Corner podcast and Morning Glory devotional programs.',
+        'Devoted family leadership alongside Dr. Mrs. Pearl Adegoke (PhD), exemplifying marriage as ministry and stewardship.'
       ]
     },
     authorship: {
@@ -668,12 +670,15 @@ function initSpeakingModal() {
    ------------------------------------------------------------------------- */
 const SEARCH_INDEX = [
   { title: 'The Assignment & The Tools (Book)', category: 'Bookstore', url: 'library.html', desc: 'Kingdom Laws for Purpose, Excellence and Business.' },
+  { title: 'Pneuma Studios — Faith. Media. Purpose.', category: 'Media Studio', url: 'speaking.html', desc: 'Christian media and creative studio dedicated to spreading the Gospel and transforming lives.' },
   { title: 'Episode 3: Real Faith in Real Relationships', category: 'Podcast', url: 'speaking.html', desc: 'The Believer\'s Corner discussion on covenant marriage and purpose.' },
   { title: 'Episode 2: Purpose After Graduation', category: 'Podcast', url: 'speaking.html', desc: 'Guidance for graduates aligning career with spiritual calling.' },
   { title: 'Episode 1: Faith at Work: Can Excellence be Worship?', category: 'Podcast', url: 'speaking.html', desc: 'Integrating engineering precision with spiritual devotion.' },
+  { title: 'National Robotics Challenge (NRC) Bronze Medal', category: 'Engineering Honor', url: 'experience.html', desc: 'Awarded bronze medal for autonomous sumo robot engineering.' },
+  { title: 'Hamand Society of Graduate Scholars (Top 5 Graduate Students)', category: 'Academic Honor', url: 'experience.html', desc: 'Distinction reserved exclusively for only the top 5 graduate students at Eastern Illinois University.' },
+  { title: 'Quality Assurance Engineer at Coca-Cola Southwest Beverages', category: 'Experience', url: 'experience.html', desc: '100+ tests per shift across 24/7 continuous operations.' },
   { title: 'Optimizing Healthy Haven Juice Production with Lean Six Sigma', category: 'Publications', url: 'experience.html', desc: 'Continuous improvement in food manufacturing.' },
   { title: 'AI-Enhanced Corporate Sustainability at Belvedere Trading', category: 'Research', url: 'experience.html', desc: 'Peer-reviewed research on environmental systems and AI.' },
-  { title: 'Quality Assurance Technician at Coca-Cola Southwest', category: 'Experience', url: 'experience.html', desc: '100+ tests per shift across 24/7 continuous operations.' },
   { title: 'Two Master\'s Degrees: Technology & Sustainability', category: 'Academic Credentials', url: 'about.html', desc: 'Distinguished graduate scholar at Eastern Illinois University.' },
   { title: 'Speaking: Faith, Purpose & The Assignment', category: 'Speaking Topic', url: 'speaking.html', desc: 'Keynote on purpose, stewardship, and professional rigor.' },
   { title: 'Direct Order for Signed & Bulk Books', category: 'Bookstore', url: 'library.html', desc: 'Available for international shipment and African local delivery.' }

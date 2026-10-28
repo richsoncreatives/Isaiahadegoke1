@@ -96,19 +96,180 @@
       <section class="max-w-6xl mx-auto px-6 py-20">
         <!-- Tab Navigation Buttons -->
         <div class="inline-flex items-center justify-center rounded-lg p-1.5 bg-white border border-navy/10 shadow-sm flex-wrap gap-1">
-          <button type="button" data-speaking-tab="podcast" class="px-6 py-3 rounded-md text-sm font-semibold transition-all bg-navy text-white shadow">
+          <button type="button" data-speaking-tab="pneuma" class="px-5 py-3 rounded-md text-sm font-semibold transition-all bg-navy text-white shadow">
+            Pneuma Studios
+          </button>
+          <button type="button" data-speaking-tab="podcast" class="px-5 py-3 rounded-md text-sm font-semibold transition-all text-navy/70 hover:text-navy">
             Podcast &amp; Video
           </button>
-          <button type="button" data-speaking-tab="topics" class="px-6 py-3 rounded-md text-sm font-semibold transition-all text-navy/70 hover:text-navy">
+          <button type="button" data-speaking-tab="topics" class="px-5 py-3 rounded-md text-sm font-semibold transition-all text-navy/70 hover:text-navy">
             Speaking Topics
           </button>
-          <button type="button" data-speaking-tab="request" class="px-6 py-3 rounded-md text-sm font-semibold transition-all text-navy/70 hover:text-navy">
+          <button type="button" data-speaking-tab="request" class="px-5 py-3 rounded-md text-sm font-semibold transition-all text-navy/70 hover:text-navy">
             Request Isaiah to Speak
           </button>
         </div>
 
+        <!-- Tab 0: Pneuma Studios -->
+        <div data-speaking-panel="pneuma" class="mt-10 animate-in fade-in duration-300">
+          <div class="bg-white border border-gold/50 p-8 md:p-12 shadow-lg rounded-sm mb-12">
+            <div class="grid lg:grid-cols-12 gap-10 items-center">
+              <div class="lg:col-span-7">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="text-xs uppercase tracking-widest text-burgundy font-bold">Christian Media Platform</span>
+                  <span class="text-navy/30">·</span>
+                  <span class="text-xs uppercase tracking-widest text-gold font-semibold">Faith. Media. Purpose.</span>
+                </div>
+                <h2 class="text-3xl md:text-5xl font-semibold text-navy font-heading leading-tight">
+                  Pneuma Studios
+                </h2>
+                <p class="text-burgundy font-medium text-lg mt-2 italic">
+                  Creating Media. Sharing Faith. Transforming Lives.
+                </p>
+                <div class="mt-6 space-y-4 text-navy/80 text-base leading-relaxed">
+                  <p>
+                    <strong>Pneuma Studios</strong> is a Christian media and creative studio dedicated to spreading the Gospel, nurturing faith, and creating meaningful media experiences that connect people to God. Through live streaming, podcast production, and devotional programming, we use media as a tool to share God's Word, encourage believers, and make Christian teachings accessible to a wider audience.
+                  </p>
+                  <p>
+                    Our work is driven by a passion for excellence, authentic Christian expression, and the belief that media can be a powerful instrument for ministry, encouragement, and spiritual growth.
+                  </p>
+                </div>
+
+                <div class="mt-8 flex flex-wrap gap-4">
+                  <a href="https://www.youtube.com/@pneumachannel" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 bg-burgundy hover:bg-navy text-white px-6 py-3 transition-colors font-medium text-sm shadow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path><path d="m10 15 5-3-5-3z"></path></svg>
+                    Visit Pneuma Channel on YouTube
+                  </a>
+                  <button type="button" data-speaking-tab="podcast" class="inline-flex items-center gap-2 border border-navy text-navy hover:bg-navy hover:text-white px-6 py-3 transition-colors font-medium text-sm">
+                    Watch The Believer's Corner
+                  </button>
+                </div>
+              </div>
+
+              <!-- Pastor / Ministry Image -->
+              <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-full max-w-sm overflow-hidden rounded-sm shadow-xl border border-gold/40">
+                  <picture>
+                    <source srcset="/images/isaiah-preaching-pentecost.webp" type="image/webp" />
+                    <img src="/images/isaiah-preaching-pentecost.jpg" alt="Isaiah Adegoke preaching at the pulpit" class="w-full aspect-[3/4] object-cover object-top hover:scale-105 transition-transform duration-700" loading="lazy" />
+                  </picture>
+                  <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-navy/90 via-navy/50 to-transparent p-4 text-white text-xs">
+                    <p class="font-semibold text-gold">Isaiah Adegoke</p>
+                    <p class="text-white/80">Ministering God's Word with power and clarity</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mission & Vision Cards -->
+          <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-navy text-white p-8 rounded-sm border border-gold/40 shadow-md">
+              <span class="text-xs uppercase tracking-widest text-gold font-bold">Our Mandate</span>
+              <h3 class="font-heading text-2xl font-semibold text-white mt-2">Our Mission</h3>
+              <p class="mt-4 text-white/80 leading-relaxed text-base">
+                To use media and creative communication to share the Gospel of Jesus Christ, strengthen believers, and create opportunities for spiritual growth through engaging, faith-centered content.
+              </p>
+            </div>
+            <div class="bg-white border border-navy/15 p-8 rounded-sm shadow-md">
+              <span class="text-xs uppercase tracking-widest text-burgundy font-bold">Our Aspiration</span>
+              <h3 class="font-heading text-2xl font-semibold text-navy mt-2">Our Vision</h3>
+              <p class="mt-4 text-navy/75 leading-relaxed text-base">
+                To become a trusted Christian media platform that reaches lives across communities and nations, inspiring people to grow in faith and live out biblical principles every day.
+              </p>
+            </div>
+          </div>
+
+          <!-- Programs and Services Section -->
+          <div class="mb-14">
+            <div class="max-w-2xl mb-8">
+              <p class="text-gold text-sm uppercase tracking-[0.25em] font-semibold">Broadcasting &amp; Ministry</p>
+              <h3 class="text-3xl font-semibold text-navy font-heading mt-1">Our Programs and Services</h3>
+              <p class="text-navy/70 text-sm mt-2">
+                Accessible, biblically grounded digital programming delivered across multi-platform networks.
+              </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <!-- Service 1: Live Streaming -->
+              <div class="bg-white border border-gold/30 p-7 shadow-sm hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-navy/5 text-burgundy flex items-center justify-center rounded-sm mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"></path><rect width="14" height="12" x="2" y="6" rx="2"></rect></svg>
+                </div>
+                <h4 class="font-heading text-xl font-semibold text-navy">Live Streaming Services</h4>
+                <p class="text-sm text-navy/70 mt-2 leading-relaxed">
+                  We provide live-streaming services to help Christian programs, gatherings, and faith-centered events reach audiences beyond their physical locations. Our goal is to make meaningful Christian experiences accessible to viewers wherever they are.
+                </p>
+              </div>
+
+              <!-- Service 2: The Believer's Corner -->
+              <div class="bg-white border border-gold/30 p-7 shadow-sm hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-navy/5 text-burgundy flex items-center justify-center rounded-sm mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" x2="12" y1="19" y2="22"></line></svg>
+                </div>
+                <h4 class="font-heading text-xl font-semibold text-navy">The Believer’s Corner</h4>
+                <p class="text-xs uppercase tracking-wider text-burgundy font-semibold mt-1">Real faith. Real life. Real conversations.</p>
+                <p class="text-sm text-navy/70 mt-2 leading-relaxed">
+                  A Christian podcast exploring the realities of Christian living, relationships, faith, and contemporary issues affecting believers. Through honest conversations and practical biblical insights, the podcast encourages listeners to grow spiritually and navigate everyday life with faith and purpose.
+                </p>
+              </div>
+
+              <!-- Service 3: Morning Glory -->
+              <div class="bg-white border border-gold/30 p-7 shadow-sm hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-navy/5 text-burgundy flex items-center justify-center rounded-sm mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+                </div>
+                <h4 class="font-heading text-xl font-semibold text-navy">Morning Glory</h4>
+                <p class="text-xs uppercase tracking-wider text-burgundy font-semibold mt-1">Daily Devotional Programming</p>
+                <p class="text-sm text-navy/70 mt-2 leading-relaxed">
+                  Morning Glory is a Christian devotional program designed to help people begin their day with God through devotional reflections, biblical encouragement, and faith-centered inspiration. It seeks to cultivate a consistent walk with God and remind viewers of the importance of prayer, Scripture, and daily spiritual renewal.
+                </p>
+              </div>
+
+              <!-- Service 4: Testimonies & Stories of Impact -->
+              <div class="bg-white border border-gold/30 p-7 shadow-sm hover:shadow-md transition-shadow">
+                <div class="w-12 h-12 bg-navy/5 text-burgundy flex items-center justify-center rounded-sm mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <h4 class="font-heading text-xl font-semibold text-navy">Testimonies &amp; Stories of Impact</h4>
+                <p class="text-xs uppercase tracking-wider text-burgundy font-semibold mt-1">Faithfulness Celebrated</p>
+                <p class="text-sm text-navy/70 mt-2 leading-relaxed">
+                  We believe that sharing testimonies can strengthen faith, encourage others, and remind people of God's goodness. Featuring genuine stories of answered prayers, personal transformation, spiritual growth, and experiences of God's faithfulness from viewers and participants.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Core Values -->
+          <div class="bg-parchment border border-gold/40 p-8 rounded-sm">
+            <h4 class="font-heading text-xl font-semibold text-navy text-center mb-6">Our Core Values</h4>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+              <div class="bg-white p-4 border border-navy/10 rounded text-center">
+                <span class="text-gold font-bold text-lg block">Faith</span>
+                <p class="text-xs text-navy/70 mt-1">Keeping Christ at the center of our work.</p>
+              </div>
+              <div class="bg-white p-4 border border-navy/10 rounded text-center">
+                <span class="text-gold font-bold text-lg block">Excellence</span>
+                <p class="text-xs text-navy/70 mt-1">Delivering quality, professional media experiences.</p>
+              </div>
+              <div class="bg-white p-4 border border-navy/10 rounded text-center">
+                <span class="text-gold font-bold text-lg block">Authenticity</span>
+                <p class="text-xs text-navy/70 mt-1">Encouraging honest conversations and genuine testimonies.</p>
+              </div>
+              <div class="bg-white p-4 border border-navy/10 rounded text-center">
+                <span class="text-gold font-bold text-lg block">Purpose</span>
+                <p class="text-xs text-navy/70 mt-1">Creating content that serves a meaningful spiritual mission.</p>
+              </div>
+              <div class="bg-white p-4 border border-navy/10 rounded text-center">
+                <span class="text-gold font-bold text-lg block">Impact</span>
+                <p class="text-xs text-navy/70 mt-1">Using media to encourage, inspire, and strengthen lives.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Tab 1: Podcast & Video Player -->
-        <div data-speaking-panel="podcast" class="mt-10 animate-in fade-in duration-300">
+        <div data-speaking-panel="podcast" class="mt-10 animate-in fade-in duration-300 hidden">
           <div id="podcast-player-container" class="grid lg:grid-cols-3 gap-8">
             <div class="lg:col-span-2">
               <!-- Video / Audio Player Stage -->
@@ -195,11 +356,30 @@
 
         <!-- Tab 2: Speaking Topics -->
         <div data-speaking-panel="topics" class="mt-10 animate-in fade-in duration-300 hidden">
-          <div class="max-w-2xl mb-10">
-            <h3 class="text-3xl font-semibold text-navy font-heading">Keynote &amp; Workshop Topics</h3>
-            <p class="text-navy/70 mt-2 text-base">
-              Isaiah speaks at corporate conferences, university symposiums, leadership retreats, and churches worldwide.
-            </p>
+          <div class="grid lg:grid-cols-12 gap-8 items-center mb-10 bg-white border border-gold/40 p-6 md:p-8 rounded-sm shadow-sm">
+            <div class="lg:col-span-8">
+              <span class="text-xs uppercase tracking-widest text-burgundy font-bold">Keynote &amp; Masterclass Facilitation</span>
+              <h3 class="text-3xl font-semibold text-navy font-heading mt-1">Speaking Topics &amp; Workshops</h3>
+              <p class="text-navy/75 mt-3 text-base leading-relaxed">
+                Isaiah speaks at corporate conferences, university symposiums, industrial leadership retreats, and churches worldwide. Every address fuses mathematical rigor, operational discipline, and spiritual purpose.
+              </p>
+              <div class="mt-5 flex flex-wrap gap-3">
+                <button data-open-speaking-modal class="inline-flex items-center gap-2 bg-burgundy hover:bg-navy text-white px-5 py-2.5 transition-colors font-medium text-sm shadow-sm">
+                  Request Isaiah for an Event
+                </button>
+                <a href="#speaking-inquiry-form" class="inline-flex items-center gap-2 border border-navy/20 hover:border-gold text-navy px-5 py-2.5 transition-colors font-medium text-sm">
+                  Download Speaker Kit
+                </a>
+              </div>
+            </div>
+            <div class="lg:col-span-4 flex justify-center">
+              <div class="relative w-full max-w-[240px] overflow-hidden rounded-sm shadow-md border border-gold/40">
+                <picture>
+                  <source srcset="/images/isaiah-preaching-speaking.webp" type="image/webp" />
+                  <img src="/images/isaiah-preaching-speaking.jpg" alt="Isaiah Adegoke delivering a keynote address" class="w-full aspect-[4/5] object-cover object-top hover:scale-105 transition-transform duration-500" loading="lazy" />
+                </picture>
+              </div>
+            </div>
           </div>
 
           <div class="grid md:grid-cols-2 gap-8">
