@@ -903,6 +903,45 @@ function initFormsAndToasts() {
     });
   }
 
+  // Homepage contact and booking form (index.html)
+  const hpContactForm = document.getElementById('homepage-contact-form');
+  if (hpContactForm) {
+    hpContactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = hpContactForm.querySelector('button[type="submit"]');
+      const origText = btn ? btn.innerHTML : 'Send Inquiry to Isaiah';
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = `<span>Transmitting Inquiry...</span>`;
+      }
+
+      const name = document.getElementById('hp-name')?.value || '';
+      const email = document.getElementById('hp-email')?.value || '';
+      const phone = document.getElementById('hp-phone')?.value || 'N/A';
+      const inquirySelect = document.getElementById('hp-service');
+      const inquiryType = inquirySelect ? inquirySelect.value : 'General';
+      const message = document.getElementById('hp-msg')?.value || '';
+
+      const payload = {
+        Source: 'Homepage Direct Booking Form',
+        Inquiry_Type: inquiryType,
+        Full_Name: name,
+        Email_Address: email,
+        Phone_Number: phone,
+        Message: message
+      };
+
+      await sendFormToEmail(payload, `Homepage Inquiry: [${inquiryType}] - ${name}`, email);
+
+      if (btn) {
+        btn.disabled = false;
+        btn.innerHTML = origText;
+      }
+      hpContactForm.reset();
+      showToast('Inquiry transmitted directly to Isaiah (adegoke305@gmail.com)! We will be in touch shortly.');
+    });
+  }
+
   // Speaking page formal inquiry form (speaking.html)
   const speakingInquiryForm = document.getElementById('speaking-inquiry-form');
   if (speakingInquiryForm) {

@@ -138,50 +138,83 @@ body {
 .wave-bar-4 { animation: audioWave 0.9s ease-in-out infinite 0.2s; }
 
 /* =========================================================================
-   Glowing / Popping "Book Isaiah" CTA Effect
+   Red Glowing / Popping "Book Isaiah" Rectangle CTA (Top Bar & Drawers)
    ========================================================================= */
-@keyframes bookGlowPulse {
+@keyframes redRectanglePopGlow {
   0% {
-    box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7), 0 4px 14px rgba(94, 13, 27, 0.4);
-    transform: scale(1);
+    transform: scale(1) translateY(0);
+    border-color: #DC2626;
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.65), 0 2px 8px rgba(185, 28, 28, 0.35);
   }
-  50% {
-    box-shadow: 0 0 0 8px rgba(197, 160, 89, 0), 0 6px 20px rgba(197, 160, 89, 0.45);
-    transform: scale(1.03);
+  18% {
+    transform: scale(1.08) translateY(-2px);
+    border-color: #EF4444;
+    box-shadow: 0 0 22px 6px rgba(239, 68, 68, 0.85), 0 6px 18px rgba(185, 28, 28, 0.65);
+  }
+  32% {
+    transform: scale(1.02) translateY(0);
+    border-color: #DC2626;
+    box-shadow: 0 0 10px 2px rgba(239, 68, 68, 0.5), 0 3px 10px rgba(185, 28, 28, 0.35);
+  }
+  46% {
+    transform: scale(1.06) translateY(-1px);
+    border-color: #F87171;
+    box-shadow: 0 0 18px 4px rgba(239, 68, 68, 0.75), 0 5px 16px rgba(185, 28, 28, 0.55);
+  }
+  60% {
+    transform: scale(1) translateY(0);
+    border-color: #DC2626;
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0), 0 2px 8px rgba(185, 28, 28, 0.35);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(197, 160, 89, 0), 0 4px 14px rgba(94, 13, 27, 0.4);
-    transform: scale(1);
+    transform: scale(1) translateY(0);
+    border-color: #DC2626;
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0), 0 2px 8px rgba(185, 28, 28, 0.35);
   }
 }
 
-@keyframes shimmerSweep {
+@keyframes bookShimmerSweep {
   0% {
-    transform: translateX(-150%) skewX(-20deg);
+    transform: translateX(-160%) skewX(-20deg);
   }
-  30%, 100% {
-    transform: translateX(250%) skewX(-20deg);
+  26%, 100% {
+    transform: translateX(260%) skewX(-20deg);
   }
 }
 
+@keyframes beaconPing {
+  0% {
+    transform: scale(1);
+    opacity: 0.95;
+  }
+  60%, 100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+/* Red Rectangle Button */
 .book-isaiah-cta {
   position: relative;
   overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  background: linear-gradient(135deg, #7A1224 0%, #5E0D1B 50%, #430913 100%);
+  gap: 0.55rem;
+  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 50%, #881337 100%);
   color: #FFFFFF !important;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  border: 1px solid rgba(223, 202, 152, 0.55);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
+  border: 2px solid #DC2626;
   border-radius: 4px;
-  animation: bookGlowPulse 2.8s ease-in-out infinite;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0.55rem 1.35rem;
+  animation: redRectanglePopGlow 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   text-decoration: none;
   z-index: 10;
+  box-shadow: 0 0 14px rgba(239, 68, 68, 0.6), 0 4px 12px rgba(185, 28, 28, 0.4);
 }
 
 .book-isaiah-cta::before {
@@ -189,39 +222,78 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 60%;
+  width: 50%;
   height: 100%;
   background: linear-gradient(
     90deg, 
     transparent 0%, 
-    rgba(255, 255, 255, 0.0) 20%, 
-    rgba(223, 202, 152, 0.5) 50%, 
-    rgba(255, 255, 255, 0.75) 60%, 
-    rgba(223, 202, 152, 0.5) 70%, 
+    rgba(255, 255, 255, 0.0) 15%, 
+    rgba(255, 255, 255, 0.5) 45%, 
+    rgba(255, 255, 255, 0.9) 55%, 
+    rgba(255, 255, 255, 0.5) 65%, 
     transparent 100%
   );
-  animation: shimmerSweep 3.5s infinite ease-in-out;
+  animation: bookShimmerSweep 3s infinite ease-in-out;
   pointer-events: none;
 }
 
 .book-isaiah-cta:hover {
-  transform: translateY(-2px) scale(1.05);
-  background: linear-gradient(135deg, #0B192C 0%, #152A47 100%);
-  border-color: #C5A059;
-  box-shadow: 0 0 25px rgba(197, 160, 89, 0.7), 0 8px 24px rgba(11, 25, 44, 0.55);
+  transform: translateY(-2px) scale(1.08);
+  background: linear-gradient(135deg, #EF4444 0%, #DC2626 50%, #991B1B 100%);
+  border-color: #FECACA;
+  box-shadow: 0 0 30px rgba(239, 68, 68, 0.95), 0 8px 24px rgba(185, 28, 28, 0.6);
+  color: #FFFFFF !important;
+}
+
+.book-isaiah-cta:hover .book-isaiah-arrow {
+  transform: translateX(4px);
 }
 
 .book-isaiah-cta:active {
-  transform: translateY(0) scale(0.99);
+  transform: translateY(0) scale(0.98);
 }
 
-.book-isaiah-pulse-dot {
-  width: 7px;
-  height: 7px;
+/* Beacon status dot */
+.book-isaiah-beacon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
+}
+
+.book-isaiah-beacon .beacon-ping {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   border-radius: 9999px;
-  background-color: #DFCA98;
-  box-shadow: 0 0 8px #C5A059;
+  background-color: #FCA5A5;
+  animation: beaconPing 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.book-isaiah-beacon .beacon-core {
+  position: relative;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 6px #F87171;
+}
+
+.book-isaiah-arrow {
   display: inline-block;
-  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  transition: transform 0.25s ease;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+/* Hero / Section specific oversized Book Isaiah WOW CTA */
+.book-isaiah-hero-cta {
+  padding: 0.95rem 2.2rem;
+  font-size: 1.05rem;
+  border-radius: 8px;
+  border-width: 2px;
 }
 

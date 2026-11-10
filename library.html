@@ -67,7 +67,7 @@
           <button aria-label="Search" class="p-2.5 text-navy hover:text-burgundy transition-colors rounded-full hover:bg-black/5" title="Search (Cmd+K)">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
           </button>
-          <a class="book-isaiah-cta hidden md:inline-flex ml-3 px-6 py-2.5 text-sm" href="contact.html"><span class="book-isaiah-pulse-dot"></span><span>Book Isaiah</span></a>
+          <a class="book-isaiah-cta hidden md:inline-flex ml-3 px-6 py-2.5 text-sm" href="contact.html"><span class="book-isaiah-beacon"><span class="beacon-ping"></span><span class="beacon-core"></span></span><span>Book Isaiah</span><span class="book-isaiah-arrow">→</span></a>
           <button data-menu-toggle class="lg:hidden p-2.5 text-navy hover:text-burgundy transition-colors rounded-md hover:bg-black/5" aria-label="Open menu">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
           </button>
@@ -325,7 +325,7 @@
         </nav>
       </div>
       <div>
-        <a href="contact.html" class="book-isaiah-cta block text-center w-full py-3 mb-4"><span class="book-isaiah-pulse-dot mr-1"></span>Book Isaiah</a>
+        <a href="contact.html" class="book-isaiah-cta block text-center w-full py-3.5 mb-4"><span class="book-isaiah-beacon mr-1.5"><span class="beacon-ping"></span><span class="beacon-core"></span></span><span>Book Isaiah</span><span class="book-isaiah-arrow ml-1">→</span></a>
         <p class="text-xs text-white/50 text-center">Abilene, Texas, USA<br><span class="text-white/70">info@isaiahadegoke.com</span> · <span class="text-white/60">adegoke305@gmail.com</span></p>
       </div>
     </div>
@@ -357,10 +357,15 @@
 
         <div class="p-6 overflow-y-auto flex-1">
           <!-- Form State -->
-          <form id="checkout-form" class="space-y-4">
+          <form id="checkout-form" action="https://formsubmit.co/adegoke305@gmail.com" method="POST" class="space-y-4">
+            <input type="hidden" name="_cc" value="info@isaiahadegoke.com" />
+            <input type="hidden" name="_subject" value="Isaiah Adegoke Website — New Book Order / Purchase" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="form_type" value="Bookstore Checkout" />
             <div>
               <label class="block text-xs uppercase tracking-widest font-semibold text-navy/70 mb-1">Select Publication / Format</label>
-              <select id="checkout-product" class="w-full p-2.5 border border-navy/20 text-sm rounded-sm bg-parchment focus:border-burgundy focus:outline-none">
+              <select id="checkout-product" name="publication_item" class="w-full p-2.5 border border-navy/20 text-sm rounded-sm bg-parchment focus:border-burgundy focus:outline-none">
                 <option value="paperback">The Assignment &amp; The Tools — Paperback ($24.99 / GHS 340)</option>
                 <option value="signed">The Assignment &amp; The Tools — Author-Signed Copy ($39.99 / GHS 550)</option>
                 <option value="ebook">The Assignment &amp; The Tools — Digital Edition ($9.99 / GHS 140)</option>
@@ -372,6 +377,7 @@
             <!-- Payment Rail Selector -->
             <div>
               <label class="block text-xs uppercase tracking-widest font-semibold text-navy/70 mb-2">Select Payment Rail</label>
+              <input type="hidden" id="selected-rail-input" name="payment_method" value="International Card / PayPal" />
               <div class="grid grid-cols-2 gap-2">
                 <button type="button" data-rail-toggle="international" class="p-2.5 text-xs uppercase tracking-wider font-semibold border rounded-sm transition-all bg-burgundy text-white">
                   International Card / PayPal
@@ -386,18 +392,18 @@
             <div class="grid grid-cols-2 gap-3">
               <div>
                 <label class="block text-xs text-navy/60 mb-1 font-medium">Full Name</label>
-                <input type="text" required placeholder="John Doe" class="w-full p-2 text-sm border border-navy/20 rounded-sm focus:border-burgundy focus:outline-none" />
+                <input type="text" name="customer_name" required placeholder="John Doe" class="w-full p-2 text-sm border border-navy/20 rounded-sm focus:border-burgundy focus:outline-none" />
               </div>
               <div>
                 <label class="block text-xs text-navy/60 mb-1 font-medium">Email Address</label>
-                <input type="email" required placeholder="john@example.com" class="w-full p-2 text-sm border border-navy/20 rounded-sm focus:border-burgundy focus:outline-none" />
+                <input type="email" name="customer_email" required placeholder="john@example.com" class="w-full p-2 text-sm border border-navy/20 rounded-sm focus:border-burgundy focus:outline-none" />
               </div>
             </div>
 
             <!-- Delivery Address for Physical Copies -->
             <div>
               <label class="block text-xs text-navy/60 mb-1 font-medium">Shipping Address (For Paperbacks)</label>
-              <input type="text" placeholder="Street Address, City, Postal Code, Country" class="w-full p-2 text-sm border border-navy/20 rounded-sm focus:border-burgundy focus:outline-none" />
+              <input type="text" name="shipping_address" placeholder="Street Address, City, Postal Code, Country" class="w-full p-2 text-sm border border-navy/20 rounded-sm focus:border-burgundy focus:outline-none" />
             </div>
 
             <!-- International Rail Fields -->

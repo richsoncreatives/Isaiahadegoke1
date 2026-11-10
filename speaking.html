@@ -67,7 +67,7 @@
           <button aria-label="Search" class="p-2.5 text-navy hover:text-burgundy transition-colors rounded-full hover:bg-black/5" title="Search (Cmd+K)">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
           </button>
-          <a class="book-isaiah-cta hidden md:inline-flex ml-3 px-6 py-2.5 text-sm" href="contact.html"><span class="book-isaiah-pulse-dot"></span><span>Book Isaiah</span></a>
+          <a class="book-isaiah-cta hidden md:inline-flex ml-3 px-6 py-2.5 text-sm" href="contact.html"><span class="book-isaiah-beacon"><span class="beacon-ping"></span><span class="beacon-core"></span></span><span>Book Isaiah</span><span class="book-isaiah-arrow">→</span></a>
           <button data-menu-toggle class="lg:hidden p-2.5 text-navy hover:text-burgundy transition-colors rounded-md hover:bg-black/5" aria-label="Open menu">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
           </button>
@@ -468,7 +468,22 @@
               </p>
             </div>
 
-            <form id="speaking-inquiry-form" class="space-y-5">
+            <form id="speaking-inquiry-form" action="https://formsubmit.co/adegoke305@gmail.com" method="POST" class="space-y-5">
+              <!-- FormSubmit direct Gmail routing fields -->
+              <input type="hidden" name="_subject" value="Formal Speaking Engagement Invitation - Isaiah Adegoke" />
+              <input type="hidden" name="_cc" value="info@isaiahadegoke.com" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_next" value="https://www.isaiahadegoke.com/speaking.html?tab=request&sent=success" />
+
+              <div id="speaking-success-banner" class="hidden bg-green-50 border border-green-200 text-green-900 p-4 rounded-sm flex items-start gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-600 shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                <div>
+                  <p class="font-semibold text-sm">Speaking Invitation Dispatched Directly to Isaiah's Gmail!</p>
+                  <p class="text-xs text-green-800 mt-0.5">Your formal event proposal was sent to <strong>adegoke305@gmail.com</strong> (CC: info@isaiahadegoke.com). Isaiah and his scheduling team review event invitations weekly.</p>
+                </div>
+              </div>
+
               <div class="grid md:grid-cols-2 gap-5">
                 <div>
                   <label class="block text-xs uppercase tracking-wider font-semibold text-navy/70 mb-1">Your Full Name</label>
@@ -526,9 +541,12 @@
                 <textarea name="event_context" rows="4" placeholder="Briefly describe the theme, goals, and expectations for Isaiah's session..." class="w-full p-3 border border-navy/20 rounded-sm text-sm focus:border-burgundy focus:outline-none"></textarea>
               </div>
 
-              <button type="submit" class="w-full bg-burgundy hover:bg-navy text-white py-3.5 text-sm font-semibold transition-colors shadow-md">
-                Submit Formal Speaking Invitation
-              </button>
+              <div class="space-y-3 pt-1">
+                <button type="submit" class="w-full bg-burgundy hover:bg-navy text-white py-3.5 text-sm font-semibold transition-colors shadow-md flex items-center justify-center gap-2">
+                  <span>Submit Formal Speaking Invitation</span>
+                  <span class="text-gold font-bold">→</span>
+                </button>
+              </div>
             </form>
           </div>
         </div>
@@ -631,7 +649,7 @@
         </nav>
       </div>
       <div>
-        <a href="contact.html" class="book-isaiah-cta block text-center w-full py-3 mb-4"><span class="book-isaiah-pulse-dot mr-1"></span>Book Isaiah</a>
+        <a href="contact.html" class="book-isaiah-cta block text-center w-full py-3.5 mb-4"><span class="book-isaiah-beacon mr-1.5"><span class="beacon-ping"></span><span class="beacon-core"></span></span><span>Book Isaiah</span><span class="book-isaiah-arrow ml-1">→</span></a>
         <p class="text-xs text-white/50 text-center">Abilene, Texas, USA<br><span class="text-white/70">info@isaiahadegoke.com</span> · <span class="text-white/60">adegoke305@gmail.com</span></p>
       </div>
     </div>
