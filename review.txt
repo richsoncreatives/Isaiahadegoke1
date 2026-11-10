@@ -1,0 +1,232 @@
+BENJAMIN LARBI | EDITORIAL CONSULTANT
+Website Editorial and Communications
+Review
+Isaiah Adegoke official website
+Prepared for Isaiah Adegoke
+Prepared by Benjamin Larbi | Editorial Consultant
+Review date 8 November 2026
+Website reviewed: https://isaiahadegoke1.richsoncreatives.workers.dev/
+Overall assessment
+The website provides a strong foundation for presenting your professional expertise, ministry and authorship. Its
+visual identity is coherent, its navigation is straightforward, and its content gives visitors substantial background on
+your work. Before final approval, I recommend correcting several download and content destinations, reconciling
+credentials and research status, and tightening the copy around the audiences you most want to reach.
+The central communications opportunity is to make the relationship between your roles easier to understand and
+give each audience a clear next step. Selected evidence, precise descriptions and shorter passages will strengthen
+credibility more effectively than repeated assertions of excellence.
+Purpose and review basis
+This review covers writing, messaging, page structure, credibility, calls to action and visible desktop usability. It
+assumes the website aims to build professional credibility, attract speaking and consulting enquiries, sell books and
+grow the ministry audience. Please confirm which objective takes priority before substantial rewriting.
+How to use this report
+Essential items should be resolved before final approval. Recommended items would materially improve clarity or
+visitor experience. Optional items are refinements. Observed inconsistencies and click outcomes are distinguished
+from factual claims requiring your confirmation and technical services requiring developer verification.
+Immediate priorities
+● Correct the resource download and speaker kit destinations.
+● Confirm publication status, exact credential names and the evidence behind numerical achievements.
+● Verify checkout, fulfilment and enquiry delivery before approving the associated promises.
+● Simplify the opening messages and provide clear routes for readers, event organisers and prospective consulting
+clients.
+Isaiah Adegoke website review • 10 November 2026 Page 1
+
+-- 1 of 6 --
+
+BENJAMIN LARBI | EDITORIAL CONSULTANT
+Home and About
+Home
+Essential | Research status. The homepage refers to peer-reviewed research on AI-enhanced corporate
+sustainability, while Experience lists the relevant manuscript as under peer review. Confirm whether the statements
+refer to the same work and align the wording with its current status.
+Recommended | Opening message and audience routes. The introduction lists several roles but gives limited
+explanation of how visitors can engage you. Keep the brand statement, then explain your work plainly and provide
+separate routes for consulting, speaking and books. Replace the combined “Book Consultation / Speaking” action
+with clearer individual actions.
+Suggested wording: Isaiah Adegoke is a quality assurance engineer, sustainability scholar, pastor and author. His
+work connects process improvement, purposeful leadership and faith, bringing practical insights to organisations,
+professional communities and congregations.
+Recommended | Book section and repetition. “Latest books” introduces one featured book, while “Featured
+assets” sounds like an internal marketing label. Use “Featured book”, shorten the homepage description and direct
+readers to the Library page for details.
+Recommended | Episode destinations. Homepage episode links lead to the general Speaking page, which initially
+displays Pneuma Studios content. Ask the developer to open the corresponding episode directly.
+Optional | Unclear terminology. Replace “sanitation-grade discipline” with a precise description such as “sanitation
+controls and quality assurance in continuous production operations”, if accurate.
+About
+Essential | Degree titles and dates. The undergraduate qualification appears as “Theology & Management” here
+and “Theology with Management Science” on Experience. The study period ends in 2014, while an award is listed
+under 2015. Check the official title and distinguish study completion, graduation and award dates as needed. Kindly
+ensure it is consistent with your CV entries.
+Essential | Award selection criteria. Confirm the precise basis for the statement that Hamand Society membership
+is restricted to the university’s top five graduate students. Link to the official criteria where available and avoid
+stronger wording than those criteria support.
+Recommended | Biography length. Break the biography into short sections covering professional work, ministry,
+and family and community service. Retain the personal warmth while reducing repeated descriptions of purpose and
+excellence.
+Recommended | Names and academic framing. Confirm Pearl’s preferred form of address and use “Dr Pearl
+Adegoke” or “Pearl Adegoke, PhD” consistently. “Three campuses, four degrees” is not inherently inconsistent; “Four
+degrees across three continents” is an optional clarity improvement. Reduce repeated emphasis on the two separate
+master’s programmes.
+Isaiah Adegoke website review • 10 November 2026 Page 2
+
+-- 2 of 6 --
+
+BENJAMIN LARBI | EDITORIAL CONSULTANT
+Experience and professional credibility
+The Experience page contains useful detail, but readers need clearer distinctions between verified achievements,
+research outputs and qualifications. These recommendations concern precision and presentation; they do not
+establish that any underlying claim is inaccurate.
+Essential | Numerical achievements. Claims include 100% compliance, zero contamination, 20% profitability growth
+and a 35% reduction in reporting turnaround time. Confirm the underlying records and specify the measure, period
+and scope. Clarify whether a result relates to an individual shift, production line, project or whole operation.
+Confirm that employer-related information is approved for public use where necessary.
+Essential | Overlapping roles. Healthy Haven employment overlaps with overseas study and university employment.
+I think it will be helpful to explain whether the role was full-time, part-time, remote, advisory or undertaken through
+another arrangement. A brief qualifier can prevent an otherwise valid timeline from appearing unclear.
+Essential | Research categories. Separate published journal articles, manuscripts under review, independent
+research and conference presentations. A manuscript under review should not be presented as an accepted or
+published peer-reviewed article.
+Recommended | Complete research references. Add author names, publication year, exact title, journal, volume
+and pages or article number, and a DOI or publisher link where available. Use one citation format across the site and
+reconcile the overall publication count with the categories included.
+Recommended | Certification names. The homepage uses “Black Belt / Green Belt”, while Experience uses “Black
+Belt”. “Certified Quality Assurance Engineer” also becomes “Quality Assurance Engineer”. Reproduce the exact
+certificate titles and issuing organisations consistently.
+Recommended | Awards headings. Replace “Honors, strictly separated by discipline” with “Awards and
+recognition”. Technology and Sustainability can remain useful subheadings. Remove emphatic terms such as “elite”
+or “strictly” unless needed to convey documented selection criteria.
+Recommended | Experience bullets. Replace inflated descriptions such as “an unyielding culture” and “high-velocity
+cross-functional synchronization” with specific actions and outcomes. Use present tense for continuing
+responsibilities and past tense for completed work.
+Suggested wording: Trained production teams in standard operating procedures, sanitation controls and continuous
+improvement practices.
+Presenting measured results
+Use a consistent structure for achievements: action, defined outcome and measurement period. For example,
+“Reduced [defined measure] by [verified percentage] over [period] through [specific intervention].” The bracketed
+fields are prompts for verification and should not appear in the published copy.
+Records to confirm
+Check degree certificates, award notifications, professional certifications, publication records and the source of each
+numerical claim. Supporting links can be selective; the website does not need to reproduce every record.
+Isaiah Adegoke website review • 10 November 2026 Page 3
+
+-- 3 of 6 --
+
+BENJAMIN LARBI | EDITORIAL CONSULTANT
+Speaking and Library
+Speaking and Podcast
+Essential | Speaker kit destination. Selecting “Download Speaker Kit” changed the URL to an enquiry-form anchor
+without supplying a downloadable kit. Link to the actual file or rename the action “Request a speaker kit” and
+ensure the enquiry section opens.
+Essential | Episode link accuracy. The inspected “Watch on YouTube” link points to the general channel. Link to the
+named episode and verify that the displayed title and duration match the recording. Playback itself was not tested.
+Recommended | Page hierarchy. The main heading names The Believer’s Corner, while the initial section presents
+Pneuma Studios. Use an umbrella heading covering speaking, podcast and ministry media, then distinguish those
+areas clearly.
+Recommended | Speaking promise. “Every address fuses mathematical rigor, operational discipline, and spiritual
+purpose” is an absolute statement that may be unclear to corporate audiences. Explain how topics are adapted to
+the event. Retain the useful audience and session-duration details in the topic cards.
+Suggested wording: Invite Isaiah to speak on operational excellence, sustainability, faith and purposeful leadership.
+Explore the topics below and share your audience, event format and objectives so the session can be tailored to your
+needs.
+Recommended | Accessible language. Use “Podcast episodes” instead of “Interactive Discussion Archive”. Replace
+“talent without blueprint” with “talent without a clear direction” and simplify phrases such as “boundary
+stewardship”.
+Library and Bookstore
+Essential | Incorrect resource checkout. Selecting “Download digital copy” beneath The Discipline of Quality
+opened a checkout for the digital edition of The Assignment & The Tools. Correct this product mapping and verify
+the remaining resource buttons individually.
+Essential | Payment and delivery promises. The page advertises multiple payment methods, digital delivery and
+paperback order updates. The checkout overlay was inspected, but these services were not transaction-tested. The
+developer should verify each advertised method and the fulfilment process before approval.
+Recommended | Purchase information. Explain shipping charges, delivery estimates and how digital files are
+received before checkout. Replace “Global & African Payment Rails Supported” with “Payment options” and spell
+out mobile money before using “MoMo”.
+Recommended | Product presentation. Remove the customer-facing “3D Author Edition Mockup” text. Clarify “your
+gift is self-supporting”, which is ambiguous without the book’s context, and shorten the description around the
+reader’s likely interests.
+Suggested wording: In The Assignment & The Tools, Isaiah Adegoke explores the relationship between calling,
+preparation and excellence. Written for believers, professionals and ministry leaders, the book considers how faith
+can guide purposeful decisions in work, business and service.
+Kindly confirm the suggested description against the manuscript before using it.
+Isaiah Adegoke website review • 10 November 2026 Page 4
+
+-- 4 of 6 --
+
+BENJAMIN LARBI | EDITORIAL CONSULTANT
+Insights and Contact
+Insights
+Essential | Absolute contamination claim. The Healthy Haven case study says contamination risks were eliminated
+“entirely”. Replace this with the precise, evidenced outcome. A record of no observed contamination over a defined
+period does not establish that all risk was eliminated.
+Essential | Financial terminology. Related results are described as profitability, gross margins and gross profitability
+across the site. Confirm the actual financial measure and use it consistently, including whether the change is a
+percentage increase or a change in percentage points.
+Recommended | Reading estimates. The six-minute essay and eight-minute case study estimates appear high
+relative to the short texts opened. Recalculate estimates from the complete published content.
+Recommended | Grammar and references. Change “You cannot improve a chaos” to “You cannot improve a process
+you have not defined.” Add chapter, verse and translation details for the Philippians quotation and verify its wording.
+Use consistent title capitalisation, including words such as “Is” and “Be” if applying title case.
+Recommended | Article access and evidence. The inspected articles open in overlays while the page URL remains
+unchanged. Give each article a permanent URL so readers can share and cite it. Link research-based pieces to their
+sources and distinguish research findings from personal interpretation.
+Contact
+Essential | Response expectations. The page promises a response within “48 business hours”, while speaking
+invitations are reviewed weekly. Confirm the intended commitments and state them separately. If two business days
+is intended, kindly say so directly.
+Suggested wording: General enquiries are usually answered within two business days. Speaking invitations are
+reviewed weekly; please allow up to five business days for a response.
+Adopt these timeframes only if they reflect the actual service you can provide.
+Recommended | Labels and inclusive wording. Use “Phone” instead of “Phone & Cell”, “Based in” instead of
+“Location Base”, and “audience” or “attendees” instead of “congregation or delegation” where the instruction
+applies to all event types.
+Recommended | Enquiry routing. Explain when to use the general contact form and when to use the dedicated
+speaking form. Ask the developer to verify that both deliver messages to the appropriate recipient.
+Desktop presentation
+The inspected desktop views use a coherent navy, burgundy and cream palette, prominent headings and
+straightforward navigation. Professional imagery supports the personal brand. A skip-to-content link and descriptive
+text for several images are positive features. Contact-form labels and placeholder text appeared faint in the captured
+view; contrast should be measured before treating this as a confirmed accessibility failure.
+Isaiah Adegoke website review • 10 November 2026 Page 5
+
+-- 5 of 6 --
+
+BENJAMIN LARBI | EDITORIAL CONSULTANT
+Implementation and review scope
+Site wide editorial consistency
+Choose one English convention and apply it consistently. The site mixes British forms such as “honours” and
+“programmes” with American forms such as “honors” and “rigor”. American English is a reasonable option for a
+US-based professional, subject to your preference. Preserve official qualification names and publication titles when
+standardising the surrounding copy.
+Reduce repeated uses of purpose, excellence, discipline, stewardship and impact where a concrete description
+would be more informative. Selected publication links, accurate credentials and approved testimonials or event
+examples, if available, would make credibility easier to assess.
+A branded domain is an optional refinement for the final public site. The current developer-hosted address may be
+appropriate during review.
+Responsibilities and sequence
+● Isaiah: confirm the site’s primary audience and objective, credentials, publication status, dates, numerical
+claims, resource availability and response commitments.
+● Editorial consultant: reconcile terminology, tighten page copy, revise calls to action and apply a consistent style
+after factual confirmation.
+● Developer: correct resource and episode destinations; verify checkout, digital delivery, shipping information,
+contact forms and newsletter subscription; provide permanent article URLs where agreed.
+● Developer: test mobile layouts, menu behaviour, keyboard access, modal focus and closing controls, form labels
+and colour contrast. These require a dedicated usability and accessibility check.
+● Isaiah and developer: confirm appropriate privacy, shipping and refund information for the actual services
+offered. No links to these were apparent in the inspected navigation or footers.
+● Final review: check revised wording and destinations together before approving the site.
+Scope and limitations
+The review covered Home, About, Experience, Speaking and Podcast, Library, Insights and Contact. It included the
+homepage audience tabs, both awards panels, the speaking sections and enquiry-form presentation, two article
+readers and a checkout overlay. Observations reflect the version accessed during the review on 8 November 2026;
+later changes may resolve or alter the findings.
+No contact or subscription forms were submitted. No payment details were entered and no purchase was
+completed. Credentials, employment history, awards and research claims were not independently authenticated
+against external records. The downloadable CV and external retailer destinations were not assessed. Audio playback,
+every article, every resource and every external link were not tested.
+This is an editorial and communications assessment with limited desktop usability observations. It is not a security,
+legal compliance, search performance or comprehensive accessibility audit. Mobile-device behaviour was not
+tested. Proposed wording is illustrative and should be approved for factual accuracy before publication.
+Isaiah Adegoke website review • 10 November 2026 Page 6
+
+-- 6 of 6 --
+

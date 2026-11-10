@@ -67,7 +67,7 @@
           <button aria-label="Search" class="p-2.5 text-navy hover:text-burgundy transition-colors rounded-full hover:bg-black/5" title="Search (Cmd+K)">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
           </button>
-          <a class="hidden md:inline-block ml-2 bg-burgundy text-white text-sm px-6 py-2.5 hover:bg-navy transition-colors font-medium shadow-sm" href="contact.html">Book Isaiah</a>
+          <a class="book-isaiah-cta hidden md:inline-flex ml-3 px-6 py-2.5 text-sm" href="contact.html"><span class="book-isaiah-pulse-dot"></span><span>Book Isaiah</span></a>
           <button data-menu-toggle class="lg:hidden p-2.5 text-navy hover:text-burgundy transition-colors rounded-md hover:bg-black/5" aria-label="Open menu">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
           </button>
@@ -325,9 +325,9 @@
               <!-- Episode Meta Info -->
               <div class="mt-6">
                 <p id="player-tag" class="text-burgundy text-sm uppercase tracking-widest font-semibold">Episode 3</p>
-                <h3 class="text-2xl font-semibold text-navy mt-1 font-heading">Interactive Discussion Archive</h3>
+                <h3 class="text-2xl font-semibold text-navy mt-1 font-heading">Podcast Episodes</h3>
                 <p class="mt-2 text-navy/75 leading-relaxed">
-                  The Believer's Corner is hosted by Isaiah Adegoke, discussing faith integration with working life, emotional health, spiritual stewardship, and Christian family values.
+                  The Believer's Corner is hosted by Isaiah Adegoke, exploring faith integration with working life, emotional health, spiritual stewardship, and Christian family values.
                 </p>
               </div>
             </div>
@@ -338,7 +338,7 @@
               <button data-episode-id="3" class="w-full text-left p-5 border transition-all border-gold bg-white shadow-sm hover:shadow-md cursor-pointer rounded-sm">
                 <span class="text-xs text-burgundy uppercase tracking-widest font-semibold block">Ep. 3 · 38:42</span>
                 <span class="block font-heading text-navy font-semibold text-base mt-1">Real Faith in Real Relationships</span>
-                <p class="text-xs text-navy/60 mt-1">Courtship, marriage covenant and boundary stewardship.</p>
+                <p class="text-xs text-navy/60 mt-1">Courtship, marriage covenant, and healthy emotional and spiritual boundaries.</p>
               </button>
               <button data-episode-id="2" class="w-full text-left p-5 border transition-all border-navy/10 hover:border-gold hover:bg-white cursor-pointer rounded-sm">
                 <span class="text-xs text-burgundy uppercase tracking-widest font-semibold block">Ep. 2 · 42:15</span>
@@ -361,15 +361,15 @@
               <span class="text-xs uppercase tracking-widest text-burgundy font-bold">Keynote &amp; Masterclass Facilitation</span>
               <h3 class="text-3xl font-semibold text-navy font-heading mt-1">Speaking Topics &amp; Workshops</h3>
               <p class="text-navy/75 mt-3 text-base leading-relaxed">
-                Isaiah speaks at corporate conferences, university symposiums, industrial leadership retreats, and churches worldwide. Every address fuses mathematical rigor, operational discipline, and spiritual purpose.
+                Isaiah speaks at corporate conferences, university symposiums, industrial leadership retreats, and churches worldwide. Every address fuses operational discipline, mathematical rigor, and purposeful leadership.
               </p>
               <div class="mt-5 flex flex-wrap gap-3">
-                <button data-open-speaking-modal class="inline-flex items-center gap-2 bg-burgundy hover:bg-navy text-white px-5 py-2.5 transition-colors font-medium text-sm shadow-sm">
+                <button data-speaking-tab="request" class="inline-flex items-center gap-2 bg-burgundy hover:bg-navy text-white px-5 py-2.5 transition-colors font-medium text-sm shadow-sm">
                   Request Isaiah for an Event
                 </button>
-                <a href="#speaking-inquiry-form" class="inline-flex items-center gap-2 border border-navy/20 hover:border-gold text-navy px-5 py-2.5 transition-colors font-medium text-sm">
-                  Download Speaker Kit
-                </a>
+                <button data-speaking-tab="request" class="inline-flex items-center gap-2 border border-navy/20 hover:border-gold text-navy px-5 py-2.5 transition-colors font-medium text-sm">
+                  Request Speaker Kit
+                </button>
               </div>
             </div>
             <div class="lg:col-span-4 flex justify-center">
@@ -389,7 +389,7 @@
                 <span class="text-xs uppercase tracking-widest text-burgundy font-semibold">Leadership &amp; Faith</span>
                 <h4 class="font-heading text-2xl text-navy font-semibold mt-2">Faith, Purpose &amp; The Assignment</h4>
                 <p class="text-sm text-navy/70 mt-3 leading-relaxed">
-                  Aligning divine calling with disciplined professional execution. Why talent without blueprint leads to burnout, and how to discover the assignment governing your current season.
+                  Aligning divine calling with disciplined professional execution. Why talent without a clear direction leads to burnout, and how to discover the assignment governing your current season.
                 </p>
                 <div class="mt-4 pt-4 border-t border-navy/10 text-xs text-navy/60 space-y-1">
                   <p><strong>Format:</strong> 45–60 min Keynote / 90 min Workshop</p>
@@ -407,7 +407,7 @@
                 <span class="text-xs uppercase tracking-widest text-burgundy font-semibold">Industrial Engineering</span>
                 <h4 class="font-heading text-2xl text-navy font-semibold mt-2">Lean Six Sigma &amp; Operational Excellence</h4>
                 <p class="text-sm text-navy/70 mt-3 leading-relaxed">
-                  From plant-floor problem solving to enterprise-wide standard operating procedures. Real-world case studies in reducing waste, increasing profitability, and eliminating non-conformance.
+                  From plant-floor problem solving to enterprise-wide standard operating procedures. Real-world case studies in reducing waste, increasing operational efficiency, and eliminating non-conformance.
                 </p>
                 <div class="mt-4 pt-4 border-t border-navy/10 text-xs text-navy/60 space-y-1">
                   <p><strong>Format:</strong> 60 min Keynote / Half-Day Masterclass</p>
@@ -464,7 +464,7 @@
               <span class="text-xs uppercase tracking-widest text-burgundy font-semibold">Speaker Engagement</span>
               <h3 class="font-heading text-3xl text-navy font-semibold mt-1">Invite Isaiah to Your Event</h3>
               <p class="text-navy/70 mt-2 text-sm leading-relaxed">
-                Please complete the form below with your event details. Isaiah's team reviews all invitations weekly and responds with date availability, rider requirements, and travel logistics.
+                Please complete the form below with your event details. Speaking invitations are reviewed weekly; please allow up to five business days for a response regarding availability and scheduling.
               </p>
             </div>
 
@@ -472,33 +472,33 @@
               <div class="grid md:grid-cols-2 gap-5">
                 <div>
                   <label class="block text-xs uppercase tracking-wider font-semibold text-navy/70 mb-1">Your Full Name</label>
-                  <input type="text" required placeholder="Dr. Sarah Johnson" class="w-full p-3 border border-navy/20 rounded-sm text-sm focus:border-burgundy focus:outline-none" />
+                  <input name="name" type="text" required placeholder="Dr. Sarah Johnson" class="w-full p-3 border border-navy/20 rounded-sm text-sm focus:border-burgundy focus:outline-none" />
                 </div>
                 <div>
                   <label class="block text-xs uppercase tracking-wider font-semibold text-navy/70 mb-1">Work / Ministry Email</label>
-                  <input type="email" required placeholder="sarah@conference.org" class="w-full p-3 border border-navy/20 rounded-sm text-sm focus:border-burgundy focus:outline-none" />
+                  <input name="email" type="email" required placeholder="sarah@conference.org" class="w-full p-3 border border-navy/20 rounded-sm text-sm focus:border-burgundy focus:outline-none" />
                 </div>
               </div>
 
               <div class="grid md:grid-cols-2 gap-5">
                 <div>
                   <label class="block text-xs uppercase tracking-wider font-semibold text-navy/70 mb-1">Organization / Host Entity</label>
-                  <input type="text" required placeholder="e.g. Texas Manufacturing Summit" class="w-full p-3 border border-navy/20 rounded-sm text-sm focus:border-burgundy focus:outline-none" />
+                  <input name="organization" type="text" required placeholder="e.g. Texas Manufacturing Summit" class="w-full p-3 border border-navy/20 rounded-sm text-sm focus:border-burgundy focus:outline-none" />
                 </div>
                 <div>
                   <label class="block text-xs uppercase tracking-wider font-semibold text-navy/70 mb-1">Event Location / Virtual</label>
-                  <input type="text" required placeholder="City, State / Online Zoom" class="w-full p-3 border border-navy/20 rounded-sm text-sm focus:border-burgundy focus:outline-none" />
+                  <input name="location" type="text" required placeholder="City, State / Online Zoom" class="w-full p-3 border border-navy/20 rounded-sm text-sm focus:border-burgundy focus:outline-none" />
                 </div>
               </div>
 
               <div class="grid md:grid-cols-3 gap-5">
                 <div>
                   <label class="block text-xs uppercase tracking-wider font-semibold text-navy/70 mb-1">Proposed Event Date</label>
-                  <input type="date" required class="w-full p-3 border border-navy/20 rounded-sm text-sm focus:border-burgundy focus:outline-none" />
+                  <input name="event_date" type="date" required class="w-full p-3 border border-navy/20 rounded-sm text-sm focus:border-burgundy focus:outline-none" />
                 </div>
                 <div>
                   <label class="block text-xs uppercase tracking-wider font-semibold text-navy/70 mb-1">Expected Audience</label>
-                  <select class="w-full p-3 border border-navy/20 rounded-sm text-sm bg-parchment focus:border-burgundy focus:outline-none">
+                  <select name="audience_size" class="w-full p-3 border border-navy/20 rounded-sm text-sm bg-parchment focus:border-burgundy focus:outline-none">
                     <option>Under 100 Attendees</option>
                     <option>100 – 500 Attendees</option>
                     <option>500 – 1,500 Attendees</option>
@@ -507,7 +507,7 @@
                 </div>
                 <div>
                   <label class="block text-xs uppercase tracking-wider font-semibold text-navy/70 mb-1">Session Type</label>
-                  <select class="w-full p-3 border border-navy/20 rounded-sm text-sm bg-parchment focus:border-burgundy focus:outline-none">
+                  <select name="session_type" class="w-full p-3 border border-navy/20 rounded-sm text-sm bg-parchment focus:border-burgundy focus:outline-none">
                     <option>Keynote Address</option>
                     <option>Executive Workshop</option>
                     <option>Church Sermon / Ministry</option>
@@ -518,12 +518,12 @@
 
               <div>
                 <label class="block text-xs uppercase tracking-wider font-semibold text-navy/70 mb-1">Preferred Theme or Core Topic</label>
-                <input type="text" placeholder="e.g. Faith, Purpose & The Assignment or Lean Operational Quality" class="w-full p-3 border border-navy/20 rounded-sm text-sm focus:border-burgundy focus:outline-none" />
+                <input name="theme_topic" type="text" placeholder="e.g. Faith, Purpose & The Assignment or Lean Operational Quality" class="w-full p-3 border border-navy/20 rounded-sm text-sm focus:border-burgundy focus:outline-none" />
               </div>
 
               <div>
                 <label class="block text-xs uppercase tracking-wider font-semibold text-navy/70 mb-1">Event Context &amp; Objectives</label>
-                <textarea rows="4" placeholder="Briefly describe the theme, goals, and expectations for Isaiah's session..." class="w-full p-3 border border-navy/20 rounded-sm text-sm focus:border-burgundy focus:outline-none"></textarea>
+                <textarea name="event_context" rows="4" placeholder="Briefly describe the theme, goals, and expectations for Isaiah's session..." class="w-full p-3 border border-navy/20 rounded-sm text-sm focus:border-burgundy focus:outline-none"></textarea>
               </div>
 
               <button type="submit" class="w-full bg-burgundy hover:bg-navy text-white py-3.5 text-sm font-semibold transition-colors shadow-md">
@@ -570,8 +570,12 @@
             <li><a class="text-white/75 hover:text-white transition-colors" href="contact.html">Contact</a></li>
           </ul>
           <p class="flex items-center gap-2 mt-6 text-white/70 text-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gold"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-            <a href="mailto:adegoke305@gmail.com" class="hover:underline">adegoke305@gmail.com</a>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gold shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            <span class="flex flex-wrap items-center gap-x-2">
+              <a href="mailto:info@isaiahadegoke.com" class="text-white hover:text-gold hover:underline font-medium">info@isaiahadegoke.com</a>
+              <span class="text-white/40">·</span>
+              <a href="mailto:adegoke305@gmail.com" class="text-white/75 hover:text-gold hover:underline text-xs">adegoke305@gmail.com</a>
+            </span>
           </p>
           <p class="flex items-center gap-2 mt-2 text-white/70 text-sm">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gold"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
@@ -627,8 +631,8 @@
         </nav>
       </div>
       <div>
-        <a href="contact.html" class="block text-center w-full py-3 bg-burgundy hover:bg-gold hover:text-navy text-white font-medium transition-colors mb-4">Book Isaiah</a>
-        <p class="text-xs text-white/40 text-center">Abilene, Texas, USA · adegoke305@gmail.com</p>
+        <a href="contact.html" class="book-isaiah-cta block text-center w-full py-3 mb-4"><span class="book-isaiah-pulse-dot mr-1"></span>Book Isaiah</a>
+        <p class="text-xs text-white/50 text-center">Abilene, Texas, USA<br><span class="text-white/70">info@isaiahadegoke.com</span> · <span class="text-white/60">adegoke305@gmail.com</span></p>
       </div>
     </div>
 

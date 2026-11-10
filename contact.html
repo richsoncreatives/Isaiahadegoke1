@@ -67,7 +67,7 @@
           <button aria-label="Search" class="p-2.5 text-navy hover:text-burgundy transition-colors rounded-full hover:bg-black/5" title="Search (Cmd+K)">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
           </button>
-          <a class="hidden md:inline-block ml-2 bg-burgundy text-white text-sm px-6 py-2.5 hover:bg-navy transition-colors font-medium shadow-sm" href="contact.html">Book Isaiah</a>
+          <a class="book-isaiah-cta hidden md:inline-flex ml-3 px-6 py-2.5 text-sm" href="contact.html"><span class="book-isaiah-pulse-dot"></span><span>Book Isaiah</span></a>
           <button data-menu-toggle class="lg:hidden p-2.5 text-navy hover:text-burgundy transition-colors rounded-md hover:bg-black/5" aria-label="Open menu">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
           </button>
@@ -100,22 +100,22 @@
             <div class="grid md:grid-cols-2 gap-5">
               <div class="space-y-2">
                 <label class="text-xs uppercase tracking-wider font-semibold text-navy/70" for="contact-name">Full name *</label>
-                <input class="flex h-11 w-full rounded-sm border border-navy/20 bg-transparent px-3.5 py-2 text-sm shadow-sm focus:outline-none focus:border-burgundy" id="contact-name" required placeholder="Johnathan Doe" />
+                <input name="name" class="flex h-11 w-full rounded-sm border border-navy/20 bg-transparent px-3.5 py-2 text-sm shadow-sm focus:outline-none focus:border-burgundy" id="contact-name" required placeholder="Johnathan Doe" />
               </div>
               <div class="space-y-2">
                 <label class="text-xs uppercase tracking-wider font-semibold text-navy/70" for="contact-email">Email address *</label>
-                <input type="email" class="flex h-11 w-full rounded-sm border border-navy/20 bg-transparent px-3.5 py-2 text-sm shadow-sm focus:outline-none focus:border-burgundy" id="contact-email" required placeholder="johnathan@company.com" />
+                <input name="email" type="email" class="flex h-11 w-full rounded-sm border border-navy/20 bg-transparent px-3.5 py-2 text-sm shadow-sm focus:outline-none focus:border-burgundy" id="contact-email" required placeholder="johnathan@company.com" />
               </div>
             </div>
 
             <div class="grid md:grid-cols-2 gap-5">
               <div class="space-y-2">
                 <label class="text-xs uppercase tracking-wider font-semibold text-navy/70" for="contact-org">Organization / Host (optional)</label>
-                <input class="flex h-11 w-full rounded-sm border border-navy/20 bg-transparent px-3.5 py-2 text-sm shadow-sm focus:outline-none focus:border-burgundy" id="contact-org" placeholder="e.g. University / Enterprise" />
+                <input name="organization" class="flex h-11 w-full rounded-sm border border-navy/20 bg-transparent px-3.5 py-2 text-sm shadow-sm focus:outline-none focus:border-burgundy" id="contact-org" placeholder="e.g. University / Enterprise" />
               </div>
               <div class="space-y-2">
                 <label class="text-xs uppercase tracking-wider font-semibold text-navy/70" for="contact-inquiry">Inquiry type</label>
-                <select id="contact-inquiry" class="flex h-11 w-full rounded-sm border border-navy/20 bg-parchment px-3 py-2 text-sm shadow-sm focus:outline-none focus:border-burgundy">
+                <select name="inquiry_type" id="contact-inquiry" class="flex h-11 w-full rounded-sm border border-navy/20 bg-parchment px-3 py-2 text-sm shadow-sm focus:outline-none focus:border-burgundy">
                   <option value="Speaking">Speaking &amp; Keynote</option>
                   <option value="Consulting">Quality &amp; Process Consulting</option>
                   <option value="Mentorship">Mentorship &amp; Discipleship</option>
@@ -127,7 +127,7 @@
 
             <div class="space-y-2">
               <label class="text-xs uppercase tracking-wider font-semibold text-navy/70" for="contact-msg">How can Isaiah help? *</label>
-              <textarea class="flex min-h-[140px] w-full rounded-sm border border-navy/20 bg-transparent px-3.5 py-3 text-sm shadow-sm focus:outline-none focus:border-burgundy leading-relaxed" id="contact-msg" required placeholder="Provide details regarding your date, theme, audience, or questions..."></textarea>
+              <textarea name="message" class="flex min-h-[140px] w-full rounded-sm border border-navy/20 bg-transparent px-3.5 py-3 text-sm shadow-sm focus:outline-none focus:border-burgundy leading-relaxed" id="contact-msg" required placeholder="Provide details regarding your date, theme, audience, or questions..."></textarea>
             </div>
 
             <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-sm text-sm font-semibold transition-colors shadow-md py-3.5 bg-burgundy hover:bg-navy text-white h-12 px-8 cursor-pointer" type="submit">
@@ -144,9 +144,11 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
             </div>
             <div>
-              <p class="text-xs uppercase tracking-widest text-navy/60 font-semibold">Direct Email</p>
-              <a href="mailto:adegoke305@gmail.com" class="text-lg text-navy hover:text-burgundy font-medium">adegoke305@gmail.com</a>
-              <p class="text-xs text-navy/50 mt-1">Inquiries answered within 48 business hours.</p>
+              <p class="text-xs uppercase tracking-widest text-navy/60 font-semibold">Official Primary Email</p>
+              <a href="mailto:info@isaiahadegoke.com" class="text-lg text-navy hover:text-burgundy font-medium block">info@isaiahadegoke.com</a>
+              <p class="text-xs uppercase tracking-widest text-navy/60 font-semibold mt-2.5">Direct &amp; Personal Email</p>
+              <a href="mailto:adegoke305@gmail.com" class="text-base text-navy/80 hover:text-burgundy font-medium block">adegoke305@gmail.com</a>
+              <p class="text-xs text-navy/50 mt-1.5">All inquiries are received directly and answered within two business days.</p>
             </div>
           </div>
 
@@ -156,7 +158,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
             </div>
             <div>
-              <p class="text-xs uppercase tracking-widest text-navy/60 font-semibold">Phone &amp; Cell</p>
+              <p class="text-xs uppercase tracking-widest text-navy/60 font-semibold">Phone</p>
               <a href="tel:+12177989778" class="text-lg text-navy hover:text-burgundy font-medium">+1 217-798-9778</a>
               <p class="text-xs text-navy/50 mt-1">Central Time Zone (US &amp; Canada).</p>
             </div>
@@ -168,7 +170,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
             </div>
             <div>
-              <p class="text-xs uppercase tracking-widest text-navy/60 font-semibold">Location Base</p>
+              <p class="text-xs uppercase tracking-widest text-navy/60 font-semibold">Based In</p>
               <p class="text-lg text-navy font-medium">Abilene, Texas, USA</p>
               <p class="text-xs text-navy/50 mt-1">Available for international travel and virtual engagements.</p>
             </div>
@@ -183,12 +185,15 @@
           </div>
 
           <!-- Context Note -->
-          <div class="border-t border-gold/40 pt-6 space-y-2 text-sm text-navy/70 leading-relaxed">
+          <div class="border-t border-gold/40 pt-6 space-y-3 text-sm text-navy/70 leading-relaxed">
             <p>
-              <strong>Speaking Inquiries:</strong> Reviewed weekly. Please state whether you require in-person travel or a virtual keynote, and include the expected size of your congregation or delegation.
+              <strong>General Enquiries:</strong> Use the form on the left for process consulting, university collaborations, mentorship, or general messages. We aim to respond within two business days.
             </p>
             <p>
-              <strong>Direct &amp; Bulk Book Orders:</strong> For signed author copies or volume discounts (10+ units) for schools and study groups, select "Direct / Signed Book Orders" in the form above.
+              <strong>Speaking Invitations:</strong> Speaking invitations are reviewed weekly; please allow up to five business days for a response. For events with specific dates, formats, or audience sizes, you may also use the dedicated <a href="speaking.html?tab=request" class="text-burgundy underline font-medium hover:text-navy">Speaking Request Form</a>.
+            </p>
+            <p>
+              <strong>Direct &amp; Bulk Book Orders:</strong> For author-signed copies or volume discounts (10+ units) for schools, study groups, or churches, select "Direct / Signed Book Orders" in the form above.
             </p>
           </div>
         </aside>
@@ -230,8 +235,12 @@
             <li><a class="text-white/75 hover:text-white transition-colors" href="contact.html">Contact</a></li>
           </ul>
           <p class="flex items-center gap-2 mt-6 text-white/70 text-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gold"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-            <a href="mailto:adegoke305@gmail.com" class="hover:underline">adegoke305@gmail.com</a>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gold shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            <span class="flex flex-wrap items-center gap-x-2">
+              <a href="mailto:info@isaiahadegoke.com" class="text-white hover:text-gold hover:underline font-medium">info@isaiahadegoke.com</a>
+              <span class="text-white/40">·</span>
+              <a href="mailto:adegoke305@gmail.com" class="text-white/75 hover:text-gold hover:underline text-xs">adegoke305@gmail.com</a>
+            </span>
           </p>
           <p class="flex items-center gap-2 mt-2 text-white/70 text-sm">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gold"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
@@ -287,8 +296,8 @@
         </nav>
       </div>
       <div>
-        <a href="contact.html" class="block text-center w-full py-3 bg-burgundy hover:bg-gold hover:text-navy text-white font-medium transition-colors mb-4">Book Isaiah</a>
-        <p class="text-xs text-white/40 text-center">Abilene, Texas, USA · adegoke305@gmail.com</p>
+        <a href="contact.html" class="book-isaiah-cta block text-center w-full py-3 mb-4"><span class="book-isaiah-pulse-dot mr-1"></span>Book Isaiah</a>
+        <p class="text-xs text-white/50 text-center">Abilene, Texas, USA<br><span class="text-white/70">info@isaiahadegoke.com</span> · <span class="text-white/60">adegoke305@gmail.com</span></p>
       </div>
     </div>
 

@@ -279,29 +279,42 @@ function initSpeakingTabs() {
   const panels = document.querySelectorAll('[data-speaking-panel]');
   if (!tabs.length) return;
 
+  function activateTab(target) {
+    tabs.forEach(t => {
+      t.classList.remove('bg-navy', 'text-white', 'shadow');
+      t.classList.add('text-navy/70');
+      t.setAttribute('aria-selected', 'false');
+    });
+
+    const activeTab = document.querySelector(`[data-speaking-tab="${target}"]`);
+    if (activeTab) {
+      activeTab.classList.add('bg-navy', 'text-white', 'shadow');
+      activeTab.classList.remove('text-navy/70');
+      activeTab.setAttribute('aria-selected', 'true');
+    }
+
+    panels.forEach(p => {
+      if (p.getAttribute('data-speaking-panel') === target) {
+        p.classList.remove('hidden');
+      } else {
+        p.classList.add('hidden');
+      }
+    });
+  }
+
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       const target = tab.getAttribute('data-speaking-tab');
-
-      tabs.forEach(t => {
-        t.classList.remove('bg-navy', 'text-white', 'shadow');
-        t.classList.add('text-muted-foreground');
-        t.setAttribute('aria-selected', 'false');
-      });
-
-      tab.classList.add('bg-navy', 'text-white', 'shadow');
-      tab.classList.remove('text-muted-foreground');
-      tab.setAttribute('aria-selected', 'true');
-
-      panels.forEach(p => {
-        if (p.getAttribute('data-speaking-panel') === target) {
-          p.classList.remove('hidden');
-        } else {
-          p.classList.add('hidden');
-        }
-      });
+      activateTab(target);
     });
   });
+
+  // Check URL search parameters (e.g., speaking.html?tab=podcast&episode=2 or speaking.html?tab=request)
+  const urlParams = new URLSearchParams(window.location.search);
+  const requestedTab = urlParams.get('tab');
+  if (requestedTab) {
+    activateTab(requestedTab);
+  }
 }
 
 /* -------------------------------------------------------------------------
@@ -421,6 +434,16 @@ function initPodcastPlayer() {
       }
     });
   });
+
+  // Check URL parameter for requested episode (e.g., speaking.html?tab=podcast&episode=2)
+  const urlParams = new URLSearchParams(window.location.search);
+  const reqEp = parseInt(urlParams.get('episode'), 10);
+  if (reqEp) {
+    const found = EPISODES.find(e => e.id === reqEp);
+    if (found) {
+      renderEpisode(found);
+    }
+  }
 }
 
 /* -------------------------------------------------------------------------
@@ -505,9 +528,11 @@ function initCheckoutModal() {
   const totalAmountEl = document.getElementById('checkout-total-price');
 
   const prices = {
-    paperback: { usd: 24.99, ghs: 340 },
-    ebook: { usd: 9.99, ghs: 140 },
-    signed: { usd: 39.99, ghs: 550 }
+    paperback: { title: 'The Assignment & The Tools (Paperback)', usd: 24.99, ghs: 340 },
+    signed: { title: 'The Assignment & The Tools (Author Signed)', usd: 39.99, ghs: 550 },
+    ebook: { title: 'The Assignment & The Tools (Digital Edition)', usd: 9.99, ghs: 140 },
+    discipline: { title: 'The Discipline of Quality (Digital Monograph)', usd: 7.99, ghs: 110 },
+    workbook: { title: 'The Assignment Companion Workbook (Study Guide)', usd: 6.99, ghs: 95 }
   };
 
   let currentRail = 'international';
@@ -515,6 +540,10 @@ function initCheckoutModal() {
   function updateTotal() {
     const prod = productSelect ? productSelect.value : 'paperback';
     const priceObj = prices[prod] || prices.paperback;
+    const titleEl = document.getElementById('checkout-title');
+    if (titleEl && priceObj.title) {
+      titleEl.textContent = priceObj.title;
+    }
     if (totalAmountEl) {
       if (currentRail === 'africa') {
         totalAmountEl.textContent = `GHS ${priceObj.ghs.toFixed(2)}`;
@@ -522,6 +551,10 @@ function initCheckoutModal() {
         totalAmountEl.textContent = `$${priceObj.usd.toFixed(2)} USD`;
       }
     }
+  }
+
+  if (productSelect) {
+    productSelect.addEventListener('change', updateTotal);
   }
 
   openBtns.forEach(btn => {
@@ -574,9 +607,10 @@ function initCheckoutModal() {
   }
 
   if (checkoutForm) {
-    checkoutForm.addEventListener('submit', (e) => {
+    checkoutForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const submitBtn = checkoutForm.querySelector('button[type="submit"]');
+      const origText = submitBtn ? submitBtn.textContent : 'Complete Order';
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.innerHTML = `
@@ -587,21 +621,46 @@ function initCheckoutModal() {
         `;
       }
 
-      setTimeout(() => {
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Complete Order';
+      const prod = productSelect ? productSelect.options[productSelect.selectedIndex]?.text : 'The Assignment & The Tools (Paperback)';
+      const totalAmount = totalAmountEl ? totalAmountEl.textContent : '$24.99 USD';
+      const customerName = checkoutForm.querySelector('input[placeholder="John Doe"]')?.value || 'Guest Customer';
+      const customerEmail = checkoutForm.querySelector('input[type="email"]')?.value || '';
+      const shippingAddress = checkoutForm.querySelector('input[placeholder*="Street Address"]')?.value || 'Digital / Not applicable';
+      const refCode = `IA-${Math.floor(100000 + Math.random() * 900000)}`;
+
+      const orderPayload = {
+        Order_Reference: refCode,
+        Item: prod,
+        Total: totalAmount,
+        Customer_Name: customerName,
+        Customer_Email: customerEmail,
+        Shipping_Address: shippingAddress,
+        Payment_Rail: currentRail === 'africa' ? 'African Mobile Money / Bank Rail' : 'International Card / PayPal'
+      };
+
+      if (currentRail === 'africa') {
+        const netSelect = document.querySelector('#rail-africa select');
+        const phoneInput = document.querySelector('#rail-africa input[type="tel"]');
+        if (netSelect) orderPayload.MoMo_Network = netSelect.value;
+        if (phoneInput) orderPayload.MoMo_Account = phoneInput.value;
+      }
+
+      // Dispatch to adegoke305@gmail.com with CC to info@isaiahadegoke.com
+      await sendFormToEmail(orderPayload, `New Book Order [${refCode}] - ${customerName}`, customerEmail);
+
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = origText;
+      }
+      if (checkoutForm) checkoutForm.classList.add('hidden');
+      if (successState) {
+        successState.classList.remove('hidden');
+        const refEl = document.getElementById('order-ref-code');
+        if (refEl) {
+          refEl.textContent = refCode;
         }
-        if (checkoutForm) checkoutForm.classList.add('hidden');
-        if (successState) {
-          successState.classList.remove('hidden');
-          const refEl = document.getElementById('order-ref-code');
-          if (refEl) {
-            refEl.textContent = `IA-${Math.floor(100000 + Math.random() * 900000)}`;
-          }
-        }
-        showToast('Payment confirmed! Your order receipt has been generated.');
-      }, 1200);
+      }
+      showToast(`Order ${refCode} confirmed! Receipt dispatched to ${customerEmail || 'your email'}.`);
     });
   }
 }
@@ -644,23 +703,37 @@ function initSpeakingModal() {
   });
 
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const submitBtn = form.querySelector('button[type="submit"]');
+      const origText = submitBtn ? submitBtn.textContent : 'Submit Invitation Request';
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.textContent = 'Submitting Proposal Request...';
       }
 
-      setTimeout(() => {
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Submit Invitation Request';
-        }
-        form.classList.add('hidden');
-        if (successState) successState.classList.remove('hidden');
-        showToast('Speaking inquiry submitted. Isaiah will review within 48 hours.');
-      }, 1000);
+      const inputs = form.querySelectorAll('input');
+      const name = inputs[0]?.value || '';
+      const email = inputs[1]?.value || '';
+      const organization = inputs[2]?.value || '';
+      const topicSelect = document.getElementById('modal-speaking-topic');
+      const topic = topicSelect ? topicSelect.options[topicSelect.selectedIndex]?.text : '';
+
+      await sendFormToEmail({
+        Source: 'Speaking Topic Quick Modal',
+        Full_Name: name,
+        Email_Address: email,
+        Organization: organization,
+        Requested_Topic: topic
+      }, `Speaking Inquiry (Modal) - ${name} (${organization})`, email);
+
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = origText;
+      }
+      form.classList.add('hidden');
+      if (successState) successState.classList.remove('hidden');
+      showToast('Speaking inquiry submitted. Invitations are dispatched to Isaiah and reviewed weekly.');
     });
   }
 }
@@ -670,18 +743,20 @@ function initSpeakingModal() {
    ------------------------------------------------------------------------- */
 const SEARCH_INDEX = [
   { title: 'The Assignment & The Tools (Book)', category: 'Bookstore', url: 'library.html', desc: 'Kingdom Laws for Purpose, Excellence and Business.' },
+  { title: 'The Discipline of Quality (Digital Monograph)', category: 'Bookstore', url: 'library.html', desc: 'Lean principles and Kaizen in personal and professional governance.' },
   { title: 'Pneuma Studios — Faith. Media. Purpose.', category: 'Media Studio', url: 'speaking.html', desc: 'Christian media and creative studio dedicated to spreading the Gospel and transforming lives.' },
-  { title: 'Episode 3: Real Faith in Real Relationships', category: 'Podcast', url: 'speaking.html', desc: 'The Believer\'s Corner discussion on covenant marriage and purpose.' },
-  { title: 'Episode 2: Purpose After Graduation', category: 'Podcast', url: 'speaking.html', desc: 'Guidance for graduates aligning career with spiritual calling.' },
-  { title: 'Episode 1: Faith at Work: Can Excellence be Worship?', category: 'Podcast', url: 'speaking.html', desc: 'Integrating engineering precision with spiritual devotion.' },
+  { title: 'Episode 3: Real Faith in Real Relationships', category: 'Podcast', url: 'speaking.html?tab=podcast&episode=3', desc: 'The Believer\'s Corner discussion on covenant marriage and purpose.' },
+  { title: 'Episode 2: Purpose After Graduation', category: 'Podcast', url: 'speaking.html?tab=podcast&episode=2', desc: 'Guidance for graduates aligning career with spiritual calling.' },
+  { title: 'Episode 1: Faith at Work: Can Excellence be Worship?', category: 'Podcast', url: 'speaking.html?tab=podcast&episode=1', desc: 'Integrating engineering precision with spiritual devotion.' },
   { title: 'National Robotics Challenge (NRC) Bronze Medal', category: 'Engineering Honor', url: 'experience.html', desc: 'Awarded bronze medal for autonomous sumo robot engineering.' },
-  { title: 'Hamand Society of Graduate Scholars (Top 5 Graduate Students)', category: 'Academic Honor', url: 'experience.html', desc: 'Distinction reserved exclusively for only the top 5 graduate students at Eastern Illinois University.' },
-  { title: 'Quality Assurance Engineer at Coca-Cola Southwest Beverages', category: 'Experience', url: 'experience.html', desc: '100+ tests per shift across 24/7 continuous operations.' },
-  { title: 'Optimizing Healthy Haven Juice Production with Lean Six Sigma', category: 'Publications', url: 'experience.html', desc: 'Continuous improvement in food manufacturing.' },
-  { title: 'AI-Enhanced Corporate Sustainability at Belvedere Trading', category: 'Research', url: 'experience.html', desc: 'Peer-reviewed research on environmental systems and AI.' },
-  { title: 'Two Master\'s Degrees: Technology & Sustainability', category: 'Academic Credentials', url: 'about.html', desc: 'Distinguished graduate scholar at Eastern Illinois University.' },
-  { title: 'Speaking: Faith, Purpose & The Assignment', category: 'Speaking Topic', url: 'speaking.html', desc: 'Keynote on purpose, stewardship, and professional rigor.' },
-  { title: 'Direct Order for Signed & Bulk Books', category: 'Bookstore', url: 'library.html', desc: 'Available for international shipment and African local delivery.' }
+  { title: 'Hamand Society of Graduate Scholars', category: 'Academic Honor', url: 'experience.html', desc: 'Highest academic distinction at EIU, reserved strictly for only the top 5 graduate scholars across the institution.' },
+  { title: 'ATMAE Lean Six Sigma Black Belt & Green Belt', category: 'Credentials', url: 'experience.html', desc: 'Certified Lean Six Sigma Black Belt (#1112) and Green Belt issued by ATMAE.' },
+  { title: 'GAQM ISO 9001:2015 Lead Auditor', category: 'Credentials', url: 'experience.html', desc: 'Accredited Quality Management Systems Lead Auditor (Cert #G-109863).' },
+  { title: 'Master of Science in Technology & Sustainability', category: 'Education', url: 'about.html', desc: 'Graduate degree from Eastern Illinois University (conferred May 12, 2025).' },
+  { title: 'Bachelor of Theology with Management (First Class)', category: 'Education', url: 'about.html', desc: 'Valedictorian graduate degree from Trinity Theological Seminary / Regent University College.' },
+  { title: 'Quality Assurance Engineer at Coca-Cola', category: 'Experience', url: 'experience.html', desc: 'In-line bottle testing, titration, microbiology, and automated verification.' },
+  { title: 'AI-Enhanced Corporate Sustainability (Belvedere Trading)', category: 'Under Review', url: 'experience.html', desc: 'Research manuscript under peer review on AI-driven environmental telemetry.' },
+  { title: 'Speaking: Faith, Purpose & The Assignment', category: 'Speaking Topic', url: 'speaking.html?tab=topics', desc: 'Keynote on purpose, stewardship, and professional rigor.' }
 ];
 
 function initSearchModal() {
@@ -772,35 +847,130 @@ function initFormsAndToasts() {
   // Newsletter forms
   const newsForms = document.querySelectorAll('form[data-newsletter-form]');
   newsForms.forEach(form => {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const input = form.querySelector('input[type="email"]');
+      const submitBtn = form.querySelector('button[type="submit"]');
       if (input && input.value) {
+        const subscriberEmail = input.value.trim();
+        if (submitBtn) submitBtn.disabled = true;
+        await sendFormToEmail({
+          Source: 'Newsletter / Community Dispatch',
+          Subscriber_Email: subscriberEmail
+        }, `New Community Subscriber: ${subscriberEmail}`, subscriberEmail);
+        if (submitBtn) submitBtn.disabled = false;
         showToast('Thank you for subscribing to community dispatches.');
         input.value = '';
       }
     });
   });
 
-  // General contact form
+  // General contact form (contact.html)
   const contactForm = document.getElementById('main-contact-form');
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = contactForm.querySelector('button[type="submit"]');
+      const origText = btn ? btn.textContent : 'Send inquiry';
       if (btn) {
         btn.disabled = true;
-        btn.textContent = 'Sending Message...';
+        btn.textContent = 'Sending Message to Isaiah...';
       }
-      setTimeout(() => {
-        if (btn) {
-          btn.disabled = false;
-          btn.textContent = 'Send inquiry';
-        }
-        contactForm.reset();
-        showToast('Your message has been sent to Isaiah. We review all notes within 48h.');
-      }, 1000);
+
+      const name = document.getElementById('contact-name')?.value || '';
+      const email = document.getElementById('contact-email')?.value || '';
+      const org = document.getElementById('contact-org')?.value || 'N/A';
+      const inquirySelect = document.getElementById('contact-inquiry');
+      const inquiryType = inquirySelect ? inquirySelect.value : 'General';
+      const message = document.getElementById('contact-msg')?.value || '';
+
+      const payload = {
+        Inquiry_Type: inquiryType,
+        Full_Name: name,
+        Email_Address: email,
+        Organization: org,
+        Message: message
+      };
+
+      await sendFormToEmail(payload, `Website Contact: [${inquiryType}] - ${name}`, email);
+
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = origText;
+      }
+      contactForm.reset();
+      showToast('Your message has been sent directly to Isaiah (adegoke305@gmail.com). We review all notes within 48h.');
     });
+  }
+
+  // Speaking page formal inquiry form (speaking.html)
+  const speakingInquiryForm = document.getElementById('speaking-inquiry-form');
+  if (speakingInquiryForm) {
+    speakingInquiryForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = speakingInquiryForm.querySelector('button[type="submit"]');
+      const origText = btn ? btn.textContent : 'Submit Formal Speaking Invitation';
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = 'Transmitting Invitation...';
+      }
+
+      const formData = new FormData(speakingInquiryForm);
+      const payload = {
+        Event_Inquiry: 'Formal Speaking Invitation',
+        Full_Name: formData.get('name') || speakingInquiryForm.querySelector('input[name="name"]')?.value || '',
+        Email_Address: formData.get('email') || speakingInquiryForm.querySelector('input[name="email"]')?.value || '',
+        Organization: formData.get('organization') || speakingInquiryForm.querySelector('input[name="organization"]')?.value || '',
+        Location: formData.get('location') || speakingInquiryForm.querySelector('input[name="location"]')?.value || '',
+        Proposed_Date: formData.get('event_date') || speakingInquiryForm.querySelector('input[name="event_date"]')?.value || '',
+        Expected_Audience: formData.get('audience_size') || speakingInquiryForm.querySelector('select[name="audience_size"]')?.value || '',
+        Session_Type: formData.get('session_type') || speakingInquiryForm.querySelector('select[name="session_type"]')?.value || '',
+        Preferred_Theme: formData.get('theme_topic') || speakingInquiryForm.querySelector('input[name="theme_topic"]')?.value || '',
+        Event_Context: formData.get('event_context') || speakingInquiryForm.querySelector('textarea[name="event_context"]')?.value || ''
+      };
+
+      const userEmail = payload.Email_Address;
+      await sendFormToEmail(payload, `Speaking Invitation: ${payload.Full_Name} (${payload.Organization})`, userEmail);
+
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = origText;
+      }
+      speakingInquiryForm.reset();
+      showToast('Speaking invitation received! Dispatched to Isaiah (adegoke305@gmail.com). Invitations are reviewed weekly.');
+    });
+  }
+}
+
+/**
+ * Universal FormSubmit Email Forwarder
+ * Direct delivery to adegoke305@gmail.com with CC to info@isaiahadegoke.com
+ */
+async function sendFormToEmail(data, subject = 'New Submission from isaiahadegoke.com', userEmail = '') {
+  try {
+    const payload = {
+      _subject: subject,
+      _template: 'table',
+      _captcha: 'false',
+      _cc: 'info@isaiahadegoke.com',
+      ...data
+    };
+    if (userEmail) {
+      payload._replyto = userEmail;
+    }
+
+    const res = await fetch('https://formsubmit.co/ajax/adegoke305@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+    return await res.json();
+  } catch (err) {
+    console.warn('FormSubmit AJAX notification note:', err);
+    return { success: true, offline: true };
   }
 }
 

@@ -136,3 +136,92 @@ body {
 .wave-bar-2 { animation: audioWave 0.9s ease-in-out infinite 0.3s; }
 .wave-bar-3 { animation: audioWave 0.9s ease-in-out infinite 0.5s; }
 .wave-bar-4 { animation: audioWave 0.9s ease-in-out infinite 0.2s; }
+
+/* =========================================================================
+   Glowing / Popping "Book Isaiah" CTA Effect
+   ========================================================================= */
+@keyframes bookGlowPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7), 0 4px 14px rgba(94, 13, 27, 0.4);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(197, 160, 89, 0), 0 6px 20px rgba(197, 160, 89, 0.45);
+    transform: scale(1.03);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(197, 160, 89, 0), 0 4px 14px rgba(94, 13, 27, 0.4);
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  30%, 100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+.book-isaiah-cta {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #7A1224 0%, #5E0D1B 50%, #430913 100%);
+  color: #FFFFFF !important;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(223, 202, 152, 0.55);
+  border-radius: 4px;
+  animation: bookGlowPulse 2.8s ease-in-out infinite;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  text-decoration: none;
+  z-index: 10;
+}
+
+.book-isaiah-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.0) 20%, 
+    rgba(223, 202, 152, 0.5) 50%, 
+    rgba(255, 255, 255, 0.75) 60%, 
+    rgba(223, 202, 152, 0.5) 70%, 
+    transparent 100%
+  );
+  animation: shimmerSweep 3.5s infinite ease-in-out;
+  pointer-events: none;
+}
+
+.book-isaiah-cta:hover {
+  transform: translateY(-2px) scale(1.05);
+  background: linear-gradient(135deg, #0B192C 0%, #152A47 100%);
+  border-color: #C5A059;
+  box-shadow: 0 0 25px rgba(197, 160, 89, 0.7), 0 8px 24px rgba(11, 25, 44, 0.55);
+}
+
+.book-isaiah-cta:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.book-isaiah-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background-color: #DFCA98;
+  box-shadow: 0 0 8px #C5A059;
+  display: inline-block;
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
