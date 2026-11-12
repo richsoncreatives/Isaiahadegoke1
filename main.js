@@ -197,7 +197,7 @@ function initTriFoldTabs() {
         'Mentored 200+ undergraduate and graduate scholars through structured discipleship and personal accountability programs.',
         'Founder of Pneuma Studios: Creating Media. Sharing Faith. Transforming Lives.',
         'Host of The Believer\'s Corner podcast and Morning Glory devotional programs.',
-        'Devoted family leadership alongside Dr. Mrs. Pearl Adegoke (PhD), exemplifying marriage as ministry and stewardship.'
+        'Devoted family leadership alongside Pearl Adegoke, PhD, exemplifying marriage as ministry and stewardship.'
       ]
     },
     authorship: {
