@@ -623,9 +623,9 @@ function initCheckoutModal() {
 
       const prod = productSelect ? productSelect.options[productSelect.selectedIndex]?.text : 'The Assignment & The Tools (Paperback)';
       const totalAmount = totalAmountEl ? totalAmountEl.textContent : '$24.99 USD';
-      const customerName = checkoutForm.querySelector('input[placeholder="John Doe"]')?.value || 'Guest Customer';
-      const customerEmail = checkoutForm.querySelector('input[type="email"]')?.value || '';
-      const shippingAddress = checkoutForm.querySelector('input[placeholder*="Street Address"]')?.value || 'Digital / Not applicable';
+      const customerName = checkoutForm.querySelector('input[name="customer_name"], input[placeholder="John Doe"]')?.value || 'Guest Customer';
+      const customerEmail = checkoutForm.querySelector('input[name="customer_email"], input[type="email"]')?.value || '';
+      const shippingAddress = checkoutForm.querySelector('input[name="shipping_address"], input[placeholder*="Street Address"]')?.value || 'Digital / Not applicable';
       const refCode = `IA-${Math.floor(100000 + Math.random() * 900000)}`;
 
       const orderPayload = {
@@ -639,19 +639,25 @@ function initCheckoutModal() {
       };
 
       if (currentRail === 'africa') {
-        const netSelect = document.querySelector('#rail-africa select');
-        const phoneInput = document.querySelector('#rail-africa input[type="tel"]');
+        const netSelect = checkoutForm.querySelector('#rail-africa select');
+        const phoneInput = checkoutForm.querySelector('#rail-africa input[type="tel"]');
         if (netSelect) orderPayload.MoMo_Network = netSelect.value;
         if (phoneInput) orderPayload.MoMo_Account = phoneInput.value;
       }
 
-      // Dispatch to adegoke305@gmail.com with CC to info@isaiahadegoke.com
-      await sendFormToEmail(orderPayload, `New Book Order [${refCode}] - ${customerName}`, customerEmail);
+      // Dispatch to adegoke305@gmail.com with CC to info@isaiahadegoke.com via FormSubmit
+      const result = await sendFormToEmail(orderPayload, `New Book Order [${refCode}] - ${customerName}`, customerEmail);
 
       if (submitBtn) {
         submitBtn.disabled = false;
         submitBtn.textContent = origText;
       }
+
+      if (!result.success) {
+        showToast(result.message || 'Could not submit order. Please try again or email adegoke305@gmail.com.', true);
+        return;
+      }
+
       if (checkoutForm) checkoutForm.classList.add('hidden');
       if (successState) {
         successState.classList.remove('hidden');
@@ -660,7 +666,7 @@ function initCheckoutModal() {
           refEl.textContent = refCode;
         }
       }
-      showToast(`Order ${refCode} confirmed! Receipt dispatched to ${customerEmail || 'your email'}.`);
+      showToast(`Order ${refCode} confirmed! Dispatched to Isaiah's team.`);
     });
   }
 }
@@ -712,28 +718,38 @@ function initSpeakingModal() {
         submitBtn.textContent = 'Submitting Proposal Request...';
       }
 
-      const inputs = form.querySelectorAll('input');
-      const name = inputs[0]?.value || '';
-      const email = inputs[1]?.value || '';
-      const organization = inputs[2]?.value || '';
+      const name = form.querySelector('input[name="Full_Name"]')?.value || '';
+      const email = form.querySelector('input[name="Email_Address"]')?.value || '';
+      const organization = form.querySelector('input[name="Organization"]')?.value || '';
+      const proposedDate = form.querySelector('input[name="Proposed_Date"]')?.value || '';
+      const audienceSize = form.querySelector('input[name="Audience_Size"]')?.value || 'Not specified';
       const topicSelect = document.getElementById('modal-speaking-topic');
       const topic = topicSelect ? topicSelect.options[topicSelect.selectedIndex]?.text : '';
 
-      await sendFormToEmail({
+      const result = await sendFormToEmail({
         Source: 'Speaking Topic Quick Modal',
         Full_Name: name,
         Email_Address: email,
         Organization: organization,
-        Requested_Topic: topic
+        Requested_Topic: topic,
+        Proposed_Date: proposedDate,
+        Audience_Size: audienceSize
       }, `Speaking Inquiry (Modal) - ${name} (${organization})`, email);
 
       if (submitBtn) {
         submitBtn.disabled = false;
         submitBtn.textContent = origText;
       }
+
+      if (!result.success) {
+        showToast(result.message || 'Could not submit inquiry. Please try again.', true);
+        return;
+      }
+
+      form.reset();
       form.classList.add('hidden');
       if (successState) successState.classList.remove('hidden');
-      showToast('Speaking inquiry submitted. Invitations are dispatched to Isaiah and reviewed weekly.');
+      showToast("Thank you! Your message has been sent successfully. Isaiah's team will get back to you shortly.");
     });
   }
 }
@@ -853,12 +869,23 @@ function initFormsAndToasts() {
       const submitBtn = form.querySelector('button[type="submit"]');
       if (input && input.value) {
         const subscriberEmail = input.value.trim();
-        if (submitBtn) submitBtn.disabled = true;
-        await sendFormToEmail({
+        const origText = submitBtn ? submitBtn.textContent : 'Subscribe';
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Subscribing...';
+        }
+        const result = await sendFormToEmail({
           Source: 'Newsletter / Community Dispatch',
           Subscriber_Email: subscriberEmail
         }, `New Community Subscriber: ${subscriberEmail}`, subscriberEmail);
-        if (submitBtn) submitBtn.disabled = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = origText;
+        }
+        if (!result.success) {
+          showToast(result.message || 'Could not subscribe right now. Please try again.', true);
+          return;
+        }
         showToast('Thank you for subscribing to community dispatches.');
         input.value = '';
       }
@@ -871,10 +898,13 @@ function initFormsAndToasts() {
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = contactForm.querySelector('button[type="submit"]');
-      const origText = btn ? btn.textContent : 'Send inquiry';
+      const banner = document.getElementById('contact-success-banner');
+      if (banner) banner.classList.add('hidden');
+
+      const origHTML = btn ? btn.innerHTML : 'Send Inquiry to Isaiah';
       if (btn) {
         btn.disabled = true;
-        btn.textContent = 'Sending Message to Isaiah...';
+        btn.innerHTML = '<span>Sending Message to Isaiah...</span>';
       }
 
       const name = document.getElementById('contact-name')?.value || '';
@@ -892,14 +922,24 @@ function initFormsAndToasts() {
         Message: message
       };
 
-      await sendFormToEmail(payload, `Website Contact: [${inquiryType}] - ${name}`, email);
+      const result = await sendFormToEmail(payload, `Website Contact: [${inquiryType}] - ${name}`, email);
 
       if (btn) {
         btn.disabled = false;
-        btn.textContent = origText;
+        btn.innerHTML = origHTML;
       }
+
+      if (!result.success) {
+        showToast(result.message || 'Unable to send message right now. Please try again.', true);
+        return;
+      }
+
       contactForm.reset();
-      showToast('Your message has been sent directly to Isaiah (adegoke305@gmail.com). We review all notes within 48h.');
+      if (banner) {
+        banner.classList.remove('hidden');
+        banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      showToast("Thank you! Your message has been sent successfully. Isaiah's team will get back to you shortly.");
     });
   }
 
@@ -909,7 +949,10 @@ function initFormsAndToasts() {
     hpContactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = hpContactForm.querySelector('button[type="submit"]');
-      const origText = btn ? btn.innerHTML : 'Send Inquiry to Isaiah';
+      let banner = document.getElementById('hp-contact-success-banner');
+      if (banner) banner.classList.add('hidden');
+
+      const origHTML = btn ? btn.innerHTML : 'Send Inquiry to Isaiah';
       if (btn) {
         btn.disabled = true;
         btn.innerHTML = `<span>Transmitting Inquiry...</span>`;
@@ -931,14 +974,35 @@ function initFormsAndToasts() {
         Message: message
       };
 
-      await sendFormToEmail(payload, `Homepage Inquiry: [${inquiryType}] - ${name}`, email);
+      const result = await sendFormToEmail(payload, `Homepage Inquiry: [${inquiryType}] - ${name}`, email);
 
       if (btn) {
         btn.disabled = false;
-        btn.innerHTML = origText;
+        btn.innerHTML = origHTML;
       }
+
+      if (!result.success) {
+        showToast(result.message || 'Unable to send inquiry right now. Please try again.', true);
+        return;
+      }
+
       hpContactForm.reset();
-      showToast('Inquiry transmitted directly to Isaiah (adegoke305@gmail.com)! We will be in touch shortly.');
+      if (!banner) {
+        banner = document.createElement('div');
+        banner.id = 'hp-contact-success-banner';
+        banner.className = 'bg-emerald-950/80 border border-gold/60 text-white p-4 rounded-sm flex items-start gap-3 text-sm';
+        banner.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gold shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          <div>
+            <p class="font-semibold text-white">Thank you! Your message has been sent successfully.</p>
+            <p class="text-xs text-white/80 mt-0.5">Isaiah's team will get back to you shortly.</p>
+          </div>
+        `;
+        hpContactForm.prepend(banner);
+      } else {
+        banner.classList.remove('hidden');
+      }
+      showToast("Thank you! Your message has been sent successfully. Isaiah's team will get back to you shortly.");
     });
   }
 
@@ -948,10 +1012,13 @@ function initFormsAndToasts() {
     speakingInquiryForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = speakingInquiryForm.querySelector('button[type="submit"]');
-      const origText = btn ? btn.textContent : 'Submit Formal Speaking Invitation';
+      const banner = document.getElementById('speaking-success-banner');
+      if (banner) banner.classList.add('hidden');
+
+      const origHTML = btn ? btn.innerHTML : 'Submit Formal Speaking Invitation';
       if (btn) {
         btn.disabled = true;
-        btn.textContent = 'Transmitting Invitation...';
+        btn.innerHTML = '<span>Transmitting Invitation...</span>';
       }
 
       const formData = new FormData(speakingInquiryForm);
@@ -969,14 +1036,24 @@ function initFormsAndToasts() {
       };
 
       const userEmail = payload.Email_Address;
-      await sendFormToEmail(payload, `Speaking Invitation: ${payload.Full_Name} (${payload.Organization})`, userEmail);
+      const result = await sendFormToEmail(payload, `Speaking Invitation: ${payload.Full_Name} (${payload.Organization})`, userEmail);
 
       if (btn) {
         btn.disabled = false;
-        btn.textContent = origText;
+        btn.innerHTML = origHTML;
       }
+
+      if (!result.success) {
+        showToast(result.message || 'Unable to submit invitation right now. Please try again.', true);
+        return;
+      }
+
       speakingInquiryForm.reset();
-      showToast('Speaking invitation received! Dispatched to Isaiah (adegoke305@gmail.com). Invitations are reviewed weekly.');
+      if (banner) {
+        banner.classList.remove('hidden');
+        banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      showToast("Thank you! Your message has been sent successfully. Isaiah's team will get back to you shortly.");
     });
   }
 }
@@ -1006,14 +1083,27 @@ async function sendFormToEmail(data, subject = 'New Submission from isaiahadegok
       },
       body: JSON.stringify(payload)
     });
-    return await res.json();
+
+    const result = await res.json().catch(() => ({}));
+    const succeeded = res.ok && (result.success === true || result.success === 'true');
+    if (!succeeded) {
+      return {
+        success: false,
+        message: result.message || 'Unable to deliver submission via FormSubmit right now.'
+      };
+    }
+
+    return { success: true, data: result };
   } catch (err) {
-    console.warn('FormSubmit AJAX notification note:', err);
-    return { success: true, offline: true };
+    console.error('FormSubmit AJAX submission error:', err);
+    return {
+      success: false,
+      message: 'Network error while sending form. Please check your connection or email adegoke305@gmail.com directly.'
+    };
   }
 }
 
-function showToast(message) {
+function showToast(message, isError = false) {
   let toastContainer = document.getElementById('toast-container');
   if (!toastContainer) {
     toastContainer = document.createElement('div');
@@ -1023,11 +1113,13 @@ function showToast(message) {
   }
 
   const toast = document.createElement('div');
-  toast.className = 'pointer-events-auto bg-navy border border-gold/70 text-white p-4 shadow-xl rounded-md flex items-center gap-3 transition-all transform translate-y-4 opacity-0 text-sm';
-  toast.innerHTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gold shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-    <span>${message}</span>
-  `;
+  const borderClass = isError ? 'border-red-400 bg-[#4A1219]' : 'border-gold/70 bg-navy';
+  const iconHtml = isError
+    ? '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-300 shrink-0"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>'
+    : '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gold shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>';
+
+  toast.className = `pointer-events-auto ${borderClass} border text-white p-4 shadow-xl rounded-md flex items-center gap-3 transition-all transform translate-y-4 opacity-0 text-sm`;
+  toast.innerHTML = `${iconHtml}<span>${message}</span>`;
 
   toastContainer.appendChild(toast);
   requestAnimationFrame(() => {
@@ -1039,5 +1131,5 @@ function showToast(message) {
     toast.classList.remove('translate-y-0', 'opacity-100');
     toast.classList.add('translate-y-4', 'opacity-0');
     setTimeout(() => toast.remove(), 400);
-  }, 4000);
+  }, isError ? 6000 : 4000);
 }
