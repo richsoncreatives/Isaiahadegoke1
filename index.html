@@ -429,12 +429,30 @@
                 <textarea id="hp-msg" name="Inquiry_Message" rows="3" required placeholder="Describe your proposed dates, venue, audience size, or specific goals..." class="w-full px-3.5 py-2.5 text-sm rounded bg-white/15 border border-white/30 text-white placeholder:text-white/40 focus:outline-none focus:border-gold"></textarea>
               </div>
 
-              <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <button type="submit" class="w-full sm:w-auto book-isaiah-cta px-8 py-3 text-sm font-semibold cursor-pointer">
-                  <span>Send Inquiry to Isaiah</span>
-                  <span class="book-isaiah-arrow">→</span>
-                </button>
-                <a href="contact.html" class="text-xs text-white/70 hover:text-gold transition-colors underline underline-offset-4">Open formal contact page &rarr;</a>
+              <div id="hp-contact-error-banner" class="hidden bg-red-950/70 border border-red-400/50 text-white p-3.5 rounded-sm space-y-1.5 text-xs">
+                <p id="hp-contact-error-text" class="font-medium"></p>
+                <a id="hp-mailto-fallback" href="mailto:info@isaiahadegoke.com" class="inline-flex items-center gap-1.5 font-semibold text-gold underline underline-offset-4 hover:text-white">
+                  Open pre-filled email draft in your mail app &rarr;
+                </a>
+              </div>
+
+              <div class="pt-3 border-t border-white/10 space-y-3">
+                <p class="text-[11px] uppercase tracking-wider font-semibold text-white/65">Choose how to send your inquiry</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <button type="submit" data-email-submit class="w-full book-isaiah-cta px-6 py-3 text-sm font-semibold cursor-pointer inline-flex items-center justify-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                    <span>Send via Email</span>
+                    <span class="book-isaiah-arrow">→</span>
+                  </button>
+                  <button type="button" data-whatsapp-trigger="homepage-contact-form" class="w-full inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-sm font-semibold bg-[#128C7E] hover:bg-[#0F766E] border border-emerald-400/40 text-white transition-all shadow-md cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>
+                    <span>Send via WhatsApp</span>
+                  </button>
+                </div>
+                <div class="flex items-center justify-between text-xs text-white/65 pt-0.5">
+                  <span>Email or pre-filled WhatsApp summary.</span>
+                  <a href="contact.html" class="text-white/80 hover:text-gold transition-colors underline underline-offset-4">Open formal contact page &rarr;</a>
+                </div>
               </div>
             </form>
           </div>

@@ -892,37 +892,240 @@ function initFormsAndToasts() {
     });
   });
 
-  // General contact form (contact.html)
+  // Shared WhatsApp delivery number
+  const ISAIAH_WHATSAPP_NUMBER = '12177909778';
+
+  function validateInquiryForm(form) {
+    const requiredTextInputs = form.querySelectorAll('input[required], textarea[required]');
+    for (const field of requiredTextInputs) {
+      field.setCustomValidity('');
+      if (field.type !== 'email' && !field.value.trim()) {
+        field.setCustomValidity('Please fill out this required field.');
+      }
+    }
+    if (!form.reportValidity()) {
+      requiredTextInputs.forEach(field => field.setCustomValidity(''));
+      return false;
+    }
+    return true;
+  }
+
+  function buildInquirySummary({ name, email, organization, phone, subject, message }) {
+    const lines = [
+      'Hello Isaiah, I am reaching out from isaiahadegoke.com:',
+      '',
+      `Name: ${name.trim()}`,
+      `Email: ${email.trim()}`
+    ];
+    if (organization && organization.trim() && organization.trim() !== 'N/A') {
+      lines.push(`Organization: ${organization.trim()}`);
+    }
+    if (phone && phone.trim() && phone.trim() !== 'N/A') {
+      lines.push(`Phone: ${phone.trim()}`);
+    }
+    lines.push(`Subject / Service: ${subject.trim()}`);
+    lines.push('');
+    lines.push('Message:');
+    lines.push(message.trim());
+    return lines.join('\n');
+  }
+
+  function buildWhatsAppPrefillUrl(summaryText) {
+    return `https://wa.me/${ISAIAH_WHATSAPP_NUMBER}?text=${encodeURIComponent(summaryText)}`;
+  }
+
+  function buildMailtoFallbackUrl(subjectLine, summaryText) {
+    return `mailto:info@isaiahadegoke.com?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(summaryText)}`;
+  }
+
+  function extractFormInquiry(form) {
+    if (form.id === 'main-contact-form') {
+      const inquirySelect = document.getElementById('contact-inquiry');
+      const selectedLabel = inquirySelect && inquirySelect.selectedIndex >= 0
+        ? inquirySelect.options[inquirySelect.selectedIndex].textContent.trim()
+        : '';
+      return {
+        name: document.getElementById('contact-name')?.value || '',
+        email: document.getElementById('contact-email')?.value || '',
+        organization: document.getElementById('contact-org')?.value || '',
+        phone: '',
+        subject: inquirySelect?.value ? selectedLabel : '',
+        rawSubjectValue: inquirySelect?.value || '',
+        message: document.getElementById('contact-msg')?.value || ''
+      };
+    }
+
+    if (form.id === 'homepage-contact-form') {
+      const inquirySelect = document.getElementById('hp-service');
+      const selectedLabel = inquirySelect && inquirySelect.selectedIndex >= 0
+        ? inquirySelect.options[inquirySelect.selectedIndex].textContent.trim()
+        : '';
+      return {
+        name: document.getElementById('hp-name')?.value || '',
+        email: document.getElementById('hp-email')?.value || '',
+        organization: '',
+        phone: document.getElementById('hp-phone')?.value || '',
+        subject: inquirySelect?.value ? selectedLabel : '',
+        rawSubjectValue: inquirySelect?.value || '',
+        message: document.getElementById('hp-msg')?.value || ''
+      };
+    }
+
+    return null;
+  }
+
+  function ensureWhatsAppPreviewModal() {
+    let modal = document.getElementById('whatsapp-preview-modal');
+    if (modal) return modal;
+
+    modal = document.createElement('div');
+    modal.id = 'whatsapp-preview-modal';
+    modal.className = 'fixed inset-0 z-50 modal-backdrop flex items-center justify-center p-4 hidden';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-labelledby', 'wa-modal-heading');
+    modal.innerHTML = `
+      <div class="bg-white border border-gold/70 w-full max-w-lg shadow-2xl rounded-sm overflow-hidden max-h-[90vh] flex flex-col">
+        <div class="p-5 bg-navy text-white flex items-center justify-between border-b border-gold/40">
+          <div>
+            <span class="text-xs text-gold uppercase tracking-widest font-semibold">WhatsApp Inquiry Summary</span>
+            <h3 id="wa-modal-heading" class="font-heading text-xl text-white">Ready to Send via WhatsApp</h3>
+          </div>
+          <button type="button" data-close-wa-modal aria-label="Close WhatsApp preview" class="text-white/60 hover:text-white p-1 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+        <div class="p-6 overflow-y-auto flex-1 space-y-4">
+          <p class="text-sm text-navy/75 leading-relaxed">
+            Your inquiry has been formatted below. Click <strong>Open WhatsApp Chat</strong> to launch WhatsApp with this message automatically pre-filled in your chat box.
+          </p>
+          <div class="bg-parchment border border-gold/40 rounded-sm p-4">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[11px] uppercase tracking-widest font-semibold text-navy/60">Formatted Message Preview</span>
+              <button type="button" id="wa-copy-msg-btn" class="text-xs font-semibold text-burgundy hover:text-navy underline underline-offset-2 cursor-pointer">Copy Message</button>
+            </div>
+            <pre id="wa-preview-text" class="text-sm text-navy font-sans whitespace-pre-wrap break-words leading-relaxed max-h-56 overflow-y-auto"></pre>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-3 pt-1">
+            <a id="wa-launch-link" href="#" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 rounded-sm bg-[#128C7E] hover:bg-[#075E54] text-white font-semibold text-sm py-3 px-5 shadow-md transition-colors text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>
+              <span>Open WhatsApp Chat →</span>
+            </a>
+            <button type="button" data-close-wa-modal class="inline-flex items-center justify-center rounded-sm border border-navy/20 text-navy hover:border-navy text-sm font-medium py-3 px-5 transition-colors cursor-pointer">
+              Edit Inquiry
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    const closeModal = () => {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    };
+
+    modal.querySelectorAll('[data-close-wa-modal]').forEach(btn => {
+      btn.addEventListener('click', closeModal);
+    });
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+
+    const copyBtn = modal.querySelector('#wa-copy-msg-btn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', async () => {
+        const text = modal.querySelector('#wa-preview-text')?.textContent || '';
+        try {
+          await navigator.clipboard.writeText(text);
+          copyBtn.textContent = 'Copied!';
+          showToast('Formatted inquiry copied to clipboard.');
+          setTimeout(() => { copyBtn.textContent = 'Copy Message'; }, 2500);
+        } catch {
+          showToast('Select the preview text above to copy it manually.');
+        }
+      });
+    }
+
+    const launchLink = modal.querySelector('#wa-launch-link');
+    if (launchLink) {
+      launchLink.addEventListener('click', () => {
+        showToast('WhatsApp opened with your pre-filled inquiry. Hit Send in WhatsApp to deliver.');
+        setTimeout(closeModal, 350);
+      });
+    }
+
+    return modal;
+  }
+
+  function openWhatsAppPreview(form) {
+    if (!validateInquiryForm(form)) return;
+    const fields = extractFormInquiry(form);
+    if (!fields) return;
+
+    const summary = buildInquirySummary(fields);
+    const whatsappUrl = buildWhatsAppPrefillUrl(summary);
+    const modal = ensureWhatsAppPreviewModal();
+
+    const previewEl = modal.querySelector('#wa-preview-text');
+    const launchLink = modal.querySelector('#wa-launch-link');
+    if (previewEl) previewEl.textContent = summary;
+    if (launchLink) launchLink.href = whatsappUrl;
+
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Bind all "Send via WhatsApp" buttons across contact forms
+  document.querySelectorAll('[data-whatsapp-trigger]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const formId = btn.getAttribute('data-whatsapp-trigger');
+      const targetForm = formId ? document.getElementById(formId) : btn.closest('form');
+      if (targetForm) {
+        openWhatsAppPreview(targetForm);
+      }
+    });
+  });
+
+  // General contact form (contact.html) — Send via Email
   const contactForm = document.getElementById('main-contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      if (!validateInquiryForm(contactForm)) return;
+
       const btn = contactForm.querySelector('button[type="submit"]');
       const banner = document.getElementById('contact-success-banner');
+      const errBanner = document.getElementById('contact-error-banner');
       if (banner) banner.classList.add('hidden');
+      if (errBanner) errBanner.classList.add('hidden');
 
-      const origHTML = btn ? btn.innerHTML : 'Send Inquiry to Isaiah';
+      const origHTML = btn ? btn.innerHTML : 'Send via Email';
       if (btn) {
         btn.disabled = true;
-        btn.innerHTML = '<span>Sending Message to Isaiah...</span>';
+        btn.innerHTML = '<span>Sending via Email...</span>';
       }
 
-      const name = document.getElementById('contact-name')?.value || '';
-      const email = document.getElementById('contact-email')?.value || '';
-      const org = document.getElementById('contact-org')?.value || 'N/A';
-      const inquirySelect = document.getElementById('contact-inquiry');
-      const inquiryType = inquirySelect ? inquirySelect.value : 'General';
-      const message = document.getElementById('contact-msg')?.value || '';
+      const fields = extractFormInquiry(contactForm);
+      const inquiryType = fields.subject || 'General Inquiry';
+      const emailSubject = `Website Contact: [${inquiryType}] - ${fields.name.trim()}`;
+      const summaryText = buildInquirySummary(fields);
 
       const payload = {
         Inquiry_Type: inquiryType,
-        Full_Name: name,
-        Email_Address: email,
-        Organization: org,
-        Message: message
+        Full_Name: fields.name.trim(),
+        Email_Address: fields.email.trim(),
+        Organization: fields.organization.trim() || 'N/A',
+        Message: fields.message.trim()
       };
 
-      const result = await sendFormToEmail(payload, `Website Contact: [${inquiryType}] - ${name}`, email);
+      const result = await sendFormToEmail(payload, emailSubject, fields.email.trim());
 
       if (btn) {
         btn.disabled = false;
@@ -930,6 +1133,14 @@ function initFormsAndToasts() {
       }
 
       if (!result.success) {
+        if (errBanner) {
+          const errText = document.getElementById('contact-error-text');
+          const mailtoLink = document.getElementById('contact-mailto-fallback');
+          if (errText) errText.textContent = result.message || 'Unable to send message right now. You can retry or open a pre-filled email draft below.';
+          if (mailtoLink) mailtoLink.href = buildMailtoFallbackUrl(emailSubject, summaryText);
+          errBanner.classList.remove('hidden');
+          errBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
         showToast(result.message || 'Unable to send message right now. Please try again.', true);
         return;
       }
@@ -943,38 +1154,40 @@ function initFormsAndToasts() {
     });
   }
 
-  // Homepage contact and booking form (index.html)
+  // Homepage contact and booking form (index.html) — Send via Email
   const hpContactForm = document.getElementById('homepage-contact-form');
   if (hpContactForm) {
     hpContactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      if (!validateInquiryForm(hpContactForm)) return;
+
       const btn = hpContactForm.querySelector('button[type="submit"]');
       let banner = document.getElementById('hp-contact-success-banner');
+      const errBanner = document.getElementById('hp-contact-error-banner');
       if (banner) banner.classList.add('hidden');
+      if (errBanner) errBanner.classList.add('hidden');
 
-      const origHTML = btn ? btn.innerHTML : 'Send Inquiry to Isaiah';
+      const origHTML = btn ? btn.innerHTML : 'Send via Email';
       if (btn) {
         btn.disabled = true;
-        btn.innerHTML = `<span>Transmitting Inquiry...</span>`;
+        btn.innerHTML = `<span>Sending via Email...</span>`;
       }
 
-      const name = document.getElementById('hp-name')?.value || '';
-      const email = document.getElementById('hp-email')?.value || '';
-      const phone = document.getElementById('hp-phone')?.value || 'N/A';
-      const inquirySelect = document.getElementById('hp-service');
-      const inquiryType = inquirySelect ? inquirySelect.value : 'General';
-      const message = document.getElementById('hp-msg')?.value || '';
+      const fields = extractFormInquiry(hpContactForm);
+      const inquiryType = fields.subject || 'General Inquiry';
+      const emailSubject = `Homepage Inquiry: [${inquiryType}] - ${fields.name.trim()}`;
+      const summaryText = buildInquirySummary(fields);
 
       const payload = {
         Source: 'Homepage Direct Booking Form',
         Inquiry_Type: inquiryType,
-        Full_Name: name,
-        Email_Address: email,
-        Phone_Number: phone,
-        Message: message
+        Full_Name: fields.name.trim(),
+        Email_Address: fields.email.trim(),
+        Phone_Number: fields.phone.trim() || 'N/A',
+        Message: fields.message.trim()
       };
 
-      const result = await sendFormToEmail(payload, `Homepage Inquiry: [${inquiryType}] - ${name}`, email);
+      const result = await sendFormToEmail(payload, emailSubject, fields.email.trim());
 
       if (btn) {
         btn.disabled = false;
@@ -982,6 +1195,13 @@ function initFormsAndToasts() {
       }
 
       if (!result.success) {
+        if (errBanner) {
+          const errText = document.getElementById('hp-contact-error-text');
+          const mailtoLink = document.getElementById('hp-mailto-fallback');
+          if (errText) errText.textContent = result.message || 'Unable to send inquiry right now. You can retry or open a pre-filled email draft below.';
+          if (mailtoLink) mailtoLink.href = buildMailtoFallbackUrl(emailSubject, summaryText);
+          errBanner.classList.remove('hidden');
+        }
         showToast(result.message || 'Unable to send inquiry right now. Please try again.', true);
         return;
       }
@@ -1011,6 +1231,8 @@ function initFormsAndToasts() {
   if (speakingInquiryForm) {
     speakingInquiryForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      if (!validateInquiryForm(speakingInquiryForm)) return;
+
       const btn = speakingInquiryForm.querySelector('button[type="submit"]');
       const banner = document.getElementById('speaking-success-banner');
       if (banner) banner.classList.add('hidden');

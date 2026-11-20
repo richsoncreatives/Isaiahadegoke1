@@ -129,13 +129,14 @@
                 <input name="organization" class="flex h-11 w-full rounded-sm border border-navy/20 bg-transparent px-3.5 py-2 text-sm shadow-sm focus:outline-none focus:border-burgundy" id="contact-org" placeholder="e.g. University / Enterprise" />
               </div>
               <div class="space-y-2">
-                <label class="text-xs uppercase tracking-wider font-semibold text-navy/70" for="contact-inquiry">Inquiry type</label>
-                <select name="inquiry_type" id="contact-inquiry" class="flex h-11 w-full rounded-sm border border-navy/20 bg-parchment px-3 py-2 text-sm shadow-sm focus:outline-none focus:border-burgundy">
-                  <option value="Speaking">Speaking &amp; Keynote</option>
-                  <option value="Consulting">Quality &amp; Process Consulting</option>
-                  <option value="Mentorship">Mentorship &amp; Discipleship</option>
-                  <option value="BookOrder">Direct / Signed Book Orders</option>
-                  <option value="General" selected>General Note</option>
+                <label class="text-xs uppercase tracking-wider font-semibold text-navy/70" for="contact-inquiry">Subject / Service *</label>
+                <select name="inquiry_type" id="contact-inquiry" required class="flex h-11 w-full rounded-sm border border-navy/20 bg-parchment px-3 py-2 text-sm shadow-sm focus:outline-none focus:border-burgundy">
+                  <option value="" disabled selected>Select subject or service...</option>
+                  <option value="Speaking & Keynote">Speaking &amp; Keynote</option>
+                  <option value="Quality & Process Consulting">Quality &amp; Process Consulting</option>
+                  <option value="Mentorship & Discipleship">Mentorship &amp; Discipleship</option>
+                  <option value="Direct / Signed Book Orders">Direct / Signed Book Orders</option>
+                  <option value="General Inquiry">General Note</option>
                 </select>
               </div>
             </div>
@@ -145,11 +146,29 @@
               <textarea name="message" class="flex min-h-[140px] w-full rounded-sm border border-navy/20 bg-transparent px-3.5 py-3 text-sm shadow-sm focus:outline-none focus:border-burgundy leading-relaxed" id="contact-msg" required placeholder="Provide details regarding your date, theme, audience, or questions..."></textarea>
             </div>
 
-            <div class="space-y-3 pt-1">
-              <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-sm text-sm font-semibold transition-colors shadow-md py-3.5 bg-burgundy hover:bg-navy text-white h-12 px-8 cursor-pointer w-full sm:w-auto" type="submit">
-                <span>Send Inquiry to Isaiah</span>
-                <span class="text-gold font-bold">→</span>
-              </button>
+            <div id="contact-error-banner" class="hidden bg-red-50 border border-red-200 text-red-900 p-4 rounded-sm space-y-2 text-sm">
+              <p id="contact-error-text" class="font-medium"></p>
+              <a id="contact-mailto-fallback" href="mailto:info@isaiahadegoke.com" class="inline-flex items-center gap-1.5 text-xs font-semibold text-burgundy underline underline-offset-4 hover:text-navy">
+                Open pre-filled email draft in your mail app &rarr;
+              </a>
+            </div>
+
+            <div class="space-y-3 pt-2 border-t border-navy/10">
+              <p class="text-xs uppercase tracking-wider font-semibold text-navy/60">Choose how to send your inquiry</p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <button type="submit" data-email-submit class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-sm text-sm font-semibold transition-colors shadow-md py-3.5 bg-burgundy hover:bg-navy text-white h-12 px-6 cursor-pointer w-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gold shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                  <span>Send via Email</span>
+                  <span class="text-gold font-bold">→</span>
+                </button>
+                <button type="button" data-whatsapp-trigger="main-contact-form" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-sm text-sm font-semibold transition-colors shadow-md py-3.5 bg-[#128C7E] hover:bg-[#075E54] text-white h-12 px-6 cursor-pointer w-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>
+                  <span>Send via WhatsApp</span>
+                </button>
+              </div>
+              <p class="text-xs text-navy/55">
+                Email inquiries are delivered directly to Isaiah's inbox. WhatsApp prepares your formatted summary ready to send.
+              </p>
             </div>
           </form>
         </div>
