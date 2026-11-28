@@ -40,7 +40,7 @@ function buildCategoryPhotos(raw: RawGalleryPhoto[]): GalleryPhoto[] {
 const RAW_GALLERY_CATEGORIES: RawGalleryCategory[] = [
   {
     slug: 'the-assignment-and-tools-book-launch',
-    title: 'The Assignment and Tools Book Launch',
+    title: '"The Assignment & The Tools" Book Launch 2026',
     photos: [
       { src: '/images/gallery/book-launch/launch-01.webp', thumbSrc: '/images/gallery/book-launch/thumbs/launch-01.webp', alt: 'The Assignment and Tools Book Launch photo 1', objectPosition: '50% 45%' },
       { src: '/images/gallery/book-launch/launch-02.webp', thumbSrc: '/images/gallery/book-launch/thumbs/launch-02.webp', alt: 'The Assignment and Tools Book Launch photo 2', objectPosition: '50% 42%' },

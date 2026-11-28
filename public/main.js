@@ -629,11 +629,13 @@ function initCheckoutModal() {
       const refCode = `IA-${Math.floor(100000 + Math.random() * 900000)}`;
 
       const orderPayload = {
+        form_category: 'Book Order Enquiry',
+        name: customerName,
+        email: customerEmail,
+        message: `Order ${refCode} for ${prod} (${totalAmount}) via ${currentRail === 'africa' ? 'African Mobile Money / Bank Rail' : 'International Card / PayPal'}. Shipping: ${shippingAddress}`,
         Order_Reference: refCode,
         Item: prod,
         Total: totalAmount,
-        Customer_Name: customerName,
-        Customer_Email: customerEmail,
         Shipping_Address: shippingAddress,
         Payment_Rail: currentRail === 'africa' ? 'African Mobile Money / Bank Rail' : 'International Card / PayPal'
       };
@@ -645,8 +647,7 @@ function initCheckoutModal() {
         if (phoneInput) orderPayload.MoMo_Account = phoneInput.value;
       }
 
-      // Dispatch to adegoke305@gmail.com with CC to info@isaiahadegoke.com via FormSubmit
-      const result = await sendFormToEmail(orderPayload, `New Book Order [${refCode}] - ${customerName}`, customerEmail);
+      const result = await sendFormToEmail(orderPayload, `Book Order Enquiry [${refCode}] - ${customerName}`, customerEmail);
 
       if (submitBtn) {
         submitBtn.disabled = false;
@@ -654,10 +655,11 @@ function initCheckoutModal() {
       }
 
       if (!result.success) {
-        showToast(result.message || 'Could not submit order. Please try again or email adegoke305@gmail.com.', true);
+        showToast(result.message || 'Could not submit order. Please try again or email info@isaiahadegoke.com.', true);
         return;
       }
 
+      checkoutForm.reset();
       if (checkoutForm) checkoutForm.classList.add('hidden');
       if (successState) {
         successState.classList.remove('hidden');
@@ -727,14 +729,16 @@ function initSpeakingModal() {
       const topic = topicSelect ? topicSelect.options[topicSelect.selectedIndex]?.text : '';
 
       const result = await sendFormToEmail({
+        form_category: 'Speaking Booking',
         Source: 'Speaking Topic Quick Modal',
-        Full_Name: name,
-        Email_Address: email,
-        Organization: organization,
+        name: name.trim(),
+        email: email.trim(),
+        Organization: organization.trim(),
         Requested_Topic: topic,
         Proposed_Date: proposedDate,
-        Audience_Size: audienceSize
-      }, `Speaking Inquiry (Modal) - ${name} (${organization})`, email);
+        Audience_Size: audienceSize,
+        message: `Speaking Booking Request from ${name.trim()} (${organization.trim()}) — Topic: ${topic} | Proposed Date: ${proposedDate} | Audience: ${audienceSize}`
+      }, `Booking: Speaking Request (Modal) - ${name.trim()} (${organization.trim()})`, email.trim());
 
       if (submitBtn) {
         submitBtn.disabled = false;
@@ -742,10 +746,21 @@ function initSpeakingModal() {
       }
 
       if (!result.success) {
+        let modalErr = form.querySelector('[data-inline-error]');
+        if (!modalErr) {
+          modalErr = document.createElement('div');
+          modalErr.setAttribute('data-inline-error', 'true');
+          modalErr.className = 'bg-red-50 border border-red-200 text-red-900 p-3 rounded-sm text-xs';
+          form.prepend(modalErr);
+        }
+        modalErr.textContent = result.message || 'Could not submit booking request right now. Please try again.';
+        modalErr.classList.remove('hidden');
         showToast(result.message || 'Could not submit inquiry. Please try again.', true);
         return;
       }
 
+      const existingErr = form.querySelector('[data-inline-error]');
+      if (existingErr) existingErr.classList.add('hidden');
       form.reset();
       form.classList.add('hidden');
       if (successState) successState.classList.remove('hidden');
@@ -773,7 +788,7 @@ const SEARCH_INDEX = [
   { title: 'Quality Assurance Engineer at Coca-Cola', category: 'Experience', url: 'experience.html', desc: 'In-line bottle testing, titration, microbiology, and automated verification.' },
   { title: 'AI-Enhanced Corporate Sustainability (Belvedere Trading)', category: 'Under Review', url: 'experience.html', desc: 'Research manuscript under peer review on AI-driven environmental telemetry.' },
   { title: 'Speaking: Faith, Purpose & The Assignment', category: 'Speaking Topic', url: 'speaking.html?tab=topics', desc: 'Keynote on purpose, stewardship, and professional rigor.' },
-  { title: 'Gallery · The Assignment and Tools Book Launch', category: 'Photography', url: 'gallery.html', desc: 'Photo gallery from The Assignment and Tools Book Launch.' }
+  { title: 'Gallery · "The Assignment & The Tools" Book Launch 2026', category: 'Photography', url: 'gallery.html', desc: 'Photo gallery from "The Assignment & The Tools" Book Launch 2026.' }
 ];
 
 function initSearchModal() {
@@ -876,9 +891,11 @@ function initFormsAndToasts() {
           submitBtn.textContent = 'Subscribing...';
         }
         const result = await sendFormToEmail({
+          form_category: 'Community Newsletter',
           Source: 'Newsletter / Community Dispatch',
-          Subscriber_Email: subscriberEmail
-        }, `New Community Subscriber: ${subscriberEmail}`, subscriberEmail);
+          email: subscriberEmail,
+          message: `New community newsletter subscription from ${subscriberEmail}`
+        }, `Enquiry: Community Newsletter Subscription - ${subscriberEmail}`, subscriberEmail);
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.textContent = origText;
@@ -888,7 +905,7 @@ function initFormsAndToasts() {
           return;
         }
         showToast('Thank you for subscribing to community dispatches.');
-        input.value = '';
+        form.reset();
       }
     });
   });
@@ -1115,15 +1132,16 @@ function initFormsAndToasts() {
 
       const fields = extractFormInquiry(contactForm);
       const inquiryType = fields.subject || 'General Inquiry';
-      const emailSubject = `Website Contact: [${inquiryType}] - ${fields.name.trim()}`;
+      const emailSubject = `Contact: [${inquiryType}] - ${fields.name.trim()}`;
       const summaryText = buildInquirySummary(fields);
 
       const payload = {
+        form_category: 'Contact',
         Inquiry_Type: inquiryType,
-        Full_Name: fields.name.trim(),
-        Email_Address: fields.email.trim(),
+        name: fields.name.trim(),
+        email: fields.email.trim(),
         Organization: fields.organization.trim() || 'N/A',
-        Message: fields.message.trim()
+        message: fields.message.trim()
       };
 
       const result = await sendFormToEmail(payload, emailSubject, fields.email.trim());
@@ -1176,16 +1194,17 @@ function initFormsAndToasts() {
 
       const fields = extractFormInquiry(hpContactForm);
       const inquiryType = fields.subject || 'General Inquiry';
-      const emailSubject = `Homepage Inquiry: [${inquiryType}] - ${fields.name.trim()}`;
+      const emailSubject = `Booking & Enquiry: [${inquiryType}] - ${fields.name.trim()}`;
       const summaryText = buildInquirySummary(fields);
 
       const payload = {
+        form_category: 'Booking & Enquiry',
         Source: 'Homepage Direct Booking Form',
         Inquiry_Type: inquiryType,
-        Full_Name: fields.name.trim(),
-        Email_Address: fields.email.trim(),
+        name: fields.name.trim(),
+        email: fields.email.trim(),
         Phone_Number: fields.phone.trim() || 'N/A',
-        Message: fields.message.trim()
+        message: fields.message.trim()
       };
 
       const result = await sendFormToEmail(payload, emailSubject, fields.email.trim());
@@ -1245,21 +1264,29 @@ function initFormsAndToasts() {
       }
 
       const formData = new FormData(speakingInquiryForm);
+      const errBanner = document.getElementById('speaking-error-banner');
+      if (errBanner) errBanner.classList.add('hidden');
+
+      const fullName = String(formData.get('name') || speakingInquiryForm.querySelector('input[name="name"]')?.value || '').trim();
+      const userEmail = String(formData.get('email') || speakingInquiryForm.querySelector('input[name="email"]')?.value || '').trim();
+      const organization = String(formData.get('organization') || speakingInquiryForm.querySelector('input[name="organization"]')?.value || '').trim();
+      const eventContext = String(formData.get('event_context') || speakingInquiryForm.querySelector('textarea[name="event_context"]')?.value || '').trim();
+
       const payload = {
+        form_category: 'Booking',
         Event_Inquiry: 'Formal Speaking Invitation',
-        Full_Name: formData.get('name') || speakingInquiryForm.querySelector('input[name="name"]')?.value || '',
-        Email_Address: formData.get('email') || speakingInquiryForm.querySelector('input[name="email"]')?.value || '',
-        Organization: formData.get('organization') || speakingInquiryForm.querySelector('input[name="organization"]')?.value || '',
-        Location: formData.get('location') || speakingInquiryForm.querySelector('input[name="location"]')?.value || '',
-        Proposed_Date: formData.get('event_date') || speakingInquiryForm.querySelector('input[name="event_date"]')?.value || '',
-        Expected_Audience: formData.get('audience_size') || speakingInquiryForm.querySelector('select[name="audience_size"]')?.value || '',
-        Session_Type: formData.get('session_type') || speakingInquiryForm.querySelector('select[name="session_type"]')?.value || '',
-        Preferred_Theme: formData.get('theme_topic') || speakingInquiryForm.querySelector('input[name="theme_topic"]')?.value || '',
-        Event_Context: formData.get('event_context') || speakingInquiryForm.querySelector('textarea[name="event_context"]')?.value || ''
+        name: fullName,
+        email: userEmail,
+        Organization: organization,
+        Location: String(formData.get('location') || speakingInquiryForm.querySelector('input[name="location"]')?.value || '').trim(),
+        Proposed_Date: String(formData.get('event_date') || speakingInquiryForm.querySelector('input[name="event_date"]')?.value || '').trim(),
+        Expected_Audience: String(formData.get('audience_size') || speakingInquiryForm.querySelector('select[name="audience_size"]')?.value || '').trim(),
+        Session_Type: String(formData.get('session_type') || speakingInquiryForm.querySelector('select[name="session_type"]')?.value || '').trim(),
+        Preferred_Theme: String(formData.get('theme_topic') || speakingInquiryForm.querySelector('input[name="theme_topic"]')?.value || '').trim(),
+        message: eventContext || `Formal speaking invitation from ${fullName} (${organization})`
       };
 
-      const userEmail = payload.Email_Address;
-      const result = await sendFormToEmail(payload, `Speaking Invitation: ${payload.Full_Name} (${payload.Organization})`, userEmail);
+      const result = await sendFormToEmail(payload, `Booking: Speaking Invitation - ${fullName} (${organization})`, userEmail);
 
       if (btn) {
         btn.disabled = false;
@@ -1267,6 +1294,12 @@ function initFormsAndToasts() {
       }
 
       if (!result.success) {
+        if (errBanner) {
+          const errText = document.getElementById('speaking-error-text');
+          if (errText) errText.textContent = result.message || 'Unable to submit speaking invitation right now. Please try again or email info@isaiahadegoke.com.';
+          errBanner.classList.remove('hidden');
+          errBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
         showToast(result.message || 'Unable to submit invitation right now. Please try again.', true);
         return;
       }
@@ -1282,23 +1315,29 @@ function initFormsAndToasts() {
 }
 
 /**
- * Universal FormSubmit Email Forwarder
- * Direct delivery to adegoke305@gmail.com with CC to info@isaiahadegoke.com
+ * Universal Web3Forms Submission Handler
+ * Posts cleanly via fetch (Accept: application/json) to https://api.web3forms.com/submit
  */
+const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
+const WEB3FORMS_ACCESS_KEY = '67c4bf90-ebfc-49c3-872e-dd0fed23cd48';
+
 async function sendFormToEmail(data, subject = 'New Submission from isaiahadegoke.com', userEmail = '') {
   try {
     const payload = {
-      _subject: subject,
-      _template: 'table',
-      _captcha: 'false',
-      _cc: 'info@isaiahadegoke.com',
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject,
+      from_name: 'Isaiah Adegoke Website',
+      botcheck: '',
       ...data
     };
     if (userEmail) {
-      payload._replyto = userEmail;
+      payload.replyto = userEmail;
+      if (!payload.email) {
+        payload.email = userEmail;
+      }
     }
 
-    const res = await fetch('https://formsubmit.co/ajax/adegoke305@gmail.com', {
+    const res = await fetch(WEB3FORMS_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -1312,16 +1351,16 @@ async function sendFormToEmail(data, subject = 'New Submission from isaiahadegok
     if (!succeeded) {
       return {
         success: false,
-        message: result.message || 'Unable to deliver submission via FormSubmit right now.'
+        message: result.message || 'Unable to deliver your submission right now. Please try again.'
       };
     }
 
     return { success: true, data: result };
   } catch (err) {
-    console.error('FormSubmit AJAX submission error:', err);
+    console.error('Web3Forms submission error:', err);
     return {
       success: false,
-      message: 'Network error while sending form. Please check your connection or email adegoke305@gmail.com directly.'
+      message: 'Network error while sending form. Please check your connection or email info@isaiahadegoke.com directly.'
     };
   }
 }

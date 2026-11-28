@@ -144,6 +144,12 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
                   </a>
 
+                  <a href="https://selar.com/6877141873" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 bg-navy hover:bg-burgundy text-white px-7 py-3.5 transition-colors font-medium shadow-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    Buy on Selar
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>
+                  </a>
+
                   <button data-open-checkout data-book-format="paperback" class="inline-flex items-center gap-2.5 bg-gold hover:bg-navy hover:text-white text-navy px-7 py-3.5 transition-colors font-semibold shadow-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg>
                     Direct Checkout (Card &amp; MoMo)
@@ -282,14 +288,12 @@
         <div>
           <h3 class="text-gold text-sm uppercase tracking-[0.2em] mb-4 font-semibold">Join the community</h3>
           <p class="text-white/70 mb-4 text-sm leading-relaxed">New articles, episodes of The Believer's Corner and book releases, delivered occasionally.</p>
-          <form data-newsletter-form action="https://formsubmit.co/adegoke305@gmail.com" method="POST" class="flex flex-col sm:flex-row gap-2 max-w-md">
-            <input type="hidden" name="_subject" value="New Community Subscriber — isaiahadegoke.com" />
-            <input type="hidden" name="_cc" value="info@isaiahadegoke.com" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_template" value="table" />
+          <form data-newsletter-form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col sm:flex-row gap-2 max-w-md">
+            <input type="hidden" name="access_key" value="67c4bf90-ebfc-49c3-872e-dd0fed23cd48" />
+            <input type="hidden" name="subject" value="Enquiry: Community Newsletter Subscriber — isaiahadegoke.com" />
+            <input type="hidden" name="from_name" value="Isaiah Adegoke Website" />
             <input type="hidden" name="form_type" value="Community Newsletter Subscription" />
-            <input type="hidden" name="_next" value="https://www.isaiahadegoke.com/insights.html?status=subscribed" />
-            <input type="text" name="_honey" style="display:none" />
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
             <input type="email" name="subscriber_email" required placeholder="Your email address" aria-label="Email address" class="w-full rounded-md px-3.5 py-2.5 text-sm bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-gold" />
             <button type="submit" class="whitespace-nowrap rounded-md text-sm font-medium transition-colors px-5 py-2.5 bg-gold text-navy hover:bg-white font-semibold">Subscribe</button>
           </form>
@@ -367,12 +371,12 @@
 
         <div class="p-6 overflow-y-auto flex-1">
           <!-- Form State -->
-          <form id="checkout-form" action="https://formsubmit.co/adegoke305@gmail.com" method="POST" class="space-y-4">
-            <input type="hidden" name="_cc" value="info@isaiahadegoke.com" />
-            <input type="hidden" name="_subject" value="Isaiah Adegoke Website — New Book Order / Purchase" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
+          <form id="checkout-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+            <input type="hidden" name="access_key" value="67c4bf90-ebfc-49c3-872e-dd0fed23cd48" />
+            <input type="hidden" name="subject" value="Book Order Enquiry — isaiahadegoke.com" />
+            <input type="hidden" name="from_name" value="Isaiah Adegoke Website" />
             <input type="hidden" name="form_type" value="Bookstore Checkout" />
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
             <div>
               <label class="block text-xs uppercase tracking-widest font-semibold text-navy/70 mb-1">Select Publication / Format</label>
               <select id="checkout-product" name="publication_item" class="w-full p-2.5 border border-navy/20 text-sm rounded-sm bg-parchment focus:border-burgundy focus:outline-none">
