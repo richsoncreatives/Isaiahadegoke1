@@ -772,7 +772,8 @@ const SEARCH_INDEX = [
   { title: 'Bachelor of Theology with Management (First Class)', category: 'Education', url: 'about.html', desc: 'Valedictorian graduate degree from Trinity Theological Seminary / Regent University College.' },
   { title: 'Quality Assurance Engineer at Coca-Cola', category: 'Experience', url: 'experience.html', desc: 'In-line bottle testing, titration, microbiology, and automated verification.' },
   { title: 'AI-Enhanced Corporate Sustainability (Belvedere Trading)', category: 'Under Review', url: 'experience.html', desc: 'Research manuscript under peer review on AI-driven environmental telemetry.' },
-  { title: 'Speaking: Faith, Purpose & The Assignment', category: 'Speaking Topic', url: 'speaking.html?tab=topics', desc: 'Keynote on purpose, stewardship, and professional rigor.' }
+  { title: 'Speaking: Faith, Purpose & The Assignment', category: 'Speaking Topic', url: 'speaking.html?tab=topics', desc: 'Keynote on purpose, stewardship, and professional rigor.' },
+  { title: 'Gallery · The Assignment and Tools Book Launch', category: 'Photography', url: 'gallery.html', desc: 'Photo gallery from The Assignment and Tools Book Launch.' }
 ];
 
 function initSearchModal() {
